@@ -1,0 +1,24 @@
+@CHARSET "ISO-8859-1";
+
+#mapid { height: 400px; width: 600px;}
+
+.flex-container {
+	display: -webkit-flex;
+	display: flex;
+	justify-content: space-around; 
+	
+}
+
+.flex-item {
+	
+}
+
+.center-map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#mapid, #ocultar {
+	margin-top: 50px;
+}
