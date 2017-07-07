@@ -11,14 +11,15 @@ import org.json.JSONObject;
 
 import dbms.persistence.Placa;
 import service.PlacaServiceImpGJ;
-import service.interfaces.PlacaService;
+import service.interfaces.PlacaServiceGJ;
 
 import javax.ws.rs.Produces;
+
 
 @Path("/")
 public class RestFunctions {
 	
-	PlacaService placaService;
+	PlacaService placaService = new PlacaServiceImp();
 	
 //////////////********* TODOS LOS PUNTOS: de bdd a map ***********////////////////////
 //DEVOLVER todos los puntos en la BDD
@@ -32,7 +33,11 @@ public class RestFunctions {
 	
 //2.	convertir el json en Placa Object y operar con el con el Service
 //3.	devolver String con forma json con los datos requeridos 
-		
+	
+	
+	
+
+	
 	// A/ sacar los puntos de mi service
 	 @POST
 	  @Path("/cargartodos")

@@ -25,30 +25,13 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 //////////////PRUEBAS VARIAS/////////////////////////////////
 
 
-var layerPopup;
-featureLayer.on('mouseover', function(e){
-    var coordinates = e.layer.feature.geometry.coordinates;
-    var swapped_coordinates = [coordinates[1], coordinates[0]];  //Swap Lat and Lng
-    if (mymap) {
-       layerPopup = L.popup()
-           .setLatLng(swapped_coordinates)
-           .setContent('Popup for feature #'+e.layer.feature.properties.id)
-            .openOn(mymap);
-    }
-});
-featureLayer.on('mouseout', function (e) {
-    if (layerPopup && map) {
-    	mymap.closePopup(layerPopup);
-        layerPopup = null;
-    }
-});
 
 ///////////////////////////////////////////////////////////////
 
 
 //DIBUJAR UN PUNTO///////////////////////////////////////////
 var lat, lng; 
-var jsonCoords = "";
+var nuevoPunto = "";
 var clickCircle;
 var clickCircle2;
 
@@ -57,7 +40,12 @@ var clickCircle2;
 function getCoordinates(ev) {
    lat = ev.latlng.lat.toString();
    lng = ev.latlng.lng.toString();
-   jsonCoords = JSON.stringify({ "Latitud": lat , "Longitud": lng }); 
+   
+   //unos los cogió, el resto no
+   nuevoPunto = {"_id":"596deeef41490fb015f72ed4","id":3,"latitud":41.313858,"longitud":-2.680981,"CP":"48300","capacidad":"7"};
+	   //"{\"latitud\": " + lat + ", \"longitud\": " + lng + "}";  //JSON.stringify({ "Latitud": lat , "Longitud": lng }); 
+   
+   //
    
    if (clickCircle != undefined) {
 	   mymap.removeLayer(clickCircle);
@@ -72,7 +60,7 @@ mymap.on('click', getCoordinates);
 //MOSTRAR LAS COORDENADAS DEL PUNTO EN PANTALLA///////////////
 $("#boton_jcoord").on("click",function(e){	
 	$('#ocultar').show();
-	$('#ocultar').html(jsonCoords);	
+	$('#ocultar').html(nuevoPunto);	
  });
 /////////////////////////////////////////////////////////////////////////////
 
@@ -85,7 +73,7 @@ var arr = [];
 function getCoordinatesBunch(ev) {
 	   lat = ev.latlng.lat.toString();
 	   lng = ev.latlng.lng.toString();
-	   jsonCoords =  JSON.stringify({ "Latitud": lat , "Longitud": lng }); 
+	   var jsonCoords =  JSON.stringify({ "Latitud": lat , "Longitud": lng }); 
 	   
 		    clickCircle2 = L.circle([lat, lng], 500, {
 		       	color: 'green',
@@ -128,13 +116,19 @@ $("#boton_limpiar").on("click",function(e){
 
 ///**************************************************************//////////
 
-$("#boton_cargarfromWS").on("click",function(e){
+$("#boton_cargarTodosDesdeBDD").on("click",function(e){
 	
 	//REST PATH
-	url='http://192.168.4.31:3000/api/paneles';
-
+	//url='http://192.168.4.31:3000/api/paneles';
+	var path = "cargarTodosDesdeBDD";	
+	url='http://localhost:8080/aRESTJSON/rest/' + path;
+	
+	
 	$.ajax({
+	    type: 'POST',
 	    url: url,
+	    dataType: 'json',
+	    cache: false,
 	    success: AjaxSucceeded,
 	    error: AjaxFailed
 	});
@@ -142,10 +136,43 @@ $("#boton_cargarfromWS").on("click",function(e){
 		console.log(result);		
 for (var x = 0; x < result.length; x++) {L.marker([result[x].latitud, result[x].longitud], {icon: myIcon}).addTo(mymap);}
 	}
+	
+	
 	function AjaxFailed(result) {
 		console.log(result);
 	}      
     });
+
+
+///////////////////////////////////////////////////////////////
+$("#boton_crearPuntoBDD").on("click",function(e){
+	
+	$('#ocultar').show();
+	$('#ocultar').html(nuevoPunto);
+	
+	
+	//ERROR 500
+	
+	//REST PATH
+	url='http://192.168.4.31:3000/api/paneles';
+
+	$.ajax({
+		type: 'POST',
+	    url: url,
+	    dataType: 'json',
+	    data: nuevoPunto,
+	    cache: false,
+	    success: AjaxSucceeded,
+	    error: AjaxFailed
+	});
+	function AjaxSucceeded(result) {
+		console.log(result);			
+	}
+	function AjaxFailed(result) {
+		console.log(result);
+	}      
+    });
+
 ////////////////////////////////////////////////////////////////////
 
 
@@ -172,7 +199,6 @@ $("#boton_cargarTodos").on("click",function(e){
 		for (var x = 0; x < result.length; x++) {	
 			 L.marker([result[x].Latitud, result[x].Longitud], {icon: myIcon}).addTo(mymap);
          }
-	//	$('#ocultar').html(result);
 	}
 	function AjaxFailed(result) {
 		console.log(result);
@@ -214,7 +240,7 @@ $("#boton_registrarPuntos").on("click",function(e){
 $("#boton_cargarPorPunto").on("click",function(e){
 	
 	$('#ocultar').show();
-	
+
 	//REST PATH
 	var path = "cargarporpunto";
 	

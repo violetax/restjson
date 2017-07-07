@@ -3,9 +3,10 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 
-import dbms.persistence.Placa;
-import service.interfaces.PlacaService;
+import org.json.JSONObject;
 
+import dbms.persistence.Placa;
+import service.interfaces.PlacaServiceGJ;
 
 public class PlacaServiceImp implements PlacaService {
 
@@ -152,5 +153,10 @@ public class PlacaServiceImp implements PlacaService {
 		
 	}
 
+	@Override
+	public void toGeoJSON(JSONObject placa) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

@@ -29,24 +29,33 @@
 <main class="container-fluid">
 
 	<div class="flex-container">
+	
 		<div class="flex-item">
-			<p>Mostrar coordenadas de un punto</p>
-			<button id="boton_jcoord" type="button">Ver coord un pto</button>		
-		</div>
-		<div class="flex-item">
-			<p>Mostrar todos los puntos en el Service:</p>
-			<button id="boton_cargarTodos" type="button">cargarTodos</button>
-			<p>Cargar coordenadas de un punto</p>
-			<button id="boton_cargarPorPunto" type="button">cargarPorPunto</button>
-			<p>Mostrar todos los puntos en la bdd</p>
-			<button id="boton_cargarfromWS" type="button">cargarfromWS</button>
-		</div>	
-		<div class="flex-item">
+		<h4>MIS RESTs</h4>
+			<p>Mostrar todos los puntos del Service:</p>
+				<button id="boton_cargarTodos" type="button">cargarTodos</button>
 			<p>Cargar coordenadas de varios puntos</p>
-			<button id=boton_registrarPuntos type="button">registrarPuntos</button>
-			<p>Despejar mapa</p>
-			<button id="boton_limpiar" type="button"> PEND: limpiar mapa</button>
+				<button id=boton_registrarPuntos type="button">registrarPuntos</button>
+			<p>PEND Cargar coordenadas de un punto</p>
+				<button id="boton_cargarPorPunto" type="button">PEND cargarPorPunto</button>
 		</div>
+		
+		<div class="flex-item">
+		<h4>WS RESTs</h4>
+			<p>Mostrar todos los puntos de la bdd</p>
+				<button id="boton_cargarTodosDesdeBDD" type="button">cargarTodosDesdeBDD</button>
+			<p>Crear un punto en la bdd</p>
+				<button id="boton_crearPuntoBDD" type="button">crearPuntoBDD</button>
+		</div>
+		
+		<div class="flex-item">
+		<h4>NO RESTs</h4>
+			<p>Mostrar coordenadas de un punto</p>
+				<button id="boton_jcoord" type="button">Ver coord un pto</button>
+			<p>Despejar mapa</p>
+				<button id="boton_limpiar" type="button"> PEND: limpiar mapa</button>
+		</div>		
+	
 	</div>
 	
 <div id="ocultar"></div> 
