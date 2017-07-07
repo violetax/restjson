@@ -2,7 +2,7 @@ package service.interfaces;
 
 import java.util.List;
 
-import dbms.pojo.Placa;
+import dbms.persistence.Placa;
 
 public interface PlacaService {
 

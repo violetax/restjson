@@ -2,9 +2,7 @@ $.noConflict();
 
 jQuery( document ).ready(function( $ ) {
 	
-	$('#ocultar').hide();
-
-	
+	$('#ocultar').hide();	
 //LEAFLET VARS
 	
 	var myIcon = L.icon({
@@ -22,6 +20,30 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 	id: 'mapbox.streets'
 }).addTo(mymap);
+
+
+//////////////PRUEBAS VARIAS/////////////////////////////////
+
+
+var layerPopup;
+featureLayer.on('mouseover', function(e){
+    var coordinates = e.layer.feature.geometry.coordinates;
+    var swapped_coordinates = [coordinates[1], coordinates[0]];  //Swap Lat and Lng
+    if (mymap) {
+       layerPopup = L.popup()
+           .setLatLng(swapped_coordinates)
+           .setContent('Popup for feature #'+e.layer.feature.properties.id)
+            .openOn(mymap);
+    }
+});
+featureLayer.on('mouseout', function (e) {
+    if (layerPopup && map) {
+    	mymap.closePopup(layerPopup);
+        layerPopup = null;
+    }
+});
+
+///////////////////////////////////////////////////////////////
 
 
 //DIBUJAR UN PUNTO///////////////////////////////////////////
@@ -97,6 +119,7 @@ mymap.on('contextmenu', function(ev){
 $("#boton_limpiar").on("click",function(e){	
 	mymap.removeLayer(clickCircle2);
 	$(".leaflet-interactive").remove();
+	$('#ocultar').hide();	
  });
 
 
@@ -104,6 +127,27 @@ $("#boton_limpiar").on("click",function(e){
 /////////////////////////////////////////////////////////////////////////////
 
 ///**************************************************************//////////
+
+$("#boton_cargarfromWS").on("click",function(e){
+	
+	//REST PATH
+	url='http://192.168.4.31:3000/api/paneles';
+
+	$.ajax({
+	    url: url,
+	    success: AjaxSucceeded,
+	    error: AjaxFailed
+	});
+	function AjaxSucceeded(result) {
+		console.log(result);		
+for (var x = 0; x < result.length; x++) {L.marker([result[x].latitud, result[x].longitud], {icon: myIcon}).addTo(mymap);}
+	}
+	function AjaxFailed(result) {
+		console.log(result);
+	}      
+    });
+////////////////////////////////////////////////////////////////////
+
 
 //MOSTRAR TODOS LOS PUNTOS PREDEFINIDOS///////////////////////////
 $("#boton_cargarTodos").on("click",function(e){

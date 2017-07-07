@@ -1,4 +1,4 @@
-package dbms.pojo;
+package dbms.persistence;
 
 public class Placa {
 

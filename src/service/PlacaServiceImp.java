@@ -3,7 +3,7 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 
-import dbms.pojo.Placa;
+import dbms.persistence.Placa;
 import service.interfaces.PlacaService;
 
 public class PlacaServiceImp implements PlacaService {

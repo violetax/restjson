@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import dbms.pojo.Placa;
+import dbms.persistence.Placa;
 import service.PlacaServiceImp;
 import service.interfaces.PlacaService;
 
@@ -19,14 +19,22 @@ import javax.ws.rs.Produces;
 @Path("/")
 public class RestFunctions {
 	
-
-	
 	PlacaService placaService = new PlacaServiceImp();
-
 	
-//////////////********* TODOS ***********////////////////////
+//////////////********* TODOS LOS PUNTOS: de bdd a map ***********////////////////////
 //DEVOLVER todos los puntos en la BDD
+	//getAll
 	
+//plan: 
+
+//1.	connect to bdd via rest y recoger un json con:
+	// a/ todos los puntos
+	// b/ todos los puntos de acuerdo con condicion
+	
+//2.	convertir el json en Placa Object y operar con el con el Service
+//3.	devolver String con forma json con los datos requeridos 
+	
+	//a/
 	 @POST
 	  @Path("/cargartodos")
 	  @Produces(MediaType.APPLICATION_JSON)
@@ -56,8 +64,51 @@ public class RestFunctions {
 		 return ret;
 	 
 	 }
-//////////////********* VARIOS ***********////////////////////
-//RECOGER puntos para operar con ellos
+
+	 
+/////////****************** - TO DO - *******************////////
+	 
+	 
+//////////////********* UN PUNTO: de map a bdd ***********////////////////////
+//RECOGER form info con las coord de un punto y MANDAR un json a la BDD
+	 //create
+
+//plan: 
+
+//1.	se recogen los datos de un form
+//2.	conectar con bdd y enviar el json
+	 
+
+/////////////////////////////////////////////////////////////////////
+	 
+//////////////********* UN MARCADOR: de map a bdd a map ***********////////////////////
+//DEVOLVER un punto en la BDD
+	 //getById
+	 //update
+	 //delete
+
+//plan: 
+
+//1.	se recoge un id
+//2.	connect to bdd via rest y recoger un json ById
+//3.	convertir el json en Placa Object y operar con el con el Service
+//4.	devolver String con forma json con los datos requeridos, incluido sobreescribir o anular el punto
+
+/////////////////////////////////////////////////////////////////////
+
+	 
+//////////////********* de map a app a map ***********////////////////////
+//RECOGER puntos para operar con ellos y devolver json con info de placas reales o no
+	 //model
+	 
+	//plan: 
+
+	//1.	recoger un json con coordenadas
+
+	 //	a.	comparar los valores con las coordenadas de las placas y ...:
+	 	//		clasificar...
+	 	//		...
+	// ...
 	 
 	 @POST
 	  @Path("/registrarpuntos")
@@ -66,11 +117,17 @@ public class RestFunctions {
 		
 	/*
 		do somethibg with variosPuntos...
-*/		
+	*/		
 		 return variosPuntos;
 	 
 	 }
-	  
+/////////////////////////////////////////////////////////////////////
+	 
+
+//////////////********* VARIOS ***********////////////////////
+// FINDS, FINDS BY ...
+
+/////////////////////////////////////////////////////////////////////
 
 	
 }
