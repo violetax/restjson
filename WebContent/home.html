@@ -27,29 +27,25 @@
 
 <body>
 <main class="container-fluid">
-<div class="flex-container">
 
-	<div class="flex-item">
-		<p>Mostrar todos los puntos:</p>
-		<button id="boton_cargartodos" type="button">VER TODOS</button>
+	<div class="flex-container">
+		<div class="flex-item">
+			<p>Mostrar coordenadas de un punto</p>
+			<button id="boton_jcoord" type="button">Ver coord un pto</button>		
+		</div>
+		<div class="flex-item">
+			<p>Mostrar todos los puntos:</p>
+			<button id="boton_cargarTodos" type="button">cargarTodos</button>
+			<p>Cargar coordenadas de un punto</p>
+			<button id="boton_cargarPorPunto" type="button">cargarPorPunto</button>
+		</div>	
+		<div class="flex-item">
+			<p>Cargar coordenadas de varios puntos</p>
+			<button id=boton_registrarPuntos type="button">registrarPuntos</button>
+			<p>Despejar mapa</p>
+			<button id="boton_limpiar" type="button"> PEND: limpiar mapa</button>
+		</div>
 	</div>
-	
-	<div class="flex-item">
-		<p>Mostrar alrededor de un punto:</p>
-		<form name="formBuscar" action="#">
-			<input type="number" name="radio" id="radio" placeholder="Radio">
-			<input type="button" value="CARGARxAREA" id="boton_cargarporarea">
-			<input type="button" value="CARGARxPUNTO" id="boton_cargarporpunto">
-		</form> 
-	</div>
-	
-	<div class="flex-item">
-		<p>Mostrar coordenadas de un punto</p>
-		<button id="boton_jcoord" type="button">COORDS. PUNTO</button>
-	</div>
-
-
-</div>
 	
 <div id="ocultar"></div> 
 
