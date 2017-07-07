@@ -30,10 +30,10 @@ public class PlacaServiceImp implements PlacaService {
 		
 		try {
 			String placa1 = "Placa 1";
-			double latitud1 = 43.00000;
-			double longitud1 = -2.9000;			
-			String codigoPostal1 = "1234";
-			int capacidad1 = 140;
+			double latitud1 = 43.313858;
+			double longitud1 = -2.680981;			
+			String codigoPostal1 = "48300";
+			int capacidad1 = 7;
 			placa.setLatitud(latitud1);
 			placa.setLongitud(longitud1);
 			placa.setCodigoPostal(codigoPostal1);
@@ -47,10 +47,10 @@ public class PlacaServiceImp implements PlacaService {
 		
 		try {	
 			String placa2 = "Placa 2";
-			double latitud2 = 43.00300;
-			double longitud2 = -2.9011;			
-			String codigoPostal2 = "2234";
-			int capacidad2 = 240;
+			double latitud2 = 43.264216;
+			double longitud2 = -2.9267;			
+			String codigoPostal2 = "48001";
+			int capacidad2 = 12;
 			placa.setLatitud(latitud2);
 			placa.setLongitud(longitud2);
 			placa.setCodigoPostal(codigoPostal2);
@@ -72,7 +72,7 @@ public class PlacaServiceImp implements PlacaService {
 			placa.setLongitud(longitud3);
 			placa.setCodigoPostal(codigoPostal3);
 			placa.setCapacidad(capacidad3);
-			create(placa);
+			//create(placa);
 		} catch (Exception e) {
 			System.out.println("Placa 3 exception: " + e.getMessage());			
 		}
