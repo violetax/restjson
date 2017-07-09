@@ -17,9 +17,9 @@ import service.interfaces.PlacaServiceGJ;
 
 public class RestClients {
 	
-	 PlacaServiceGJ placaServiceGJ = new PlacaServiceImpGJ();
+	// PlacaServiceGJ placaServiceGJ = new PlacaServiceImpGJ();
 
-	public String prueba() {
+	 public static void main(String[] args) {
        
     	ClientConfig config = new ClientConfig();
         Client client = ClientBuilder.newClient(config);
@@ -34,18 +34,18 @@ public class RestClients {
         jarray.forEach(item -> {
             
         	JSONObject placa = (JSONObject) item;
-            
-        	placaServiceGJ.toGeoJSON(placa);
+            System.out.println(placa.toString());
+        	//placaServiceGJ.toGeoJSON(placa);
    });
-		return restAnswer;
-        
+		//return restAnswer;
+        System.out.println(restAnswer);
 
     }
  
 /*
  */
     private static URI getBaseURI() {
-        return UriBuilder.fromUri("http://192.168.4.31:3000").build();
+        return UriBuilder.fromUri("http://localhost:3000").build();
     }
  
 public String crearGeoJSON(JSONObject jsonObj)  {

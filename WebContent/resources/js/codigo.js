@@ -32,6 +32,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 //DIBUJAR UN PUNTO///////////////////////////////////////////
 var lat, lng; 
 var nuevoPunto = "";
+var jsonCoords = "";
 var clickCircle;
 var clickCircle2;
 
@@ -41,10 +42,11 @@ function getCoordinates(ev) {
    lat = ev.latlng.lat.toString();
    lng = ev.latlng.lng.toString();
    
-   //unos los cogió, el resto no
-   nuevoPunto = {"_id":"596deeef41490fb015f72ed4","id":3,"latitud":41.313858,"longitud":-2.680981,"CP":"48300","capacidad":"7"};
-	   //"{\"latitud\": " + lat + ", \"longitud\": " + lng + "}";  //JSON.stringify({ "Latitud": lat , "Longitud": lng }); 
-   
+  
+   nuevoPunto = "{\"latitud\": " + lat + ", \"longitud\": " + lng + "}";  //JSON.stringify({ "Latitud": lat , "Longitud": lng });     
+   jsonCoords =  JSON.stringify({ "Latitud": lat , "Longitud": lng });
+	   //{"_id":"596deeef41490fb015f72ed4","id":3,"latitud":41.313858,"longitud":-2.680981,"CP":"48300","capacidad":"7"};
+	   //
    //
    
    if (clickCircle != undefined) {
@@ -60,7 +62,8 @@ mymap.on('click', getCoordinates);
 //MOSTRAR LAS COORDENADAS DEL PUNTO EN PANTALLA///////////////
 $("#boton_jcoord").on("click",function(e){	
 	$('#ocultar').show();
-	$('#ocultar').html(nuevoPunto);	
+	$('#ocultar').html(nuevoPunto);
+	//$('#ocultar').append(nuevoPunto);	
  });
 /////////////////////////////////////////////////////////////////////////////
 
@@ -73,7 +76,7 @@ var arr = [];
 function getCoordinatesBunch(ev) {
 	   lat = ev.latlng.lat.toString();
 	   lng = ev.latlng.lng.toString();
-	   var jsonCoords =  JSON.stringify({ "Latitud": lat , "Longitud": lng }); 
+	   jsonCoords =  JSON.stringify({ "Latitud": lat , "Longitud": lng }); 
 	   
 		    clickCircle2 = L.circle([lat, lng], 500, {
 		       	color: 'green',
@@ -119,24 +122,31 @@ $("#boton_limpiar").on("click",function(e){
 $("#boton_cargarTodosDesdeBDD").on("click",function(e){
 	
 	//REST PATH
+	url='http://localhost:3000/api/paneles';
 	//url='http://192.168.4.31:3000/api/paneles';
 	var path = "cargarTodosDesdeBDD";	
-	url='http://localhost:8080/aRESTJSON/rest/' + path;
+	//url='http://localhost:8888/aRESTJSON/rest/' + path;
 	
 	
 	$.ajax({
-	    type: 'POST',
+	//	type: 'POST',
 	    url: url,
-	    dataType: 'json',
-	    cache: false,
+	//    dataType: 'json',
+	//    cache: false,
 	    success: AjaxSucceeded,
 	    error: AjaxFailed
 	});
 	function AjaxSucceeded(result) {
-		console.log(result);		
-for (var x = 0; x < result.length; x++) {L.marker([result[x].latitud, result[x].longitud], {icon: myIcon}).addTo(mymap);}
-	}
+		//console.log(result);		
+for (var x = 0; x < result.length; x++) {
+	console.log([result[x].latitud, result[x].longitud]);
+	L.marker
+			([result[x].latitud, result[x].longitud], 
+			{icon: myIcon}
+			).addTo(mymap);
 	
+		}
+	}	
 	
 	function AjaxFailed(result) {
 		console.log(result);
@@ -148,13 +158,15 @@ for (var x = 0; x < result.length; x++) {L.marker([result[x].latitud, result[x].
 $("#boton_crearPuntoBDD").on("click",function(e){
 	
 	$('#ocultar').show();
-	$('#ocultar').html(nuevoPunto);
+	$('#ocultar').html(jsonCoords);
 	
+	var nuevoPunto = {"id":10,"latitud":lat,"longitud":lng,"CP":"","capacidad":""};
+	  
 	
 	//ERROR 500
 	
 	//REST PATH
-	url='http://192.168.4.31:3000/api/paneles';
+	url='http://localhost:3000/api/paneles';
 
 	$.ajax({
 		type: 'POST',
@@ -183,10 +195,10 @@ $("#boton_cargarTodos").on("click",function(e){
 	
 	//REST PATH
 	var path = "cargartodos";	
-	url='http://localhost:8080/aRESTJSON/rest/' + path;
+	url='http://localhost:8888/aRESTJSON/rest/' + path;
 
 	$.ajax({
-	    type: 'POST',
+		type: 'POST',
 	    url: url,
 	    dataType: 'json',
 	    cache: false,
@@ -213,7 +225,7 @@ $("#boton_registrarPuntos").on("click",function(e){
 	
 	//REST PATH
 	var path = "registrarpuntos";	
-	url='http://localhost:8080/aRESTJSON/rest/' + path;
+	url='http://localhost:8888/aRESTJSON/rest/' + path;
 
 	$.ajax({
 	    type: 'POST',
@@ -244,7 +256,7 @@ $("#boton_cargarPorPunto").on("click",function(e){
 	//REST PATH
 	var path = "cargarporpunto";
 	
-	url='http://localhost:8080/aRESTJSON/rest/' + path;
+	url='http://localhost:8888/aRESTJSON/rest/' + path;
 	
 
 	$.ajax({
@@ -346,7 +358,7 @@ $("#boton_cargarporarea").on("click",function(e){
 	//REST PATH
 	var path = "cargarporarea";
 	
-	url='http://localhost:8080/aRESTJSON/rest/' + path;
+	url='http://localhost:8888/aRESTJSON/rest/' + path;
 
 	$.ajax({
 	    type: 'POST',

@@ -37,16 +37,17 @@ public class PlacaServiceImpGJ implements PlacaServiceGJ {
         
         answerJarray.forEach(item -> {                 	
         	JSONObject placaJobject = (JSONObject) item;
-        	PlacaFeature placaGeoJson = toGeoJSON(placaJobject);
-        	placasGeoJsonJarray.put(placaGeoJson);
+        	//PlacaFeature placaGeoJson = toGeoJSON(placaJobject);
+        	//placasGeoJsonJarray.put(placaGeoJson);
    });
         String placasGeoJson = placasGeoJsonJarray.toString();
 		
-        return placasGeoJson;
+        return restAnswer; //placasGeoJson;
 	}
 
 	 private static URI getBaseURI() {
-	        return UriBuilder.fromUri("http://192.168.4.31:3000").build();
+	        //return UriBuilder.fromUri("http://192.168.4.31:3000").build();
+		 	return UriBuilder.fromUri("http://localhost:3000").build();
 	    }
 	
 

@@ -22,10 +22,10 @@ import sun.security.jca.GetInstance;
 
 public class RestClients {
 	
-	 PlacaService placaServiceGJ = new PlacaServiceImpGeoJSON();
+	 //PlacaService placaServiceGJ = new PlacaServiceImpGeoJSON();
 
- //   public static void main(String[] args) {
-	public String prueba() {
+  public static void main(String[] args) {
+	//public String prueba() {
        
     	ClientConfig config = new ClientConfig();
         Client client = ClientBuilder.newClient(config);
@@ -48,11 +48,11 @@ public class RestClients {
             
         	JSONObject placa = (JSONObject) item;
             
-        	placaServiceGJ.toGeoJSON(placa);
+        	//placaServiceGJ.toGeoJSON(placa);
         	
         	//placa.toGeoJSON();
             
-            //System.out.println(placa.toString());
+            System.out.println(placa.toString());
             //System.out.println("Keys: " + obj.keys()); //Keys: java.util.HashMap$KeyIterator@323b36e0 NPI qu� es esto
             //System.out.println("Key set: " + obj.keySet()); // Key set: [latitud, longitud, _id, id, CP, capacidad]
         });
@@ -71,7 +71,8 @@ public class RestClients {
     
 
     private static URI getBaseURI() {
-        return UriBuilder.fromUri("http://192.168.4.31:3000").build();
+        //return UriBuilder.fromUri("http://192.168.4.31:3000").build();
+        return UriBuilder.fromUri("http://localhost:3000").build();
     }
  
 public String crearGeoJSON(JSONObject jsonObj)  {

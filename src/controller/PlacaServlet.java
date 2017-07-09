@@ -33,10 +33,10 @@ public class PlacaServlet extends HttpServlet {
 		try {
 			String placasGJ = placaServiceGJ.getAll();
 			req.setAttribute("Placas", placasGJ);
-			rd = req.getRequestDispatcher("home.jsp");
+			rd = req.getRequestDispatcher("paneles.jsp");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			resp.sendRedirect("home.jsp");
+			resp.sendRedirect("paneles.jsp");
 			return;
 		}
 

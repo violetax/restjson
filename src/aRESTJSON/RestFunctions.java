@@ -69,39 +69,7 @@ public class RestFunctions {
 
 ////////////////////////////////////////////////////////////
 	 
-	// B/ sacar los puntos de mi REST Client...
-		 @POST
-		  @Path("/cargarTodosDesdeBDD")
-		  @Produces(MediaType.APPLICATION_JSON)
-		  public String cargarTodosDesdeBDD()  {
-			
-			List<Placa> placas = placaService.getAll();
-			
-			JSONObject jobject;	
-			JSONArray jarray = new JSONArray();
-			
-			for (int i=0; i < placas.size(); i++) {
-				
-				jobject = new JSONObject();	
-				
-				//jobject.put("type", placas.get(i).getId());
-				//...
-				
-				jobject.put("Id", placas.get(i).getId());
-				jobject.put("Latitud", placas.get(i).getLatitud());
-				jobject.put("Longitud", placas.get(i).getLongitud());
-				jobject.put("Codigo Postal", placas.get(i).getCodigoPostal());
-				jobject.put("Capacidad", placas.get(i).getCapacidad());
-				
-				jarray.put(jobject);
-
-			}
-			
-			String ret = jarray.toString();
-			
-			 return ret;
-		 
-		 }
+	
 	 
 /////////****************** - TO DO - *******************////////
 	 
