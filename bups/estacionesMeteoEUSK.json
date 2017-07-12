@@ -1,0 +1,957 @@
+jsonCallback([ {
+  "documentName" : "Urkiola (Puerto)",
+  "documentDescription" : "Urkiola (Puerto)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/urkiola-puerto/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c022/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c022/es_station/data/es_r01dpd013050885d3b67d8d0c1f8d843d2c8eb591",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c022/r01Index/station_c022-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c022/opendata/station_c022.zip"
+}, {
+  "documentName" : "Alegia (Oria)",
+  "documentDescription" : "Alegia (Oria)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/alegia-oria/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0e9/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0e9/es_station/data/es_r01dpd013050791bb967d8d0c1c327dc73452b929",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0e9/r01Index/station_c0e9-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0e9/opendata/station_c0e9.zip"
+}, {
+  "documentName" : "Estanda (Estanda)",
+  "documentDescription" : "Estanda (Estanda)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/estanda-estanda/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0e7/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0e7/es_station/data/es_r01dpd0130506b95c167d8d0cb1566255143a5c6d",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0e7/r01Index/station_c0e7-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0e7/opendata/station_c0e7.zip"
+}, {
+  "documentName" : "Amundarain",
+  "documentDescription" : "Amundarain",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/amundarain/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0e1/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0e1/es_station/data/es_r01dpd0130507ef1f567d8d0ca01096e07203ee5c",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0e1/r01Index/station_c0e1-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0e1/opendata/station_c0e1.zip"
+}, {
+  "documentName" : "Embalse de Undurruga",
+  "documentDescription" : "Embalse de Undurruga",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/embalse-de-undurruga/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_e001/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_e001/es_station/data/es_r01dpd0146f6cc47e0202ba4c5bc5556bbce7b081",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_e001/r01Index/station_e001-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_e001/opendata/station_e001.zip"
+}, {
+  "documentName" : "Oiartzun (Oiartzun)",
+  "documentDescription" : "Oiartzun (Oiartzun)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/oiartzun-oiartzun/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0f4/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0f4/es_station/data/es_r01dpd013050713b2767d8d0c8f9f17fbe0915db8",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0f4/r01Index/station_c0f4-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0f4/opendata/station_c0f4.zip"
+}, {
+  "documentName" : "Aizarnazabal (Urola)",
+  "documentDescription" : "Aizarnazabal (Urola)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/aizarnazabal-urola/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0dd/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0dd/es_station/data/es_r01dpd01305084900a67d8d0cc5420ef61aef1e1e",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0dd/r01Index/station_c0dd-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0dd/opendata/station_c0dd.zip"
+}, {
+  "documentName" : "Aranguren (Kadagua)",
+  "documentDescription" : "Aranguren (Kadagua)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/aranguren-kadagua/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0c1/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0c1/es_station/data/es_r01dpd0130507262a067d8d0c3bd2eb95039c9195",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0c1/r01Index/station_c0c1-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0c1/opendata/station_c0c1.zip"
+}, {
+  "documentName" : "Sodupe-Cadagua",
+  "documentDescription" : "Sodupe-Cadagua",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/sodupe-cadagua/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0c3/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0c3/es_station/data/es_r01dpd01305081ec2d67d8d0c7e24d8efa22d252f",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0c3/r01Index/station_c0c3-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0c3/opendata/station_c0c3.zip"
+}, {
+  "documentName" : "Aitzu (Alto Urola)",
+  "documentDescription" : "Aitzu (Alto Urola)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/aitzu-alto-urola/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0db/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0db/es_station/data/es_r01dpd01305080099967d8d0c2d685a90cd935708",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0db/r01Index/station_c0db-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0db/opendata/station_c0db.zip"
+}, {
+  "documentName" : "Lasarte",
+  "documentDescription" : "Lasarte",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/lasarte/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0ec/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0ec/es_station/data/es_r01dpd0130507b874b67d8d0cc933c9d90bf0f8b1",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0ec/r01Index/station_c0ec-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0ec/opendata/station_c0ec.zip"
+}, {
+  "documentName" : "San Prudentzio (Deba)",
+  "documentDescription" : "San Prudentzio (Deba)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/san-prudentzio-deba/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0d2/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0d2/es_station/data/es_r01dpd013050811afd67d8d0cb73cf2813e7d1f05",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0d2/r01Index/station_c0d2-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0d2/opendata/station_c0d2.zip"
+}, {
+  "documentName" : "Orozko (Altube)",
+  "documentDescription" : "Orozko (Altube)",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0b4/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b4/es_station/data/es_r01dpd00130507e723667d8d0c5a5b2187a548415",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b4/r01Index/station_c0b4-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b4/opendata/station_c0b4.zip"
+}, {
+  "documentName" : "Almike",
+  "documentDescription" : "Almike",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/almike/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c069/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c069/es_station/data/es_r01dpd01305075131a67d8d0c3e051039eac06283",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c069/r01Index/station_c069-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c069/opendata/station_c069.zip"
+}, {
+  "documentName" : "Mañaria (Izurtza)",
+  "documentDescription" : "Mañaria (Izurtza)",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0b7/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b7/es_station/data/es_r01dpd0130507774ec67d8d0c4683554c07274bab",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b7/r01Index/station_c0b7-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b7/opendata/station_c0b7.zip"
+}, {
+  "documentName" : "Iruzubieta",
+  "documentDescription" : "Iruzubieta",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/iruzubieta/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0bd/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0bd/es_station/data/es_r01dpd0135194bc5b1232899256c2c6f83114e55b",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0bd/r01Index/station_c0bd-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0bd/opendata/station_c0bd.zip"
+}, {
+  "documentName" : "Sangroniz",
+  "documentDescription" : "Sangroniz",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/sangroniz/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0b9/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b9/es_station/data/es_r01dpd013562e64445753daf99234683a383da10b",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b9/r01Index/station_c0b9-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b9/opendata/station_c0b9.zip"
+}, {
+  "documentName" : "Urkulu (Embalse)",
+  "documentDescription" : "Urkulu (Embalse)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/urkulu-embalse/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0d0/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0d0/es_station/data/es_r01dpd0130506e316267d8d0cab5e48c15fdfd75a",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0d0/r01Index/station_c0d0-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0d0/opendata/station_c0d0.zip"
+}, {
+  "documentName" : "Araxes",
+  "documentDescription" : "Araxes",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/araxes/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0e8/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0e8/es_station/data/es_r01dpd0130508c212367d8d0ce5209759023f7e59",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0e8/r01Index/station_c0e8-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0e8/opendata/station_c0e8.zip"
+}, {
+  "documentName" : "Zubillaga (Oñati)",
+  "documentDescription" : "Zubillaga (Oñati)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/zubillaga-onati/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0d1/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0d1/es_station/data/es_r01dpd0130506fa8f467d8d0c8e0f0599e3fe6c18",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0d1/r01Index/station_c0d1-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0d1/opendata/station_c0d1.zip"
+}, {
+  "documentName" : "Agauntza (Agauntza)",
+  "documentDescription" : "Agauntza (Agauntza)",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0e5/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0e5/es_station/data/es_r01dpd001305085902a67d8d0cb176a0f3446c14a",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0e5/r01Index/station_c0e5-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0e5/opendata/station_c0e5.zip"
+}, {
+  "documentName" : "Zaratamo (Nerbioi)",
+  "documentDescription" : "Zaratamo (Nerbioi)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/zaratamo-nerbioi/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0b2/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b2/es_station/data/es_r01dpd013050897af367d8d0c9409ee0dfce0ccc5",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b2/r01Index/station_c0b2-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b2/opendata/station_c0b2.zip"
+}, {
+  "documentName" : "Sodupe-Herrerias",
+  "documentDescription" : "Sodupe-Herrerias",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0c4/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0c4/es_station/data/es_r01dpd013050840ad067d8d0cdf52b73b217be23d",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0c4/r01Index/station_c0c4-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0c4/opendata/station_c0c4.zip"
+}, {
+  "documentName" : "Cerroja-Karrantza",
+  "documentDescription" : "Cerroja-Karrantza",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/cerroja-karrantza/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c065/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c065/es_station/data/es_r01dpd0130505e9fd267d8d0c9a1ad080e98da128",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c065/r01Index/station_c065-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c065/opendata/station_c065.zip"
+}, {
+  "documentName" : "Sarria",
+  "documentDescription" : "Sarria",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/sarria/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0a0/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0a0/es_station/data/es_r01dpd0130508ccffb67d8d0c5931c5f4f1f0fb91",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0a0/r01Index/station_c0a0-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0a0/opendata/station_c0a0.zip"
+}, {
+  "documentName" : "Txomin Enea",
+  "documentDescription" : "Txomin Enea",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/txomin-enea/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c082/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c082/es_station/data/es_r01dpd0138c296830d35c8692d219f87590e544a4",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c082/r01Index/station_c082-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c082/opendata/station_c082.zip"
+}, {
+  "documentName" : "Muxika (Oka)",
+  "documentDescription" : "Muxika (Oka)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/muxika-oka/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c063/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c063/es_station/data/es_r01dpd01305061b41d67d8d0c89be83234615d118",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c063/r01Index/station_c063-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c063/opendata/station_c063.zip"
+}, {
+  "documentName" : "La Merced",
+  "documentDescription" : "La Merced",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/la-merced/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0b0/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b0/es_station/data/es_r01dpd0138d72d974a41e8e289f95b792b6e961c9",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b0/r01Index/station_c0b0-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b0/opendata/station_c0b0.zip"
+}, {
+  "documentName" : "Olabarria",
+  "documentDescription" : "Olabarria",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/olabarria/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_e000/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_e000/es_station/data/es_r01dpd0148a79976ef88783ea7e50e8b79388f647",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_e000/r01Index/station_e000-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_e000/opendata/station_e000.zip"
+}, {
+  "documentName" : "Matxinbenta",
+  "documentDescription" : "Matxinbenta",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/matxinbenta/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0de/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0de/es_station/data/es_r01dpd0130508a87a467d8d0c3561deff02dfd7b7",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0de/r01Index/station_c0de-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0de/opendata/station_c0de.zip"
+}, {
+  "documentName" : "Añarbe",
+  "documentDescription" : "Añarbe",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/anarbe/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c080/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c080/es_station/data/es_r01dpd0130507bfe8c67d8d0cd7a8702458c68a8d",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c080/r01Index/station_c080-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c080/opendata/station_c080.zip"
+}, {
+  "documentName" : "Balmaseda (Kadagua)",
+  "documentDescription" : "Balmaseda (Kadagua)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/balmaseda-kadagua/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0c2/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0c2/es_station/data/es_r01dpd013050818b6b67d8d0cc26d2c732e9cdbe6",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0c2/r01Index/station_c0c2-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0c2/opendata/station_c0c2.zip"
+}, {
+  "documentName" : "Ereñozu (Urumea)",
+  "documentDescription" : "Ereñozu (Urumea)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/erenozu-urumea/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0f0/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0f0/es_station/data/es_r01dpd01305076491167d8d0c834a2374adb8687f",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0f0/r01Index/station_c0f0-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0f0/opendata/station_c0f0.zip"
+}, {
+  "documentName" : "Berriatua",
+  "documentDescription" : "Berriatua",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/berriatua/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0be/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0be/es_station/data/es_r01dpd0130507c738767d8d0c2bb03489ad3c058f",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0be/r01Index/station_c0be-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0be/opendata/station_c0be.zip"
+}, {
+  "documentName" : "Ibai Eder (Ibai Eder)",
+  "documentDescription" : "Ibai Eder (Ibai Eder)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/ibai-eder-ibai-eder/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0dc/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0dc/es_station/data/es_r01dpd0130507391d967d8d0ceae97926b1031a45",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0dc/r01Index/station_c0dc-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0dc/opendata/station_c0dc.zip"
+}, {
+  "documentName" : "Altzola (Deba)",
+  "documentDescription" : "Altzola (Deba)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/altzola-deba/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c078/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c078/es_station/data/es_r01dpd013050872f7567d8d0c60d7246cff19ca55",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c078/r01Index/station_c078-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c078/opendata/station_c078.zip"
+}, {
+  "documentName" : "Behobia",
+  "documentDescription" : "Behobia",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/behobia/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c084/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c084/es_station/data/es_r01dpd013ec60fcb3d210db8b65362ef79d2b819b",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c084/r01Index/station_c084-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c084/opendata/station_c084.zip"
+}, {
+  "documentName" : "Eitzaga",
+  "documentDescription" : "Eitzaga",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/eitzaga/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c075/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c075/es_station/data/es_r01dpd013073cdfa54449faa2d17284306ce5385c",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c075/r01Index/station_c075-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c075/opendata/station_c075.zip"
+}, {
+  "documentName" : "Páganos",
+  "documentDescription" : "Páganos",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/paganos/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c060/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c060/es_station/data/es_r01dpd01305065926867d8d0cd1add960ea1c08f1",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c060/r01Index/station_c060-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c060/opendata/station_c060.zip"
+}, {
+  "documentName" : "Abetxuko",
+  "documentDescription" : "Abetxuko",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/abetxuko/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c076/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c076/es_station/data/es_r01dpd00130506818e267d8d0c82428a12692a304",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c076/r01Index/station_c076-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c076/opendata/station_c076.zip"
+}, {
+  "documentName" : "Aixola (Embalse)",
+  "documentDescription" : "Aixola (Embalse)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/aixola-embalse/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0d3/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0d3/es_station/data/es_r01dpd01305083817c67d8d0cae2ba5f4217b4e96",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0d3/r01Index/station_c0d3-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0d3/opendata/station_c0d3.zip"
+}, {
+  "documentName" : "Oleta",
+  "documentDescription" : "Oleta",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/oleta/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0ba/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0ba/es_station/data/es_r01dpd01305085078167d8d0cb8247bd1dee571d5",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0ba/r01Index/station_c0ba-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0ba/opendata/station_c0ba.zip"
+}, {
+  "documentName" : "Belauntza (Berastegi)",
+  "documentDescription" : "Belauntza (Berastegi)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/belauntza-berastegi/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0ea/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0ea/es_station/data/es_r01dpd0130506888e567d8d0cbe03b6d2fbbe3af9",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0ea/r01Index/station_c0ea-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0ea/opendata/station_c0ea.zip"
+}, {
+  "documentName" : "Urkizu (Arratia)",
+  "documentDescription" : "Urkizu (Arratia)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/urkizu-arratia/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0b3/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b3/es_station/data/es_r01dpd01305087a40d67d8d0c738a0f641771c64d",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b3/r01Index/station_c0b3-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b3/opendata/station_c0b3.zip"
+}, {
+  "documentName" : "Bidania (Depósito)",
+  "documentDescription" : "Bidania (Depósito)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/bidania-deposito/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c058/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c058/es_station/data/es_r01dpd01305079922667d8d0ce42c6bee8e1b56a9",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c058/r01Index/station_c058-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c058/opendata/station_c058.zip"
+}, {
+  "documentName" : "Ameraun",
+  "documentDescription" : "Ameraun",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/ameraun/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c052/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c052/es_station/data/es_r01dpd00130508b72a867d8d0ceb3735dbb358ba4",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c052/r01Index/station_c052-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c052/opendata/station_c052.zip"
+}, {
+  "documentName" : "Larrainazubi",
+  "documentDescription" : "Larrainazubi",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/larrainazubi/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0b8/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b8/es_station/data/es_r01dpd0133fa32814b1ee5a32317eadd70972a1b5",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b8/r01Index/station_c0b8-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b8/opendata/station_c0b8.zip"
+}, {
+  "documentName" : "Orduña (Repetidor)",
+  "documentDescription" : "Orduña (Repetidor)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/orduna-repetidor/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c072/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c072/es_station/data/es_r01dpd01305071ccd567d8d0ca6ad4ab20d162719",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c072/r01Index/station_c072-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c072/opendata/station_c072.zip"
+}, {
+  "documentName" : "Otxandio (Urkiola)",
+  "documentDescription" : "Otxandio (Urkiola)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/otxandio-urkiola/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c054/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c054/es_station/data/es_r01dpd01305066644167d8d0c8c662ee7aa396c99",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c054/r01Index/station_c054-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c054/opendata/station_c054.zip"
+}, {
+  "documentName" : "Zambrana (Peaje)",
+  "documentDescription" : "Zambrana (Peaje)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/zambrana-peaje/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c050/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c050/es_station/data/es_r01dpd01305074104067d8d0c8ed1bbf99ad2b4ca",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c050/r01Index/station_c050-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c050/opendata/station_c050.zip"
+}, {
+  "documentName" : "Etura",
+  "documentDescription" : "Etura",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/etura/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0aa/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0aa/es_station/data/es_r01dpd0135335f1ebe753daf959c8e25ed3587250",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0aa/r01Index/station_c0aa-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0aa/opendata/station_c0aa.zip"
+}, {
+  "documentName" : "Eibar",
+  "documentDescription" : "Eibar",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/eibar/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c085/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c085/es_station/data/es_r01dpd0141c03e582b8bcd1c1e789f68993315f0a",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c085/r01Index/station_c085-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c085/opendata/station_c085.zip"
+}, {
+  "documentName" : "Martutene",
+  "documentDescription" : "Martutene",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/martutene/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c081/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c081/es_station/data/es_r01dpd0138c296be5435c8692e04a563869b3903f",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c081/r01Index/station_c081-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c081/opendata/station_c081.zip"
+}, {
+  "documentName" : "Berna (Ibaizabal)",
+  "documentDescription" : "Berna (Ibaizabal)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/berna-ibaizabal/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0b6/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b6/es_station/data/es_r01dpd0130508a0d1567d8d0c4225d88c27168b7c",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b6/r01Index/station_c0b6-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b6/opendata/station_c0b6.zip"
+}, {
+  "documentName" : "Amorebieta (Ibaizabal)",
+  "documentDescription" : "Amorebieta (Ibaizabal)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/amorebieta-ibaizabal/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c079/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c079/es_station/data/es_r01dpd01305082635467d8d0c2ed2b3e3b05c50b3",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c079/r01Index/station_c079-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c079/opendata/station_c079.zip"
+}, {
+  "documentName" : "Abusu (Nerbioi)",
+  "documentDescription" : "Abusu (Nerbioi)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/abusu-nerbioi/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c0b1/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b1/es_station/data/es_r01dpd01305086a3bb67d8d0c82cdedb4e2c7ace4",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b1/r01Index/station_c0b1-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c0b1/opendata/station_c0b1.zip"
+}, {
+  "documentName" : "Herrera (Puerto)",
+  "documentDescription" : "Herrera (Puerto)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/herrera-puerto/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c048/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c048/es_station/data/es_r01dpd0130506450ca67d8d0c7ad9d91f55e23b4a",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c048/r01Index/station_c048-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c048/opendata/station_c048.zip"
+}, {
+  "documentName" : "Jaizubia",
+  "documentDescription" : "Jaizubia",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/jaizubia/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c083/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c083/es_station/data/es_r01dpd013d871902b04467ab3bc7e9b4215508d7f",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c083/r01Index/station_c083-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c083/opendata/station_c083.zip"
+}, {
+  "documentName" : "Elorrio",
+  "documentDescription" : "Elorrio",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/elorrio/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c074/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c074/es_station/data/es_r01dpd0130506eb9f067d8d0ca569b4df960b9448",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c074/r01Index/station_c074-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c074/opendata/station_c074.zip"
+}, {
+  "documentName" : "Ilarduia",
+  "documentDescription" : "Ilarduia",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/ilarduia/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c068/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c068/es_station/data/es_r01dpd014ba681424f1d01424ea4b6a06643ea08b",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c068/r01Index/station_c068-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c068/opendata/station_c068.zip"
+}, {
+  "documentName" : "Zaldiaran (Repetidor)",
+  "documentDescription" : "Zaldiaran (Repetidor)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/zaldiaran-repetidor/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c070/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c070/es_station/data/es_r01dpd00130506982a867d8d0c336dd962356947d",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c070/r01Index/station_c070-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c070/opendata/station_c070.zip"
+}, {
+  "documentName" : "Andoain (Leitzaran)",
+  "documentDescription" : "Andoain (Leitzaran)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/andoain-leitzaran/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c077/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c077/es_station/data/es_r01dpd0130507dea9867d8d0cf109d4325e51e9ee",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c077/r01Index/station_c077-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c077/opendata/station_c077.zip"
+}, {
+  "documentName" : "Alegría (Canal)",
+  "documentDescription" : "Alegría (Canal)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/alegria-canal/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c056/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c056/es_station/data/es_r01dpd0130506758bb67d8d0c56ae71e57d9373de",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c056/r01Index/station_c056-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c056/opendata/station_c056.zip"
+}, {
+  "documentName" : "Punta Galea (Faro)",
+  "documentDescription" : "Punta Galea (Faro)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/punta-galea-faro/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c042/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c042/es_station/data/es_r01dpd0130506f2fd667d8d0cf48dbacedbacf546",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c042/r01Index/station_c042-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c042/opendata/station_c042.zip"
+}, {
+  "documentName" : "Gardea (Nerbioi)",
+  "documentDescription" : "Gardea (Nerbioi)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/gardea-nerbioi/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c067/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c067/es_station/data/es_r01dpd0130507cd2df67d8d0cd16c08ef9855280b",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c067/r01Index/station_c067-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c067/opendata/station_c067.zip"
+}, {
+  "documentName" : "Areta",
+  "documentDescription" : "Areta",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/areta/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c032/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c032/es_station/data/es_r01dpd013ca98b4879321dd417f72396ec7d157f3",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c032/r01Index/station_c032-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c032/opendata/station_c032.zip"
+}, {
+  "documentName" : "Ordunte (Embalse)",
+  "documentDescription" : "Ordunte (Embalse)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/ordunte-embalse/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c059/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c059/es_station/data/es_r01dpd01305082e65567d8d0c31caa6b53486aad0",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c059/r01Index/station_c059-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c059/opendata/station_c059.zip"
+}, {
+  "documentName" : "Galindo",
+  "documentDescription" : "Galindo",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/galindo/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c038/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c038/es_station/data/es_r01dpd014250f99f34730539f9d3501c8db07e3be",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c038/r01Index/station_c038-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c038/opendata/station_c038.zip"
+}, {
+  "documentName" : "Untzueta",
+  "documentDescription" : "Untzueta",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/untzueta/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c066/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c066/es_station/data/es_r01dpd0144742a26e96e647798f9f5742372b01f3",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c066/r01Index/station_c066-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c066/opendata/station_c066.zip"
+}, {
+  "documentName" : "Gorbea (Embalse)",
+  "documentDescription" : "Gorbea (Embalse)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/gorbea-embalse/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c044/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c044/es_station/data/es_r01dpd01305088e70067d8d0c108fa79fd60f9565",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c044/r01Index/station_c044-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c044/opendata/station_c044.zip"
+}, {
+  "documentName" : "Gasteiz (Lakua)",
+  "documentDescription" : "Gasteiz (Lakua)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/gasteiz-lakua/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c040/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c040/es_station/data/es_r01dpd0130505fa81a67d8d0c4f1105a4e2e60929",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c040/r01Index/station_c040-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c040/opendata/station_c040.zip"
+}, {
+  "documentName" : "Jaizkibel (Repetidor)",
+  "documentDescription" : "Jaizkibel (Repetidor)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/jaizkibel-repetidor/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c071/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c071/es_station/data/es_r01dpd01305063e24167d8d0c1662d5999b51d4eb",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c071/r01Index/station_c071-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c071/opendata/station_c071.zip"
+}, {
+  "documentName" : "Salvatierra (Depuradora)",
+  "documentDescription" : "Salvatierra (Depuradora)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/salvatierra-depuradora/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c030/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c030/es_station/data/es_r01dpd01305064f05967d8d0cbd1ddede35690b79",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c030/r01Index/station_c030-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c030/opendata/station_c030.zip"
+}, {
+  "documentName" : "Barazar (Puerto)",
+  "documentDescription" : "Barazar (Puerto)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/barazar-puerto/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c053/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c053/es_station/data/es_r01dpd01305062e3c367d8d0ca440942daea088ce",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c053/r01Index/station_c053-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c053/opendata/station_c053.zip"
+}, {
+  "documentName" : "Iurreta",
+  "documentDescription" : "Iurreta",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/iurreta/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c036/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c036/es_station/data/es_r01dpd0130506dade467d8d0c9085dc2a5a7c4cf9",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c036/r01Index/station_c036-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c036/opendata/station_c036.zip"
+}, {
+  "documentName" : "Zegama",
+  "documentDescription" : "Zegama",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/zegama/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c028/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c028/es_station/data/es_r01dpd0130506b197867d8d0c6ad946ff6f62a160",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c028/r01Index/station_c028-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c028/opendata/station_c028.zip"
+}, {
+  "documentName" : "Mungia (Depuradora)",
+  "documentDescription" : "Mungia (Depuradora)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/mungia-depuradora/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c057/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c057/es_station/data/es_r01dpd0130507a8f2067d8d0ce3d54469d464d94d",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c057/r01Index/station_c057-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c057/opendata/station_c057.zip"
+}, {
+  "documentName" : "Espejo",
+  "documentDescription" : "Espejo",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/espejo/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c034/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c034/es_station/data/es_r01dpd0130506c0fca67d8d0ca5cbd7e660d29c74",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c034/r01Index/station_c034-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c034/opendata/station_c034.zip"
+}, {
+  "documentName" : "Arboleda",
+  "documentDescription" : "Arboleda",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/arboleda/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c061/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c061/es_station/data/es_r01dpd0130507f6c2567d8d0ce2b4c3c767c0b915",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c061/r01Index/station_c061-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c061/opendata/station_c061.zip"
+}, {
+  "documentName" : "Zarautz (Camping)",
+  "documentDescription" : "Zarautz (Camping)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/zarautz-camping/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c064/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c064/es_station/data/es_r01dpd01305060cb1e67d8d0c4d791751ad4a1597",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c064/r01Index/station_c064-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c064/opendata/station_c064.zip"
+}, {
+  "documentName" : "Navarrete",
+  "documentDescription" : "Navarrete",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/navarrete/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c041/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c041/es_station/data/es_r01dpd013050636a4367d8d0cba3062f08dadc2b6",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c041/r01Index/station_c041-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c041/opendata/station_c041.zip"
+}, {
+  "documentName" : "Deusto",
+  "documentDescription" : "Deusto",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/deusto/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c039/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c039/es_station/data/es_r01dpd01305078104b67d8d0c37071c5570c52079",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c039/r01Index/station_c039-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c039/opendata/station_c039.zip"
+}, {
+  "documentName" : "La Garbea (Repetidor)",
+  "documentDescription" : "La Garbea (Repetidor)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/la-garbea-repetidor/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c045/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c045/es_station/data/es_r01dpd0130506ca1a967d8d0ce11d755602f509b0",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c045/r01Index/station_c045-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c045/opendata/station_c045.zip"
+}, {
+  "documentName" : "Ozaeta (Barrundia)",
+  "documentDescription" : "Ozaeta (Barrundia)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/ozaeta-barrundia/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c055/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c055/es_station/data/es_r01dpd00130507a114d67d8d0c4621701143877dc",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c055/r01Index/station_c055-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c055/opendata/station_c055.zip"
+}, {
+  "documentName" : "Saratxo (Nerbioi)",
+  "documentDescription" : "Saratxo (Nerbioi)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/saratxo-nerbioi/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c051/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c051/es_station/data/es_r01dpd013050703a9667d8d0cdcfaf8a6268da3aa",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c051/r01Index/station_c051-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c051/opendata/station_c051.zip"
+}, {
+  "documentName" : "Oiz (Repetidor)",
+  "documentDescription" : "Oiz (Repetidor)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/oiz-repetidor/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c046/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c046/es_station/data/es_r01dpd013050759b1567d8d0cb77209d33e6a92ea",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c046/r01Index/station_c046-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c046/opendata/station_c046.zip"
+}, {
+  "documentName" : "Subijana (Peaje)",
+  "documentDescription" : "Subijana (Peaje)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/subijana-peaje/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c049/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c049/es_station/data/es_r01dpd0130507b17ee67d8d0ccd394cb208dbeaa3",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c049/r01Index/station_c049-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c049/opendata/station_c049.zip"
+}, {
+  "documentName" : "Kapildui (Repetidor)",
+  "documentDescription" : "Kapildui (Repetidor)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/kapildui-repetidor/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c047/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c047/es_station/data/es_r01dpd0130505f26c667d8d0ce26e5d564ea5a1af",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c047/r01Index/station_c047-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c047/opendata/station_c047.zip"
+}, {
+  "documentName" : "Moreda",
+  "documentDescription" : "Moreda",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/moreda/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c031/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c031/es_station/data/es_r01dpd013c1f77e86a1ecd2722ff4649e6a58cc43",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c031/r01Index/station_c031-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c031/opendata/station_c031.zip"
+}, {
+  "documentName" : "Venta Alta",
+  "documentDescription" : "Venta Alta",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/venta-alta/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c037/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c037/es_station/data/es_r01dpd0148641e58691b9361369f250e7ccc2bb5c",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c037/r01Index/station_c037-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c037/opendata/station_c037.zip"
+}, {
+  "documentName" : "Berastegi",
+  "documentDescription" : "Berastegi",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/berastegi/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c026/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c026/es_station/data/es_r01dpd01305069016e67d8d0ce5e107a9da063aa2",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c026/r01Index/station_c026-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c026/opendata/station_c026.zip"
+}, {
+  "documentName" : "Igorre (Depósito)",
+  "documentDescription" : "Igorre (Depósito)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/igorre-deposito/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c033/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c033/es_station/data/es_r01dpd0130506d2f4e67d8d0c28db1a59d12c8281",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c033/r01Index/station_c033-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c033/opendata/station_c033.zip"
+}, {
+  "documentName" : "Ordizia (Oiangu)",
+  "documentDescription" : "Ordizia (Oiangu)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/ordizia-oiangu/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c043/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c043/es_station/data/es_r01dpd01305065ff0567d8d0c4ed945b2bed385ea",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c043/r01Index/station_c043-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c043/opendata/station_c043.zip"
+}, {
+  "documentName" : "Iturrieta (Granja)",
+  "documentDescription" : "Iturrieta (Granja)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/iturrieta-granja/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c024/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c024/es_station/data/es_r01dpd0130507d47df67d8d0cc4ca19a1200509ee",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c024/r01Index/station_c024-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c024/opendata/station_c024.zip"
+}, {
+  "documentName" : "Ventas de Armentia",
+  "documentDescription" : "Ventas de Armentia",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/ventas-de-armentia/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c020/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c020/es_station/data/es_r01dpd0130506033aa67d8d0c8cc12f1a8b5da6be",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c020/r01Index/station_c020-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c020/opendata/station_c020.zip"
+}, {
+  "documentName" : "Granja Fraisoro",
+  "documentDescription" : "Granja Fraisoro",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/granja-fraisoro/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c029/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c029/es_station/data/es_r01dpd01305073018067d8d0ca7b6e5c189d0ff9b",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c029/r01Index/station_c029-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c029/opendata/station_c029.zip"
+}, {
+  "documentName" : "Matxitxako (Repetidor)",
+  "documentDescription" : "Matxitxako (Repetidor)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/matxitxako-repetidor/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c019/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c019/es_station/data/es_r01dpd01305066e65267d8d0c89c2d0ad2775c732",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c019/r01Index/station_c019-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c019/opendata/station_c019.zip"
+}, {
+  "documentName" : "Roitegi",
+  "documentDescription" : "Roitegi",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/roitegi/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c021/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c021/es_station/data/es_r01dpd01305062349167d8d0cf749a3465c8dd10f",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c021/r01Index/station_c021-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c021/opendata/station_c021.zip"
+}, {
+  "documentName" : "Gatika",
+  "documentDescription" : "Gatika",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/gatika/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c005/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c005/es_station/data/es_r01dpd01429e1d34a37a369e51feffcbf3ad3e0ac",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c005/r01Index/station_c005-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c005/opendata/station_c005.zip"
+}, {
+  "documentName" : "Santa Clara",
+  "documentDescription" : "Santa Clara",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/santa-clara/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c007/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c007/es_station/data/es_r01dpd013089782783a22cfafa526f0aa132ee57c",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c007/r01Index/station_c007-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c007/opendata/station_c007.zip"
+}, {
+  "documentName" : "Higer",
+  "documentDescription" : "Higer",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/higer/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c018/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c018/es_station/data/es_r01dpd013050809cf767d8d0ce5af8f143aedea90",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c018/r01Index/station_c018-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c018/opendata/station_c018.zip"
+}, {
+  "documentName" : "Llodio (Depuradora)",
+  "documentDescription" : "Llodio (Depuradora)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/llodio-depuradora/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c027/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c027/es_station/data/es_r01dpd01305074959167d8d0c434b77aebecfee53",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c027/r01Index/station_c027-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c027/opendata/station_c027.zip"
+}, {
+  "documentName" : "Altube (Peaje)",
+  "documentDescription" : "Altube (Peaje)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/altube-peaje/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c035/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c035/es_station/data/es_r01dpd00130507884b767d8d0c29a5dedc87511b9",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c035/r01Index/station_c035-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c035/opendata/station_c035.zip"
+}, {
+  "documentName" : "KM",
+  "documentDescription" : "KM",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/km/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c00a/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c00a/es_station/data/es_r01dpd014d6c5c4db31a1526cd2df73adbd4d2ef8",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c00a/r01Index/station_c00a-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c00a/opendata/station_c00a.zip"
+}, {
+  "documentName" : "Derio (Granja)",
+  "documentDescription" : "Derio (Granja)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/derio-granja/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c003/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c003/es_station/data/es_r01dpd01305076d21b67d8d0cb8293649ece2bfe0",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c003/r01Index/station_c003-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c003/opendata/station_c003.zip"
+}, {
+  "documentName" : "Puerto de Ondarroa",
+  "documentDescription" : "Puerto de Ondarroa",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/puerto-de-ondarroa/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_b093/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b093/es_station/data/es_r01dpd0130505b7c3367d8d0cff3fa7511e3ec096",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b093/r01Index/station_b093-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b093/opendata/station_b093.zip"
+}, {
+  "documentName" : "Zeanuri",
+  "documentDescription" : "Zeanuri",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/zeanuri/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c008/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c008/es_station/data/es_r01dpd01429e1cdb8e39c5a5031d8bc6574c73973",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c008/r01Index/station_c008-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c008/opendata/station_c008.zip"
+}, {
+  "documentName" : "Markina",
+  "documentDescription" : "Markina",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/markina/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c006/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c006/es_station/data/es_r01dpd01429e1d5c6e7a369e5f25bfddd46dfd317",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c006/r01Index/station_c006-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c006/opendata/station_c006.zip"
+}, {
+  "documentName" : "Beluntza",
+  "documentDescription" : "Beluntza",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/beluntza/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c025/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c025/es_station/data/es_r01dpd0130506144c967d8d0c5f259dc0ed25e691",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c025/r01Index/station_c025-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c025/opendata/station_c025.zip"
+}, {
+  "documentName" : "Bakio",
+  "documentDescription" : "Bakio",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/bakio/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c004/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c004/es_station/data/es_r01dpd0141c03e05932ef6dba3aa087feea2d3b99",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c004/r01Index/station_c004-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c004/opendata/station_c004.zip"
+}, {
+  "documentName" : "Arrasate - Mondragón",
+  "documentDescription" : "Arrasate - Mondragón",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/arrasate-mondragon/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c023/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c023/es_station/data/es_r01dpd0130506a116d67d8d0c129dc8024f437f11",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c023/r01Index/station_c023-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c023/opendata/station_c023.zip"
+}, {
+  "documentName" : "Miramon",
+  "documentDescription" : "Miramon",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/miramon/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c017/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c017/es_station/data/es_r01dpd01305086006567d8d0ca3b3404f508ce03b",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c017/r01Index/station_c017-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c017/opendata/station_c017.zip"
+}, {
+  "documentName" : "Rompeolas (Bermeo)",
+  "documentDescription" : "Rompeolas (Bermeo)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/rompeolas-bermeo/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_b092/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b092/es_station/data/es_r01dpd0130505951d267d8d0c88605ae43ce1b545",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b092/r01Index/station_b092-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b092/opendata/station_b092.zip"
+}, {
+  "documentName" : "Getaria",
+  "documentDescription" : "Getaria",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/getaria/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_b094/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b094/es_station/data/es_r01dpd0130505ac5c467d8d0c33e481b2181f288c",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b094/r01Index/station_b094-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b094/opendata/station_b094.zip"
+}, {
+  "documentName" : "Arteaga",
+  "documentDescription" : "Arteaga",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/arteaga/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c002/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c002/es_station/data/es_r01dpd0130508aee8d67d8d0c1a384d4ebf4300c3",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c002/r01Index/station_c002-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c002/opendata/station_c002.zip"
+}, {
+  "documentName" : "Punta Lucero",
+  "documentDescription" : "Punta Lucero",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/punta-lucero/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_b090/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b090/es_station/data/es_r01dpd0130505c838267d8d0c8ab08d1829eee731",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b090/r01Index/station_b090-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b090/opendata/station_b090.zip"
+}, {
+  "documentName" : "Arkaute I (Granja)",
+  "documentDescription" : "Arkaute I (Granja)",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/arkaute-i-granja/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_c001/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c001/es_station/data/es_r01dpd0130506a84b967d8d0c5cac8f417fdcb0df",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c001/r01Index/station_c001-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_c001/opendata/station_c001.zip"
+}, {
+  "documentName" : "Boya de Hondarribia",
+  "documentDescription" : "Boya de Hondarribia",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/boya-de-hondarribia/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_b097/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b097/es_station/data/es_r01dpd0130505a0c6867d8d0cdf0ecaf91ad4632e",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b097/r01Index/station_b097-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b097/opendata/station_b097.zip"
+}, {
+  "documentName" : "Boya de Pasaia",
+  "documentDescription" : "Boya de Pasaia",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/boya-de-pasaia/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_b096/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b096/es_station/data/es_r01dpd01305057211f67d8d0c42ca12fbef045f0a",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b096/r01Index/station_b096-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b096/opendata/station_b096.zip"
+}, {
+  "documentName" : "Puerto de Armintza",
+  "documentDescription" : "Puerto de Armintza",
+  "friendlyUrl" : "http://opendata.euskadi.eus/catalogo/-/estacion_meteorologica/puerto-de-armintza/",
+  "physicalUrl" : "http://opendata.euskadi.eus/catalogo/contenidos/estacion_meteo/station_b091/es_station/web.html",
+  "dataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b091/es_station/data/es_r01dpd0130505bfffe67d8d0c5f84de152bbf8b79",
+  "metadataXML" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b091/r01Index/station_b091-idxContent.xml",
+  "zipFile" : "http://opendata.euskadi.eus/contenidos/estacion_meteo/station_b091/opendata/station_b091.zip"
+} ]);

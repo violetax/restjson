@@ -1,0 +1,114 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Ejercicio</title>
+  
+    <link rel="stylesheet" href="resources/css/styles.css" >
+     <!-- Leaflet style. REQUIRED! -->
+	<link rel="stylesheet" href="http://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />    
+
+  	
+  	
+  	<!-- load jQuery, JS--> 
+	
+ 	
+ 	    <!--  MORE LEAFLET *********** PENDIENTE-->
+ 	<script src="resources/js/jquery-3.2.1.min.js"></script>
+ 	<script src="resources/js/jquery-ui.min.js"></script>
+ 	<script src="http://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+  	<script  type="text/javascript"  src="resources/js/leaflet-providers.js"></script>
+  	<script type="text/javascript" src="resources/js/geojson.min.js"></script>
+	<script type="text/javascript" src="resources/js/codigoMapa.js"></script>
+  <!--  LEAFLET -->
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
+   integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="
+   crossorigin=""/>
+   
+ <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
+   integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
+   crossorigin=""></script>
+   
+
+
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<main class="container-fluid">
+
+<script src="https://sigdeletras.github.io/Leaflet.Spain.WMS/src/Leaflet.Spain.WMS.js"></script>
+
+ 
+	<div class="flex-container mapa">
+			
+		<div class="flex-item">
+		<h4>Básico GET/POST</h4>
+			<p>Mostrar todos los paneles</p>
+				<button id="boton_cargarTodosGeoJPoint" type="button">Mostrar</button>
+			<p>Crear un panel</p>
+				<button id="boton_crearGeoJPoint" type="button">Crear</button>
+<!-- 
+			<textarea cols="0" rows="0" id="myText" style="display:none">Some hidden text display none</textarea>	
+MODAL TO CREATE PANEL 
+							<div id="dialog-form" title="Crear nuevo panelr">
+								  <p class="validateTips">Rellenar todos los campos:</p>								 
+								  <form>
+								    <fieldset>
+								      <label for="id">Identificador</label>
+								      	<input type="text" name="id" id="id" value="" class="text ui-widget-content ui-corner-all">
+								      <label for="codigopostal">C.P.</label>
+								      	<input type="text" name="codigopostal" id="codigopostal" value="" class="text ui-widget-content ui-corner-all">
+								      <label for="capacidad">Capacidad</label>
+								      	<input type="text" name="capacidad" id="capacidad" value="" class="text ui-widget-content ui-corner-all">
+								 
+								      <!-- Allow form submission with keyboard without duplicating the dialog button 
+								      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+								    </fieldset>
+								  </form>
+								</div>
+					
+ END OF MODAL TO CREATE PANEL  -->
+		</div>
+		
+		<div class="flex-item">
+		<h4>Queries especiales</h4>
+			<div class="query">
+				<p>---query1 GeoJSON---</p>
+				Cargar desde opendata
+					<button id="boton_query1" type="button">query1</button>
+			</div>			
+			<p>---query2 GeoJSON---</p>
+				<button id="boton_query1" type="button">query2</button>
+			<p>---query3 GeoJSON---</p>
+				<button id="boton_query1" type="button">query3</button>
+		</div>
+		
+		<div class="flex-item">
+		<h4>General</h4>
+			<p>Mostrar coordenadas de un punto</p>
+				<button id="boton_jcoord" type="button">Ver coord un pto</button>
+			<p>Despejar mapa</p>
+				<button id="boton_limpiar" type="button"> PEND: limpiar mapa</button>
+			<p><a href="home.html">
+ 				   <input type="Button" id="irHome" name="url button" value="HOME" />
+			</a></p>
+		</div>		
+	
+	</div>
+	
+<div id="ocultar"></div> 
+
+<div class="center-map">
+	<div id="mapid"></div>
+</div>
+
+
+</main>
+</body>
+</html>

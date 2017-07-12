@@ -42,6 +42,7 @@ public class PlacaServiceImpGJ implements PlacaServiceGJ {
    });
         String placasGeoJson = placasGeoJsonJarray.toString();
 		
+        System.out.println(restAnswer);
         return restAnswer; //placasGeoJson;
 	}
 
