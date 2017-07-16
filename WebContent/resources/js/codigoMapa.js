@@ -707,16 +707,19 @@ jQuery( document ).ready(function( $ ) {
 	
 //LEAFLET VARS
 	
-	var myIcon = L.icon({
+	var icon_PanSolar_1 = L.icon({
 	    iconUrl: 'resources/images/solarpanel.png',
 	    iconSize: [20, 48],
-	    iconAnchor: [22, 94],
-	    popupAnchor: [-3, -76],
-	});
+	    });
+	var icon_PanSolar_2 = L.icon({
+	    iconUrl: 'resources/images/solar2.png',
+	    iconSize: [20, 48],
+	    });
+	
 //DIBUJAR MAPA//////////////////////////
-var mymap = L.map('mapid').setView([42.994603451901334, -2.4238586425781254], 13);
+var mymap = L.map('mapid').setView([42.994603451901334, -2.4238586425781254], 9);
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-	maxZoom: 9,
+	maxZoom: 19,
 	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -765,11 +768,22 @@ $("#boton_jcoord").on("click",function(e){
 //LIMPIAR TODOS LOS MARKERS//////////////////////
 
 /////*****!!!!!!!!PENDIENTE QUE SOLO LIMPIE LOS PUNTOS *********!!!!!!!!!!!!!!
-
-$("#boton_limpiar").on("click",function(e){	
-mymap.removeLayer(clickCircle2);
-$(".leaflet-interactive").remove();
-$('#ocultar').hide();	
+var marker;
+var markerArr = [];
+var marker2Arr = [];
+var layerArr = [];
+$("#boton_limpiar").on("click",function(e){
+	
+	for (var i=0; i < markerArr.length; i++) {
+		mymap.removeLayer(markerArr[i]);
+	};
+	for (var i=0; i < marker2Arr.length; i++) {
+		mymap.removeLayer(marker2Arr[i]);
+	};
+	for (var i=0; i < layerArr.length; i++) {
+		mymap.removeLayer(layerArr[i]);
+	};
+	
 });
 
 //Recoger las coordenadas de varios puntos//////////////////
@@ -878,14 +892,94 @@ $("#boton_query1").click(function(){
 
 $("#boton_query2").click(function(){
 	
-});
+	url='http://localhost:3000/api/maplayers';
 	
+	$.getJSON(url, function(result) {
+		console.log(result);
+		addLayer(result);
+	});
+	
+});
+
+$("#boton_query3").click(function(){
+	
+	url='http://localhost:3000/api/query';
+	
+	$.getJSON(url, function(result) {
+		for (var x = 0; x < result.length; x++) {
+			
+			for (var i=0; i < markerArr.length; i++) {
+				mymap.removeLayer(markerArr[i]);
+			};
+			
+			lng = result[x].geometry.coordinates[0];
+			lat = result[x].geometry.coordinates[1];
+			marker = new L.marker([lat, lng],{icon: icon_PanSolar_2}).addTo(mymap);
+			marker2Arr.push(marker);
+		}
+		console.log(result);
+	});
+	
+	/*
+	var polygon = result;	
+	var myPolyLayer = L.geoJSON();
+    myPolyLayer.addData(polygon);
+	*/
+	
+});
+
+function addLayer(layer) {
+    var leaf_layer;
+    if (layer.type == "MultiPoint") {
+        leaf_layer = L.geoJson(layer, { pointToLayer: function (feature, latlng) {return L.circleMarker(latlng, layer.style); }})
+        leaf_layer.bindPopup(layer.type);
+    } else if (layer.type == "MultiLineString") {
+        leaf_layer = L.geoJson(layer, {style: layer.style });
+        leaf_layer.bindPopup(layer.type);
+    } else  {
+    	for (var i=0; i< layer.features.length; i++) {
+    		feature = layer.features[0];
+    	}
+        leaf_layer = L.geoJson(layer, {
+        	style: function(feature) {
+                switch (feature.properties.style) {
+                case 'Orange': return {
+                    fillColor: "#e9bc3b",
+                    color: "#ac8613",
+                    opacity: 1,
+                    fillOpacity: 0.8 
+                };
+                case 'Blue': return {
+                    fillColor: "#0099ff",
+                    color: "#005f9d",
+                    opacity: 1,
+                    fillOpacity: 0.8 
+                };
+            }
+            }
+        }).addTo(mymap);
+        layerArr.push(leaf_layer);
+   }
+   
+/*
+   $('#' + name).click(function(e) {
+
+       if (mymap.hasLayer(leaf_layer)) {
+    	   mymap.removeLayer(leaf_layer);
+       } else {
+    	   mymap.addLayer(leaf_layer);
+       }
+   });*/
+}
+
+
+
 ////////////////////////////////////////////////////
 ///////////PLUG&PLAY//////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////	
 ///*** MOSTRAR TODOS GEOJPUNTOS ****///////////////////////////
 ///////////////////////////////////////////////////////////////
-	
+
 	$("#boton_cargarTodosGeoJPoint").on("click",function(e){
 		
 		//REST PATH
@@ -899,21 +993,21 @@ $("#boton_query2").click(function(){
 		});
 		
 		
-		var panel;
-		var properties = [];
-		properties = [{id:"20", CP: "ABCD", capacidad: "300", lat: latx, lng: lngx}];
-		panel = GeoJSON.parse(properties[0], {Point: ['lat', 'lng']});
-		//console.log(panel);
-		
 		function AjaxSucceeded(result) {
 			//console.log(result[0].geometry.coordinates[0]);		
 
 			for (var x = 0; x < result.length; x++) {
+				
+				for (var i=0; i < marker2Arr.length; i++) {
+					mymap.removeLayer(marker2Arr[i]);
+				};
+				
 				lng = result[x].geometry.coordinates[0];
 				lat = result[x].geometry.coordinates[1];
-				//console.log(xlat,xlng);	
-				L.marker([lat, lng],{icon: myIcon}).addTo(mymap);
-				}
+				marker = new L.marker([lat, lng],{icon: icon_PanSolar_1}).addTo(mymap);
+				markerArr.push(marker);	
+				console.log(marker._leaflet_id);
+			}
 	
 			}	
 		function AjaxFailed(result) {
@@ -995,9 +1089,25 @@ $("#boton_query2").click(function(){
 			
 			//geoJArr.push(geojsonFeature);
 
-		
-
+	/////
+/*
+UN LIO QUE NO MEHACIA FALTA:
 	
+	getxoLayer = result.features[0];
+
+var alldata = {
+		name: getxoLayer.properties.name,
+		style: getxoLayer.properties.style,
+		geo: getxoLayer.geometry
+};
+
+var polygon =  GeoJSON.parse(alldata, {GeoJSON: 'geo'});
+console.log(polygon);
+
+var polygon2 = getxoLayer.geometry.coordinates;
+///
+
+*/	
 	////////////////////////////////////////////////////////////////////
 
 

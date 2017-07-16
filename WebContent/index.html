@@ -1,0 +1,108 @@
+<!doctype html>
+<!--[if lt IE 7]>     jshtml class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <hjsl class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <hjsl class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+      
+    <link rel="stylesheet" href="resources/css/styles.css" >
+     <!-- Leaflet style. REQUIRED! -->
+	<link rel="stylesheet" href="http://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />    
+    
+      
+    <script src="resources/js/jquery-3.2.1.min.js"></script>
+ 	<script src="resources/js/jquery-ui.min.js"></script>
+ 	<script src="http://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+  	<script  type="text/javascript"  src="resources/js/leaflet-providers.js"></script>
+  	<script type="text/javascript" src="resources/js/geojson.min.js"></script>
+	<script type="text/javascript" src="resources/js/codigoMapa.js"></script>
+  <!--  LEAFLET -->
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
+   integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="
+   crossorigin=""/>
+   
+ <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
+   integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
+   crossorigin=""></script>   
+             
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Proyecto: representación de de queries en un mapa</a>
+        </div>
+    </nav>
+
+    <div id="ocultar"></div>
+
+	<div class="flex-container">
+
+      <div class="flex-container navi">
+     
+      	<div class="flex-item">
+      
+          <h2>Básico GET/POST</h2>
+            <p>Mostrar todos los paneles</p>
+            <button class="btn btn-primary" id="boton_cargarTodosGeoJPoint" type="button">Mostrar</button>
+            <p>Crear un panel</p>
+            <button class="btn btn-success" id="boton_crearGeoJPoint" type="button">Crear</button>
+
+        </div>
+        
+        <div class="flex-item">
+  
+          <h2>Operaciones varias</h2>
+            <p>Cargar desde opendata</p>
+            <button class="btn btn-primary" id="boton_query1" type="button">query1</button>
+            <p>Añadir una capa</p>
+            <button class="btn btn-primary" id="boton_query2" type="button">query2</button>
+     		<p>Query sobre una capa</p>
+            <button class="btn btn-primary" id="boton_query3" type="button">query3</button>
+       </div>
+       
+        <div class="flex-item">
+   
+          <h2>General</h2>
+            <p>Mostrar coordenadas de un punto</p>
+            <button class="btn btn-info" id="boton_jcoord" type="button">Ver</button>
+            <p>Despejar mapa</p>
+            <button class="btn btn-warning" id="boton_limpiar" type="button">Limpiar</button>
+    
+       </div>
+
+</div>
+		     	
+		     <div class="center-map">
+		        <div id="mapid"></div>
+		     </div>
+
+		</div>	 
+  
+
+
+    </body>
+</html>
