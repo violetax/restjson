@@ -26,8 +26,10 @@
     <script src="resources/js/jquery-3.2.1.min.js"></script>
  	<script src="resources/js/jquery-ui.min.js"></script>
  	<script src="http://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-  	<script  type="text/javascript"  src="resources/js/leaflet-providers.js"></script>
+  	
   	<script type="text/javascript" src="resources/js/geojson.min.js"></script>
+   <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>  	
+ <!-- <script type="text/javascript" src="resources/js/turf.min.js'></script>  -->
 	<script type="text/javascript" src="resources/js/codigoMapa.js"></script>
   <!--  LEAFLET -->
 
@@ -38,6 +40,8 @@
  <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
    integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
    crossorigin=""></script>   
+           
+           <script  type="text/javascript"  src="resources/js/leaflet-providers.js"></script>
              
     </head>
     <body>
@@ -73,28 +77,8 @@
 
         </div>
         
-        <div class="flex-item">
-  
-          <h2>Operaciones varias</h2>
-            <p>Cargar desde opendata</p>
-            <button class="btn btn-primary" id="boton_query1" type="button">query1</button>
-            <p>Añadir una capa</p>
-            <button class="btn btn-primary" id="boton_query2" type="button">query2</button>
-     		<p>Query sobre una capa</p>
-            <button class="btn btn-primary" id="boton_query3" type="button">query3</button>
-       </div>
-       
-        <div class="flex-item">
-   
-          <h2>General</h2>
-            <p>Mostrar coordenadas de un punto</p>
-            <button class="btn btn-info" id="boton_jcoord" type="button">Ver</button>
-            <p>Despejar mapa</p>
-            <button class="btn btn-warning" id="boton_limpiar" type="button">Limpiar</button>
-    
-       </div>
 
-</div>
+		</div>
 		     	
 		     <div class="center-map">
 		        <div id="mapid"></div>
@@ -102,7 +86,37 @@
 
 		</div>	 
   
+      
 
+		<div class="flex-container">
+            <h2>Operaciones varias</h2>
+            
+             <div class="flex-item">
+            <p>Cargar desde opendata</p>
+            <button class="btn btn-primary" id="boton_query1" type="button">query1</button>
+             </div>
+             
+             <div class="flex-item">
+            <p>Añadir una capa</p>
+            <button class="btn btn-primary" id="boton_query2" type="button">query2</button>
+     		 </div>
+     		 
+     		 <div class="flex-item">
+     		<p>Query sobre una capa</p>
+            <button class="btn btn-primary" id="boton_query3" type="button">query3</button>
+             </div>
+            
+             <div class="flex-item">
+            <p>Cambiar markers</p>
+            <button class="btn btn-primary" id="boton_query4" type="button">query4</button>
+      		</div>
+      		
+      		 <div class="flex-item">
+      		<p>Despejar mapa</p>
+            <button class="btn btn-warning" id="boton_limpiar" type="button">Limpiar</button>
+      		</div>
+      		
+       </div>
 
     </body>
 </html>
