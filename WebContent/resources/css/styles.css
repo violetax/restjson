@@ -1,6 +1,6 @@
 @CHARSET "ISO-8859-1";
 
-#mapid { height: 600px; width: 800px;}
+#mapid { height: 500px; width: 800px;}
 
 
 
@@ -33,7 +33,7 @@
 }
 
 #mapid, #ocultar {
-	margin-top: 50px;
+	margin-top: ;
 }
 
 /* MODAL STYLE 

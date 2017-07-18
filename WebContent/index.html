@@ -30,6 +30,8 @@
   	<script type="text/javascript" src="resources/js/geojson.min.js"></script>
    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>  	
  <!-- <script type="text/javascript" src="resources/js/turf.min.js'></script>  -->
+ 	<script type="text/javascript" src="resources/js/variables.js"></script>
+ 	<script type="text/javascript" src="resources/js/funciones.js"></script>
 	<script type="text/javascript" src="resources/js/codigoMapa.js"></script>
   <!--  LEAFLET -->
 
@@ -42,6 +44,7 @@
    crossorigin=""></script>   
            
            <script  type="text/javascript"  src="resources/js/leaflet-providers.js"></script>
+           <script src="resources/js/leaflet.markercluster-src.js"></script>
              
     </head>
     <body>
@@ -61,8 +64,19 @@
         </div>
     </nav>
 
+		<div class="flex-container">
+      		 <div class="flex-item">
+      			<p>Mostrar todos los paneles</p>
+                <button class="btn btn-primary" id="boton_cargarTodosGeoJPoint" type="button">Mostrar</button>
+      		</div>
+      		 <div class="flex-item">
+      		 	<p>Despejar mapa</p>
+         		<button class="btn btn-warning" id="boton_limpiar" type="button">Limpiar</button>
+      		</div>
+		</div>
+    
     <div id="ocultar"></div>
-
+    
 	<div class="flex-container">
 
       <div class="flex-container navi">
@@ -70,8 +84,7 @@
       	<div class="flex-item">
       
           <h2>Básico GET/POST</h2>
-            <p>Mostrar todos los paneles</p>
-            <button class="btn btn-primary" id="boton_cargarTodosGeoJPoint" type="button">Mostrar</button>
+           
             <p>Crear un panel</p>
             <button class="btn btn-success" id="boton_crearGeoJPoint" type="button">Crear</button>
 
@@ -110,11 +123,7 @@
             <p>Cambiar markers</p>
             <button class="btn btn-primary" id="boton_query4" type="button">query4</button>
       		</div>
-      		
-      		 <div class="flex-item">
-      		<p>Despejar mapa</p>
-            <button class="btn btn-warning" id="boton_limpiar" type="button">Limpiar</button>
-      		</div>
+    
       		
        </div>
 
