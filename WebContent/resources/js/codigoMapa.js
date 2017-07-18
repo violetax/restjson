@@ -5,6 +5,9 @@ jQuery( document ).ready(function( $ ) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 //// MAPAS Y CAPAS ##########///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//DEFINIR MAPA BASE ##########///////////////////////////////////////////////////////////////////////
 
 initlat = 42.994603451901334;
 initlng = -2.4238586425781254;
@@ -25,29 +28,64 @@ initialLayer.addTo(mymap);
 //lcontrol_general = L.control.layers(baseLayers, null, {collapsed: false}).addTo(mymap);
 
 
-//MOSTRAR LAS COORDENADAS DEL PUNTO EN PANTALLA///////////////
-mymap.on('click', getCoordinates);
 
-//MARCAR VARIOS PUNTOS EN PANTALLA
-mymap.on('contextmenu', getCoordinatesBunch);
+//CAPA CON TODOS LOS PANELES ##########///////////////////////////////////////////////////////////////////////
 
-//LIMPIAR TODOS LOS MARKERS//////////////////////
-$("#boton_limpiar").on("click",function(e){
-	
-	for (var i=0; i < markerArr.length; i++) {
-		mymap.removeLayer(markerArr[i]);
-		};
-	for (var i=0; i < marker2Arr.length; i++) {
-		mymap.removeLayer(marker2Arr[i]);
-	};
-	for (var i=0; i < layerArr.length; i++) {
-		mymap.removeLayer(layerArr[i]);
-	};
-	for (var i=0; i < jcoorsArr.length; i++) {
-		mymap.removeLayer(jcoorsArr[i]);
-	};
-	
-});
+$("#boton_cargarTodosGeoJPoint").on("click",function(e){
+		
+		//REST PATH
+		url='http://localhost:3000/api/paneles';
+		var xlat,xlng;
+		
+		$.ajax({
+		    url: url,
+		    success: AjaxSucceeded,
+		    error: AjaxFailed
+		});
+			
+		function AjaxSucceeded(result) {
+			//console.log(result[0].geometry.coordinates[0]);	
+			for (var i=0; i < marker2Arr.length; i++) {
+				mymap.removeLayer(marker2Arr[i]);
+			};
+		
+			for (var x = 0; x < result.length; x++) {							
+				var panel;
+				var geojsonPanel = [];
+				geojsonPanel = {
+					id: result[x].properties.id, 
+					CP: result[x].properties.CP, 
+					capacidad:  result[x].properties.capacidad, 
+					lat:  result[x].geometry.coordinates[0], 
+					lng: result[x].geometry.coordinates[1]};
+				panel = new GeoJSON.parse(geojsonPanel, {Point: ['lat', 'lng']});
+				paneles.push(panel);				
+			}
+			for ( var p=0; p < paneles.length; p++) {
+				latitud: paneles[p].geometry.coordinates[0];
+				longitud: paneles[p].geometry.coordinates[1];
+				console.log(paneles[p]);
+			}
+			//console.log(paneles[0]);
+			panelesLayer = L.geoJSON(paneles
+					, {
+				style: function(feature) {
+					var lat = feature.geometry.coordinates[0];
+					var lng = feature.geometry.coordinates[1];
+					var id = feature.properties.id;
+					 switch (id) {	
+					 case 'XXXXX':  return 	L.marker([lat, lng],{icon: icon_PanSolar_NEGRO}).addTo(mymap)	;//{color: "#ff0000"};
+					 case 'YYYYY':	return L.marker([lat, lng],{icon: icon_PanSolar_BLUE}).bindTooltip(id).addTo(mymap)	;//{color: "#0000ff"};
+					 }}
+			});
+		
+		}	
+		/////////END OF AJAX FUNC ////////////////////////////
+		function AjaxFailed(result) {
+			console.log(result);
+		}      
+	   
+	 });
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -115,72 +153,8 @@ $("#boton_query4").click(function(){
 
 });
 
-////////////////////////////////////////////////////
-/////////// BASIC GET - POST///////////////////////////////////////
-///////////////////////////////////////////////////////////////	
-///*** MOSTRAR TODOS GEOJPUNTOS ****///////////////////////////
-///////////////////////////////////////////////////////////////
-
-$("#boton_cargarTodosGeoJPoint").on("click",function(e){
-		
-		//REST PATH
-		url='http://localhost:3000/api/paneles';
-		var xlat,xlng;
-		
-		$.ajax({
-		    url: url,
-		    success: AjaxSucceeded,
-		    error: AjaxFailed
-		});
-			
-		function AjaxSucceeded(result) {
-			//console.log(result[0].geometry.coordinates[0]);	
-			for (var i=0; i < marker2Arr.length; i++) {
-				mymap.removeLayer(marker2Arr[i]);
-			};
-		
-			for (var x = 0; x < result.length; x++) {							
-				var panel;
-				var geojsonPanel = [];
-				geojsonPanel = {
-					id: result[x].properties.id, 
-					CP: result[x].properties.CP, 
-					capacidad:  result[x].properties.capacidad, 
-					lat:  result[x].geometry.coordinates[0], 
-					lng: result[x].geometry.coordinates[1]};
-				panel = new GeoJSON.parse(geojsonPanel, {Point: ['lat', 'lng']});
-				paneles.push(panel);				
-			}
-			for ( var p=0; p < paneles.length; p++) {
-				latitud: paneles[p].geometry.coordinates[0];
-				longitud: paneles[p].geometry.coordinates[1];
-				console.log(paneles[p]);
-			}
-			//console.log(paneles[0]);
-			panelesLayer = L.geoJSON(paneles
-					, {
-				style: function(feature) {
-					var lat = feature.geometry.coordinates[0];
-					var lng = feature.geometry.coordinates[1];
-					var id = feature.properties.id;
-					 switch (id) {	
-					 case 'XXXXX':  return 	L.marker([lat, lng],{icon: icon_PanSolar_NEGRO}).addTo(mymap)	;//{color: "#ff0000"};
-					 case 'YYYYY':	return L.marker([lat, lng],{icon: icon_PanSolar_BLUE}).bindTooltip(id).addTo(mymap)	;//{color: "#0000ff"};
-					 }}
-			});
-		
-		}	
-		/////////END OF AJAX FUNC ////////////////////////////
-		function AjaxFailed(result) {
-			console.log(result);
-		}      
-	   
-	 });
-
 ///////////////////////////////////////////////////////////////	
 ///*** CREAR UN GEOJPUNTO ****/////////////////////////////////
-////////************PENDIENTE DESRIZAR EL POSTDATA ****////////
-///////////////////////////////////////////////////////////////
 
 	$("#boton_crearGeoJPoint").on("click",function(e){
 
@@ -219,5 +193,34 @@ $("#boton_cargarTodosGeoJPoint").on("click",function(e){
 			console.log("AjaxFailed" + result);
 		}      
 	});
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//// FUNCIONALIDADES BASICAS ##########///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//MOSTRAR LAS COORDENADAS DEL PUNTO EN PANTALLA ##########///////////////////////////////////////////////////////////////////////
+mymap.on('click', getCoordinates);
+
+//MARCAR VARIOS PUNTOS EN PANTALLA ##########///////////////////////////////////////////////////////////////////////
+mymap.on('contextmenu', getCoordinatesBunch);
+
+//LIMPIAR TODOS LOS MARKERS ##########///////////////////////////////////////////////////////////////////////
+
+$("#boton_limpiar").on("click",function(e){
+	
+	for (var i=0; i < markerArr.length; i++) {
+		mymap.removeLayer(markerArr[i]);
+		};
+	for (var i=0; i < marker2Arr.length; i++) {
+		mymap.removeLayer(marker2Arr[i]);
+	};
+	for (var i=0; i < layerArr.length; i++) {
+		mymap.removeLayer(layerArr[i]);
+	};
+	for (var i=0; i < jcoorsArr.length; i++) {
+		mymap.removeLayer(jcoorsArr[i]);
+	};
+	
+});
 
 });	

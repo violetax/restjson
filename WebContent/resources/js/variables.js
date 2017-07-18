@@ -1,4 +1,4 @@
-var initlat, initlng, initzoom, mymap;;
+var initlat, initlng, initzoom, mymap;
 
 var icon_PanSolar_NEGRO = L.icon({
 	    iconUrl: 'resources/images/solarpanel.png',
