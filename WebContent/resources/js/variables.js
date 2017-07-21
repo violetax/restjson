@@ -12,6 +12,10 @@ var icon_PanSolar_BLUE = L.icon({
 	    iconUrl: 'resources/images/solarpanelBlue.png',
 	    iconSize: [20, 48],
 	    });
+var topo_mini_sp = L.icon({
+    iconUrl: 'resources/images/lemonSun.jpg',
+    iconSize: [20, 48],
+    });
 
 var latx, lngx;					//las coordenadas del ultimo punto seleccionado por el cursor
 var nuevoPunto = "";			//string tipeada manualmente con latx, lngx 
@@ -31,3 +35,4 @@ var lcontrol_general;			//L.control.layers
 var paneles = [];				//todos los paneles as geojson cuando se cargan
 var panelesLayer;				// to layer
 var allMarkersLayer = L.layerGroup();
+

@@ -22,13 +22,14 @@
      <!-- Leaflet style. REQUIRED! -->
 	<link rel="stylesheet" href="http://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />    
     
-      
+     <script src="//cdnjs.cloudflare.com/ajax/libs/chroma-js/0.5.9/chroma.min.js"></script>
     <script src="resources/js/jquery-3.2.1.min.js"></script>
  	<script src="resources/js/jquery-ui.min.js"></script>
  	<script src="http://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
   	
   	<script type="text/javascript" src="resources/js/geojson.min.js"></script>
-   <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>  	
+  	<script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>  	
  <!-- <script type="text/javascript" src="resources/js/turf.min.js'></script>  -->
  	<script type="text/javascript" src="resources/js/variables.js"></script>
  	<script type="text/javascript" src="resources/js/funciones.js"></script>
@@ -65,6 +66,10 @@
     </nav>
 
 		<div class="flex-container">
+		 	 <div class="flex-item">
+      			<p>Crear un panel</p>
+                <button class="btn btn-success" id="boton_crearGeoJPoint" type="button">Crear</button>
+      		 </div>
       		 <div class="flex-item">
       			<p>Mostrar todos los paneles</p>
                 <button class="btn btn-primary" id="boton_cargarTodosGeoJPoint" type="button">Mostrar</button>
@@ -76,29 +81,54 @@
 		</div>
     
     <div id="ocultar"></div>
-    
-	<div class="flex-container">
+   
 
-      <div class="flex-container navi">
+
+<!-- ######### -->
+	<div id="vertical-menu">
      
-      	<div class="flex-item">
-      
-          <h2>Básico GET/POST</h2>
-           
-            <p>Crear un panel</p>
-            <button class="btn btn-success" id="boton_crearGeoJPoint" type="button">Crear</button>
-
-        </div>
-        
-
-		</div>
-		     	
-		     <div class="center-map">
-		        <div id="mapid"></div>
-		     </div>
-
-		</div>	 
+     	<a href="#" class="show_hide" id="plus">+</a>
+      	<div class="css-treeview">
+      	
+      	<div class="slidingDiv" style="display: block;">  
+ 			Check out the updated jQuery plugin for doing this: 
+  			<a href="http://papermashup.com/jquery-show-hide-plugin/" class="show_hide" target="_blank" style="display: inline;">jQuery Show / Hide Plugin</a>
+        <h2>Árbol de paneles</h2> <!-- <span onclick="myFunction()">Ocultar</span></h2> -->
+        <ul>
+        	<li><a href="./">item</a></li>
+			<li><a href="./">item</a></li>
+			<li><input type="checkbox" id="item-0" /><label for="item-0">folder</label>
+			    <ul>
+			        <li><input type="checkbox" id="item-0-0" /><label for="item-0-0">folder</label>
+			            <ul>
+			                <li><input type="checkbox" id="item-0-0-0" /><label for="item-0-0-0">folder</label>
+			                    <ul>
+			                        <li><a href="./">item</a></li>
+			                        <li><a href="./">item</a></li>
+			                        <li><a href="./">item</a></li>
+			                        <li><a href="./">item</a></li>
+			                    </ul>
+			                </li>
+			            </ul>
+			        </li>
+			    </ul>
+			</li>
+        </ul>
+         </div> 
   
+        </div>      
+
+	</div>
+<!-- ######### -->
+
+ <!-- ########################################### -->
+<div class="flex-container">
+	<div class="center-map">
+	    <div id="mapid"></div>
+	</div>
+
+</div>	 
+<!-- ########################################### -->
       
 
 		<div class="flex-container">
@@ -110,17 +140,17 @@
              </div>
              
              <div class="flex-item">
-            <p>Añadir una capa</p>
+            <p>Añadir una capa GEO json</p>
             <button class="btn btn-primary" id="boton_query2" type="button">query2</button>
      		 </div>
      		 
      		 <div class="flex-item">
-     		<p>Query sobre una capa</p>
+     		<p>Query sobre una capa GEO json</p>
             <button class="btn btn-primary" id="boton_query3" type="button">query3</button>
              </div>
             
              <div class="flex-item">
-            <p>Cambiar markers</p>
+            <p>Cargar TOPO json</p>
             <button class="btn btn-primary" id="boton_query4" type="button">query4</button>
       		</div>
     
