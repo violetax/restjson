@@ -39,7 +39,7 @@
 	<script type="text/javascript" src="resources/js/codigoMapa.js"></script>
   <!--  LEAFLET -->
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
    integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="
    crossorigin=""/>
    
@@ -50,24 +50,104 @@
            <script  type="text/javascript"  src="resources/js/leaflet-providers.js"></script>
            <script src="resources/js/leaflet.markercluster-src.js"></script>
              
-    </head>
-    <body>
+</head>
+<body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Proyecto: representación de de queries en un mapa</a>
-        </div>
-    </nav>
-<div class="myposition">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">     <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+       </button>
+    <a class="navbar-brand" href="#">Proyecto: representación de de queries en un mapa</a>
+    </div>
+</nav>
+<div id='main'>
+
+<!-- #####  VERT MENU ###### -->
+<nav>
+  <div class="acidjs-css3-treeview" id="vertical-menu"> 
+    <ul>
+       <li>
+       <input type="checkbox" id="node-0" checked="checked" /><label><input type="checkbox" /><span></span></label>
+       <label for="node-0">Libraries</label>
+       <ul>
+          <li>
+          <input type="checkbox" id="node-0-0" checked="checked" /><label><input type="checkbox" /><span></span></label> 
+          <label for="node-0-0">Documents</label>
+          <ul>
+             <li>
+	             <input type="checkbox" id="node-0-0-0" checked="checked" /><label><input type="checkbox" /><span></span></label>
+	             <label for="node-0-0-0">My Documents</label>
+	             <ul>
+	                <li>
+	                <input type="checkbox" id="node-0-0-0-0" /><label><input type="checkbox" /><span></span></label>
+	                <label for="node-0-0-0-0">Downloads</label>
+	                </li>
+	                <li>
+	                <input type="checkbox" id="node-0-0-0-1" /><label><input type="checkbox" /><span></span></label>
+	                <label for="node-0-0-0-1">Projects</label>
+	                </li>
+	             </ul>
+            </li>
+        </ul>
+        </li>
+        <li>
+        <input type="checkbox" id="node-0-1" /><label><input type="checkbox" /><span></span></label>
+        <label for="node-0-1">Music</label>
+        <ul>
+        <li>
+        	<input type="checkbox" id="node-0-1-0" /><label><input type="checkbox" /><span></span></label>
+        	<label for="node-0-1-0">My Music</label>
+        </li>
+        <li>
+        	<input type="checkbox" id="node-0-1-1" /><label><input type="checkbox" /><span></span></label>
+        	<label for="node-0-1-1">Public Music</label>
+        </li>
+        </ul>
+        </li>
+        <li>
+        <input type="checkbox" id="node-0-2" /><label><input type="checkbox" /><span></span></label>
+        <label for="node-0-2">Pictures</label>
+        <ul>
+        	<li>
+               <input type="checkbox" id="node-0-2-0" /><label><input type="checkbox" /><span></span></label>
+               <label for="node-0-2-0">My Pictures</label>
+            </li>
+            <li>
+               <input type="checkbox" id="node-0-2-1" /><label><input type="checkbox" /><span></span></label>
+               <label for="node-0-2-1">Public Pictures</label>
+            </li>
+            </ul>
+            </li>
+            <li>
+               <input type="checkbox" id="node-0-3" checked="checked" /><label><input type="checkbox" checked="checked" />
+               <span></span></label><label for="node-0-3">Video</label>
+            <ul>
+               <li>
+               	<input type="checkbox" id="node-0-3-0" /><label><input type="checkbox" checked="checked" /><span></span>
+               	</label><label for="node-0-3-0">My Videos</label>
+               </li>
+               <li>
+               	<input type="checkbox" id="node-0-3-1" /><label><input type="checkbox" checked="checked" /><span></span>
+               	</label><label for="node-0-3-1">Public Videos</label>
+               </li>
+            </ul>
+            </li>
+        </ul>
+        </li>
+    </ul>
+</div>
+</nav>     
+<!-- ##### //// VERT MENU ###### -->
+
+
+<!-- ## TOP MENU ## -->
+<article>
 		<div class="flex-container">
 		 	 <div class="flex-item">
       			<p>Crear un panel</p>
@@ -82,92 +162,56 @@
          		<button class="btn btn-warning" id="boton_limpiar" type="button">Limpiar</button>
       		</div>
       		<div class="flex-item">
+      			<p>Pruebas</p>
          		<button id="btn_topos" type="button" class="btn btn-warning btn-xl">
-          			<span class="glyphicon glyphicon-cog"></span> TOPOS
-       			 </button>      		
+          			<span class="glyphicon glyphicon-cog">TOPOS</span> 
+       			</button>      		
       		</div>
 		</div>
-</div>   
-    <div id="ocultar"></div>
-   
+
+<div id="ocultar"></div>
+
+<!-- ## //// TOP MENU ## -->
 
 
-<!-- ######### -->
-	<div id="mevesnomeves" onclick="myFunction()">Ocultar árbol</div>
-       	<div class="css-treeview" id="vertical-menu">  	
-        <h2>Árbol de paneles</h2> <!-- <a href="#" class="show_hide" id="plus">+</a>
-      	<div class="slidingDiv" style="display: block;">  
- 			Check out the updated jQuery plugin for doing this: 
-  			<a href="http://papermashup.com/jquery-show-hide-plugin/" class="show_hide" target="_blank" style="display: inline;">jQuery Show / Hide Plugin</a> -->
-        <ul>
-        	<li>
-        		<a href="./">item</a></li>
-			<li>
-				<a href="./">item</a></li>
-			<li>
-				<input type="checkbox" id="item-0" />
-				<label for="item-0">folder</label>
-				    <ul>
-				        <li>
-					        <input type="checkbox" id="item-0-0" />
-					        <label for="item-0-0">folder</label>
-					            <ul>
-					                <li>
-						                <input type="checkbox" id="item-0-0-0" />
-						                <label for="item-0-0-0">folder</label>
-						                    <ul>
-						                        <li><a href="./">item</a></li>
-						                        <li><a href="./">item</a></li>
-						                        <li><a href="./">item</a></li>
-						                        <li><a href="./">item</a></li>
-						                    </ul>
-					                </li>
-					            </ul>
-				        </li>
-				    </ul>
-			</li>
-        </ul>
-         </div> 
-  
-        </div>      
+ <!-- #############   MAP ################### -->
 
-	</div>
-<!-- ######### -->
-
- <!-- ########################################### -->
 <div id="mymap">
 	<div class="center-map">
 	    <div id="mapid"></div>
 	</div>
 </div>	 
 
-<!-- ########################################### -->
-      
-<div class="myposition">
+<!-- ##############   /// MAP    #################### -->
+
+<!-- ## LOWER MENU ## -->
+
 		<div class="flex-container">
-            <h2>Operaciones varias</h2>
             
              <div class="flex-item">
-            <p>Cargar desde opendata</p>
-            <button class="btn btn-primary" id="boton_query1" type="button">query1</button>
+        	    <p>Cargar desde opendata</p>
+        	    <button class="btn btn-primary" id="boton_query1" type="button">query1</button>
              </div>
              
              <div class="flex-item">
-            <p>Añadir una capa GEO json</p>
-            <button class="btn btn-primary" id="boton_query2" type="button">query2</button>
+       		     <p>Añadir una capa GEO json</p>
+       		     <button class="btn btn-primary" id="boton_query2" type="button">query2</button>
      		 </div>
      		 
      		 <div class="flex-item">
-     		<p>Query sobre una capa GEO json</p>
-            <button class="btn btn-primary" id="boton_query3" type="button">query3</button>
+     		    <p>Query sobre una capa GEO json</p>
+   		        <button class="btn btn-primary" id="boton_query3" type="button">query3</button>
              </div>
             
              <div class="flex-item">
-            <p>Cargar TOPO json</p>
-            <button class="btn btn-primary" id="boton_query4" type="button">query4</button>
+     	       <p>Cargar TOPO json</p>
+     	       <button class="btn btn-primary" id="boton_query4" type="button">query4</button>
       		</div>
        </div>
+</article>
+<aside></aside>
 </div>
-
-    </body>
+<!-- ## ////   LOWER MENU ## -->
+<footer></footer>
+</body>
 </html>

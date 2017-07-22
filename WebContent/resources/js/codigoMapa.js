@@ -8,6 +8,20 @@ jQuery( document ).ready(function( $ ) {
 ////////////////////////////////////////////////////////////
 //https://stackoverflow.com/questions/14186565/jquery-hide-and-show-toggle-div-with-plus-and-minus-icon
 
+	$(".acidjs-css3-treeview").delegate("label input:checkbox", "change", function() {
+	    var
+	        checkbox = $(this),
+	        nestedList = checkbox.parent().next().next(),
+	        selectNestedListCheckbox = nestedList.find("label:not([for]) input:checkbox");
+	 
+	    if(checkbox.is(":checked")) {
+	        return selectNestedListCheckbox.prop("checked", true);
+	    }
+	    selectNestedListCheckbox.prop("checked", false);
+	});
+	
+	
+	
 //////////////////////////////////////
 //////////////////////////////////////
 	
@@ -60,15 +74,18 @@ L.TopoJSON = L.GeoJSON.extend({
 
 //////////////### TOPO JSON ##### ///////////////////////////
 var topoLayer = new L.TopoJSON(null,{
-	style: function(feature) {
-		var lat = feature.geometry.coordinates[0];
-		var lng = feature.geometry.coordinates[1];
-		var id = feature.properties.id;
-		 switch (id) {	
-		 case 'XXXXX':  marker = L.marker([lat, lng],{icon: icon_PanSolar_NEGRO}).addTo(mymap); markerArr.push(marker); return;//{color: "#ff0000"};
-		 case 'YYYYY':	marker = L.marker([lat, lng],{icon: icon_PanSolar_BLUE}).bindTooltip(id).addTo(mymap); markerArr.push(marker); return;//{color: "#0000ff"};
-		 }}
-}),
+    'style': function (feature) {
+        console.log(feature.properties.panelId.compania);
+        return {
+            'color': 'red'
+        };
+    },
+    pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, {icon: icon_PanSolar_NEGRO});    
+    }
+    
+    
+});
 //$countryName = $('.center-map'),
 colorScale = chroma
 	.scale(['#D5E3FF', '#003171'])
@@ -84,28 +101,17 @@ var interval=0;
 $("#btn_topos").on("click", function() {
 	
 	interval++;
-	
 	topoData = "resources/topojson/periodo." + interval + ".periodoFEATCOL.topo.json";
 	console.log(topoData);
 	
-//	$.getJSON(topoData).done(addTopoData);
+	$.getJSON(topoData).done(addTopoData);
 	$.getJSON(topoData, function( data ) {
-		  var items = [];
-		//  var data = "data.objects.periodo.1.periodoFEATCOL.geometries";
-		  for (var arr in data.objects) {
-			  console.log(arr);
-			    break;
-			}
-		  
-		  
-		  $.each( data.objects, function(  ) {
-			//  var arr = [Object(data.objects)];
 		
+		$.each( data.objects, function(  ) {
+			//  var arr = [Object(data.objects)];		
 		 console.log(data.objects);
 		 
 		  });
-		 
-		
 		});
 	
 	function addTopoData(topoData){  
@@ -122,10 +128,6 @@ function addTopoData(topoData){
 function ajaxCall(){
 	
 };
-
-
-
-
 /////////########## BOTONES ##########////////////////////////////////////
 //CAPA CON TODOS LOS PANELES ##########/////////////////////////////////
 

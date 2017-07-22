@@ -2,19 +2,19 @@ var initlat, initlng, initzoom, mymap;
 
 var icon_PanSolar_NEGRO = L.icon({
 	    iconUrl: 'resources/images/solarpanel.png',
-	    iconSize: [20, 48],
+	    iconSize: [10, 24],
 	    });
 var icon_PanSolar_SOL = L.icon({
 	    iconUrl: 'resources/images/solar2.png',
-	    iconSize: [20, 48],
+	    iconSize: [5, 12],
 	    });
 var icon_PanSolar_BLUE = L.icon({
 	    iconUrl: 'resources/images/solarpanelBlue.png',
-	    iconSize: [20, 48],
+	    iconSize: [5, 12],
 	    });
 var topo_mini_sp = L.icon({
-    iconUrl: 'resources/images/lemonSun.jpg',
-    iconSize: [20, 48],
+    iconUrl: 'resources/images/spcolor.png',
+    iconSize: [5, 12],
     });
 
 var latx, lngx;					//las coordenadas del ultimo punto seleccionado por el cursor
