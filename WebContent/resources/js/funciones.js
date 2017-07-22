@@ -1,14 +1,16 @@
 /// HTML FUNCTIONS //////////////////////////////////////
 function myFunction() {
-    var x = document.getElementById('vertical-menu');
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
+    var arbol = document.getElementById('vertical-menu');
+    var mevesnomeves = document.getElementById('mevesnomeves');
+
+    if (arbol.style.display === 'none') {
+    	arbol.style.display = 'block';
+    	document.getElementById('mevesnomeves').textContent="Ocultar árbol";
     } else {
-        x.style.display = 'none';
+    	arbol.style.display = 'none';
+    	document.getElementById('mevesnomeves').textContent="Mostrar árbol";
     }
 }
-
-
 
 ////////////////////////////////////////////////////////
 

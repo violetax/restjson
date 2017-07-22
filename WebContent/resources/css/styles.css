@@ -8,6 +8,9 @@
    
 }
 
+.btn-circle, btn-xl {
+	border-dadius: 35px;
+}
 
 .show_hide {
     display:none;
@@ -19,7 +22,7 @@
 .flex-container {
 	display: -webkit-flex;
 	display: flex;
-	justify-content: center; 
+	justify-content: left; 
 
 }
 
@@ -30,8 +33,13 @@
 #mapid { 
 height: 500px;
 width: 800px;
+margin: 0px auto;
 }
 
+.myposition {
+	margin: 0px auto;
+	
+}
 
 /* 
 height: 500px;
@@ -94,7 +102,7 @@ http://martinivanov.net/tag/html5-treeview/ */
 .css-treeview label,
 .css-treeview label::before
 {
-    background: url("../images/solarpanelBlue.png") no-repeat;
+   /* background: url("../images/solarpanelBlue.png") no-repeat;*/
 }
 .css-treeview label::before
 {
@@ -118,11 +126,11 @@ li a[href$=".css"]
     background: url("../images/solar2.png") no-repeat center;
 }
 
-ul {
+h2, ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 200px;
+    width: 250px;
     background-color: #f1f1f1;
 }
 

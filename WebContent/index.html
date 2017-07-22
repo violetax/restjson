@@ -9,8 +9,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+        
         <style>
             body {
                 padding-top: 50px;
@@ -25,6 +24,10 @@
      <script src="//cdnjs.cloudflare.com/ajax/libs/chroma-js/0.5.9/chroma.min.js"></script>
     <script src="resources/js/jquery-3.2.1.min.js"></script>
  	<script src="resources/js/jquery-ui.min.js"></script>
+ 	
+ 	<link rel="stylesheet" href="resources/js/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="resources/js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        
  	<script src="http://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
   	
   	<script type="text/javascript" src="resources/js/geojson.min.js"></script>
@@ -64,7 +67,7 @@
           <a class="navbar-brand" href="#">Proyecto: representación de de queries en un mapa</a>
         </div>
     </nav>
-
+<div class="myposition">
 		<div class="flex-container">
 		 	 <div class="flex-item">
       			<p>Crear un panel</p>
@@ -78,40 +81,50 @@
       		 	<p>Despejar mapa</p>
          		<button class="btn btn-warning" id="boton_limpiar" type="button">Limpiar</button>
       		</div>
+      		<div class="flex-item">
+         		<button id="btn_topos" type="button" class="btn btn-warning btn-xl">
+          			<span class="glyphicon glyphicon-cog"></span> TOPOS
+       			 </button>      		
+      		</div>
 		</div>
-    
+</div>   
     <div id="ocultar"></div>
    
 
 
 <!-- ######### -->
-	<div id="vertical-menu">
-     
-     	<a href="#" class="show_hide" id="plus">+</a>
-      	<div class="css-treeview">
-      	
+	<div id="mevesnomeves" onclick="myFunction()">Ocultar árbol</div>
+       	<div class="css-treeview" id="vertical-menu">  	
+        <h2>Árbol de paneles</h2> <!-- <a href="#" class="show_hide" id="plus">+</a>
       	<div class="slidingDiv" style="display: block;">  
  			Check out the updated jQuery plugin for doing this: 
-  			<a href="http://papermashup.com/jquery-show-hide-plugin/" class="show_hide" target="_blank" style="display: inline;">jQuery Show / Hide Plugin</a>
-        <h2>Árbol de paneles</h2> <!-- <span onclick="myFunction()">Ocultar</span></h2> -->
+  			<a href="http://papermashup.com/jquery-show-hide-plugin/" class="show_hide" target="_blank" style="display: inline;">jQuery Show / Hide Plugin</a> -->
         <ul>
-        	<li><a href="./">item</a></li>
-			<li><a href="./">item</a></li>
-			<li><input type="checkbox" id="item-0" /><label for="item-0">folder</label>
-			    <ul>
-			        <li><input type="checkbox" id="item-0-0" /><label for="item-0-0">folder</label>
-			            <ul>
-			                <li><input type="checkbox" id="item-0-0-0" /><label for="item-0-0-0">folder</label>
-			                    <ul>
-			                        <li><a href="./">item</a></li>
-			                        <li><a href="./">item</a></li>
-			                        <li><a href="./">item</a></li>
-			                        <li><a href="./">item</a></li>
-			                    </ul>
-			                </li>
-			            </ul>
-			        </li>
-			    </ul>
+        	<li>
+        		<a href="./">item</a></li>
+			<li>
+				<a href="./">item</a></li>
+			<li>
+				<input type="checkbox" id="item-0" />
+				<label for="item-0">folder</label>
+				    <ul>
+				        <li>
+					        <input type="checkbox" id="item-0-0" />
+					        <label for="item-0-0">folder</label>
+					            <ul>
+					                <li>
+						                <input type="checkbox" id="item-0-0-0" />
+						                <label for="item-0-0-0">folder</label>
+						                    <ul>
+						                        <li><a href="./">item</a></li>
+						                        <li><a href="./">item</a></li>
+						                        <li><a href="./">item</a></li>
+						                        <li><a href="./">item</a></li>
+						                    </ul>
+					                </li>
+					            </ul>
+				        </li>
+				    </ul>
 			</li>
         </ul>
          </div> 
@@ -122,15 +135,15 @@
 <!-- ######### -->
 
  <!-- ########################################### -->
-<div class="flex-container">
+<div id="mymap">
 	<div class="center-map">
 	    <div id="mapid"></div>
 	</div>
-
 </div>	 
+
 <!-- ########################################### -->
       
-
+<div class="myposition">
 		<div class="flex-container">
             <h2>Operaciones varias</h2>
             
@@ -153,9 +166,8 @@
             <p>Cargar TOPO json</p>
             <button class="btn btn-primary" id="boton_query4" type="button">query4</button>
       		</div>
-    
-      		
        </div>
+</div>
 
     </body>
 </html>
