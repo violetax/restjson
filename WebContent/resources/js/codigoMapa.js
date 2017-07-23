@@ -51,83 +51,7 @@ initialLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png
 
 initialLayer.addTo(mymap);
 
-//EXTENDER GEOJSON
 
-//NOTI:
-// metodo addData belongs to layer which is added to map, ie: 
-	//	var myLayer = L.geoJSON().addTo(map);
-	//	myLayer.addData(geojsonFeature);
-// ¿¿ Entonces es en la propia layer que metemos los style, onEachFeature, ...???
-L.TopoJSON = L.GeoJSON.extend({  
-	  addData: function(jsonData) {    
-	    if (jsonData.type === "Topology") {
-	      for (key in jsonData.objects) {
-	        geojson = topojson.feature(jsonData, jsonData.objects[key]);
-	        L.GeoJSON.prototype.addData.call(this, geojson);
-	      }
-	    }    
-	    else {
-	      L.GeoJSON.prototype.addData.call(this, jsonData);
-	    }
-	  }  
-	});
-
-//////////////### TOPO JSON ##### ///////////////////////////
-var topoLayer = new L.TopoJSON(null,{
-    'style': function (feature) {
-        console.log(feature.properties.panelId.compania);
-        return {
-            'color': 'red'
-        };
-    },
-    pointToLayer: function (feature, latlng) {
-                return L.marker(latlng, {icon: icon_PanSolar_NEGRO});    
-    }
-    
-    
-});
-//$countryName = $('.center-map'),
-colorScale = chroma
-	.scale(['#D5E3FF', '#003171'])
-	.domain([0,1]);
-
-/////////########## AUTO AJAX ##########////////////////////////////////////
-
-var topoData;
-var interval=0;
-
-//setInterval(ajaxCall, 7500);
-
-$("#btn_topos").on("click", function() {
-	
-	interval++;
-	topoData = "resources/topojson/periodo." + interval + ".periodoFEATCOL.topo.json";
-	console.log(topoData);
-	
-	$.getJSON(topoData).done(addTopoData);
-	$.getJSON(topoData, function( data ) {
-		
-		$.each( data.objects, function(  ) {
-			//  var arr = [Object(data.objects)];		
-		 console.log(data.objects);
-		 
-		  });
-		});
-	
-	function addTopoData(topoData){  
-	  topoLayer.addData(topoData);
-	  topoLayer.addTo(mymap);
-	};
-})
-
-function addTopoData(topoData){  
-  topoLayer.addData(topoData);
-  topoLayer.addTo(mymap);
-};
-
-function ajaxCall(){
-	
-};
 /////////########## BOTONES ##########////////////////////////////////////
 //CAPA CON TODOS LOS PANELES ##########/////////////////////////////////
 
@@ -190,6 +114,7 @@ $("#boton_cargarTodosGeoJPoint").on("click",function(e){
 
 /////////////////////////////////////////////////////////////////////////////
 //////************** QUERIES ********##################//////////////////////
+//OPENDATA
 $("#boton_query1").click(function(){
 	
 		//PLUG&PLAY 
@@ -209,9 +134,11 @@ $("#boton_query1").click(function(){
 	lcontrol_query1 = L.control.layers(baseLayers, overlayLayers, {collapsed: false}).addTo(mymap);
 });
 
+//SHOWLAYER
 $("#boton_query2").click(function(){
 	
-	url='http://localhost:3000/api/maplayers';
+	//url='http://localhost:3000/api/maplayers';
+	url='http://localhost:3000/api/parques';
 	
 	$.getJSON(url, function(result) {
 		console.log(result);
@@ -226,6 +153,7 @@ $("#boton_query2").click(function(){
 	
 });
 
+//QUERYLAYER
 $("#boton_query3").click(function(){
 	
 	url='http://localhost:3000/api/query';
@@ -249,100 +177,28 @@ $("#boton_query3").click(function(){
 	
 });
 
+//EMPTY
 $("#boton_query4").click(function(){
 	
 	//url='http://localhost:3000/api/getallPanelesOnePeriod';
 	var topoData = "resources/topojson/periodo.1.periodoFEATCOL.topo.json";
 	
-	$.getJSON(topoData) 
-		 .done(addTopoData);
-		console.log(topoData);
+	url='http://localhost:3000/api/maplayers';
+
+	
+	$.getJSON(url, function(result) {
+		console.log(result);
+		addLayer(result);
+		
+		/*for (var x = 0; x < result.length; x++) {
+			lng = result[x].geometry.coordinates[0];
+			lat = result[x].geometry.coordinates[1];
+		}
+		*/
 	});
-
-/* console.log(topoLayer
- * options: ? unknow lenght Object
- * _layers: 57 a 297 Object: each is a 
- * 		## feature === geojson === panel: 
- * 			has geometry.coordinates[lng,lat], properties. ##
- * 	 
- */
-/* addTopoData DEFINIDA ARRIBA ***
-	function addTopoData(topoData){  
-	  topoLayer.addData(topoData);
-	  topoLayer.addTo(mymap);
-	  topoLayer.eachLayer(handleLayer);
-	};
-*/	  
-	 function onEachFeature(feature, layer) {
-	        layer.on({
-	            mouseover: highlightFeature,
-	            mouseout: resetHighlight,
-	            click: zoomToFeature
-	        });
-	    }
-	    function resetHighlight(e) {
-	        polska.resetStyle(e.target);
-	        info.update();
-	    }
-	    function zoomToFeature(e) {
-	        map.fitBounds(e.target.getBounds());
-	    }
 	
-	/////COPY TOPO_MAP_EX
-//NOT GO 
-	 function handleLayer(layer){
-	        var randomValue = Math.random(),
-	          fillColor = colorScale(randomValue).hex();
+});
 
-	        layer.on({
-	          mouseover : enterLayer,
-	          mouseout: leaveLayer
-	        });
-	    }
-	    
-	 function enterLayer(){
-	      var countryName = this.feature.properties.name;
-	      //$('#ocultar').html("holahola").show();
-	      
-	      
-	      
-	      /* NOT FUNCTIONS:" 
-	      this.bringToFront();
-	      this.setStyle({
-	        weight:2,
-	        opacity: 1
-	      });*/
-	    }
-	 
-	    function leaveLayer(){
-	    	 //$('#ocultar').hide();
-	    	
-	    	/* NOT FUNCTIONS:" 
-	      this.bringToBack();
-	      this.setStyle({
-	        weight:1,
-	        opacity:.5
-	      });*/
-};
-	
-///////// END OF COPY //////////////////////
-
-
-	/*
- ###
-L.TopoJSON = L.GeoJSON.extend({  
-	  addData: function(jsonData) {    
-	    if (jsonData.type === "Topology") {
-	      for (key in jsonData.objects) {
-	        geojson = topojson.feature(jsonData, jsonData.objects[key]);
-	        L.GeoJSON.prototype.addData.call(this, geojson);
-	      }
-	    }    
-	    else {
-	      L.GeoJSON.prototype.addData.call(this, jsonData);
-	    }
-	  }  
-	});*/
 
 	
 
@@ -393,6 +249,7 @@ L.TopoJSON = L.GeoJSON.extend({
 
 //MOSTRAR LAS COORDENADAS DEL PUNTO EN PANTALLA ##########///////////////////////////////////////////////////////////////////////
 mymap.on('click', getCoordinates);
+
 
 //MARCAR VARIOS PUNTOS EN PANTALLA ##########///////////////////////////////////////////////////////////////////////
 //mymap.on('contextmenu', getCoordinatesBunch);

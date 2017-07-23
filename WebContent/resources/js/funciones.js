@@ -35,21 +35,49 @@ function addLayer(layer) {
   	}
       leaf_layer = L.geoJson(layer, {
       	style: function(feature) {
-              switch (feature.properties.style) {
-              case 'Orange': return {
-                  fillColor: "#e9bc3b",
-                  color: "#ac8613",
-                  opacity: 1,
-                  fillOpacity: 0.8 
-              };
-              case 'Blue': return {
-                  fillColor: "#0099ff",
-                  color: "#005f9d",
-                  opacity: 1,
-                  fillOpacity: 0.8 
-              };
-          }
-          }
+      		 /*		
+            switch (feature.properties.style) {
+            case 'Orange': return {
+                fillColor: "#e9bc3b",
+                color: "#ac8613",
+                opacity: 1,
+                fillOpacity: 0.8 
+            };
+            case 'Blue': return {
+                fillColor: "#0099ff",
+                color: "#005f9d",
+                opacity: 1,
+                fillOpacity: 0.8 
+            };}}
+     */
+      		switch (feature.properties.name) {
+            case 'Parque Alava': 
+          	  console.log("Alava");
+            return {
+                fillColor: "#e9bc3b",
+                color: "#ac8613",
+                opacity: 1,
+                fillOpacity: 0.8 
+            };
+            case 'Parque Bizkaia': 
+          	  console.log("Bizkaia");
+          	  return {
+                fillColor: "#0099ff",
+                color: "#005f9d",
+                opacity: 1,
+                fillOpacity: 0.8 
+            };
+            case 'Parque Gipuzkoa': 
+          	  console.log("Gipuzkoa");
+          	  return {
+                fillColor: "#0099ff",
+                color: "#005f9d",
+                opacity: 1,
+                fillOpacity: 0.8 
+            };}}
+   
+          
+      		
       }).addTo(mymap);
       layerArr.push(leaf_layer);
  }
@@ -74,9 +102,8 @@ function getCoordinates(ev) {
 		       	fillColor: '#f03',
 		       	fillOpacity: 0.5
 		       }).addTo(mymap);
-	
-		    $('#ocultar').show();
-			$('#ocultar').html(nuevoPunto);
+		    document.getElementById("ocultar").style.display = 'block'; //'none'
+		    document.getElementById("ocultar").textContent = nuevoPunto;
 };
 
 
@@ -94,7 +121,5 @@ function getCoordinatesBunch(ev) {
 		       }).addTo(mymap);
 		  
 		jcoorsArr.push(clickCircle2);		    
-		  //  $('#ocultar').show();
-		  //  $('#ocultar').append(jsonCoords);
 
 };

@@ -21,13 +21,14 @@
      <!-- Leaflet style. REQUIRED! -->
 	<link rel="stylesheet" href="http://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />    
     
-     <script src="//cdnjs.cloudflare.com/ajax/libs/chroma-js/0.5.9/chroma.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/chroma-js/0.5.9/chroma.min.js"></script>
     <script src="resources/js/jquery-3.2.1.min.js"></script>
  	<script src="resources/js/jquery-ui.min.js"></script>
  	
  	<link rel="stylesheet" href="resources/js/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="resources/js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-        
+    <link rel="shortcut icon" href="">   
+       
  	<script src="http://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
   	
   	<script type="text/javascript" src="resources/js/geojson.min.js"></script>
@@ -36,6 +37,8 @@
  <!-- <script type="text/javascript" src="resources/js/turf.min.js'></script>  -->
  	<script type="text/javascript" src="resources/js/variables.js"></script>
  	<script type="text/javascript" src="resources/js/funciones.js"></script>
+
+	<script type="text/javascript" src="resources/js/onthefly.js"></script>
 	<script type="text/javascript" src="resources/js/codigoMapa.js"></script>
   <!--  LEAFLET -->
 
@@ -55,163 +58,232 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">     <div class="container">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">     
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+       <!--   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> -->
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
        </button>
-    <a class="navbar-brand" href="#">Proyecto: representación de de queries en un mapa</a>
+    <button class="btn btn-success" id="boton_crearGeoJPoint" type="button">Crear</button>
+    <button class="btn btn-warning" id="boton_cargarTodosGeoJPoint" type="button">Mostrar</button>
+    <button class="btn btn-warning" id="boton_limpiar" type="button">Limpiar</button>
+    <button id="btn_topos" type="button" class="btn btn-info btn-xl">
+    	<span class="glyphicon glyphicon-cog">TOPOS</span></button>
+    <button class="btn btn-basic" id="boton_query1" type="button">OpenData</button>
+    <button class="btn btn-basic" id="boton_query2" type="button">ShowLayer</button>
+   	<button class="btn btn-basic" id="boton_query3" type="button">QueryLayer</button>
+    <button class="btn btn-basic" id="boton_query4" type="button">Empty</button>     		
     </div>
 </nav>
+<div class="spacer">
+    &nbsp;
+</div>
 <div id='main'>
-
 <!-- #####  VERT MENU ###### -->
-<nav>
-  <div class="acidjs-css3-treeview" id="vertical-menu"> 
-    <ul>
-       <li>
-       <input type="checkbox" id="node-0" checked="checked" /><label><input type="checkbox" /><span></span></label>
-       <label for="node-0">Libraries</label>
-       <ul>
-          <li>
-          <input type="checkbox" id="node-0-0" checked="checked" /><label><input type="checkbox" /><span></span></label> 
-          <label for="node-0-0">Documents</label>
-          <ul>
-             <li>
-	             <input type="checkbox" id="node-0-0-0" checked="checked" /><label><input type="checkbox" /><span></span></label>
-	             <label for="node-0-0-0">My Documents</label>
-	             <ul>
-	                <li>
-	                <input type="checkbox" id="node-0-0-0-0" /><label><input type="checkbox" /><span></span></label>
-	                <label for="node-0-0-0-0">Downloads</label>
-	                </li>
-	                <li>
-	                <input type="checkbox" id="node-0-0-0-1" /><label><input type="checkbox" /><span></span></label>
-	                <label for="node-0-0-0-1">Projects</label>
-	                </li>
-	             </ul>
-            </li>
-        </ul>
-        </li>
-        <li>
-        <input type="checkbox" id="node-0-1" /><label><input type="checkbox" /><span></span></label>
-        <label for="node-0-1">Music</label>
-        <ul>
-        <li>
-        	<input type="checkbox" id="node-0-1-0" /><label><input type="checkbox" /><span></span></label>
-        	<label for="node-0-1-0">My Music</label>
-        </li>
-        <li>
-        	<input type="checkbox" id="node-0-1-1" /><label><input type="checkbox" /><span></span></label>
-        	<label for="node-0-1-1">Public Music</label>
-        </li>
-        </ul>
-        </li>
-        <li>
-        <input type="checkbox" id="node-0-2" /><label><input type="checkbox" /><span></span></label>
-        <label for="node-0-2">Pictures</label>
-        <ul>
-        	<li>
-               <input type="checkbox" id="node-0-2-0" /><label><input type="checkbox" /><span></span></label>
-               <label for="node-0-2-0">My Pictures</label>
-            </li>
-            <li>
-               <input type="checkbox" id="node-0-2-1" /><label><input type="checkbox" /><span></span></label>
-               <label for="node-0-2-1">Public Pictures</label>
-            </li>
-            </ul>
-            </li>
-            <li>
-               <input type="checkbox" id="node-0-3" checked="checked" /><label><input type="checkbox" checked="checked" />
-               <span></span></label><label for="node-0-3">Video</label>
-            <ul>
-               <li>
-               	<input type="checkbox" id="node-0-3-0" /><label><input type="checkbox" checked="checked" /><span></span>
-               	</label><label for="node-0-3-0">My Videos</label>
-               </li>
-               <li>
-               	<input type="checkbox" id="node-0-3-1" /><label><input type="checkbox" checked="checked" /><span></span>
-               	</label><label for="node-0-3-1">Public Videos</label>
-               </li>
-            </ul>
-            </li>
-        </ul>
-        </li>
-    </ul>
+
+
+<navi>
+
+ <div class="acidjs-css3-treeview" id="vertical-menu"> 
+<ul>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-0" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid1"/><span></span></label>
+	  		      <label for="node-0-0-0-0"> companias[0] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid1"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid1"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid1"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-1" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid2"/><span></span></label>
+	  		      <label for="node-0-0-0-1"> companias[1] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid2"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid2"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid2"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-2" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid3"/><span></span></label>
+	  		      <label for="node-0-0-0-2"> companias[2] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid3"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid3"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid3"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-3" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid4"/><span></span></label>
+	  		      <label for="node-0-0-0-3"> companias[3] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid4"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid4"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid4"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-4" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid5"/><span></span></label>
+	  		      <label for="node-0-0-0-4"> companias[4] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid5"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid5"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid5"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-5" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid6"/><span></span></label>
+	  		      <label for="node-0-0-0-5"> companias[5] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid6"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid6"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid6"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-6" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid7"/><span></span></label>
+	  		      <label for="node-0-0-0-6"> companias[6] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid7"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid7"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid7"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-7" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid8"/><span></span></label>
+	  		      <label for="node-0-0-0-7"> companias[7] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid8"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid8"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid8"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-8" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid9"/><span></span></label>
+	  		      <label for="node-0-0-0-8"> companias[8] + </label>
+		          
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid9"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid9"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid9"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-9" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid10"/><span></span></label>
+	  		      <label for="node-0-0-0-9"> companias[9] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid10"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid10"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid10"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-10" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid11"/><span></span></label>
+	  		      <label for="node-0-0-0-10"> companias[10] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid11"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid11"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid11"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-11" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid12"/><span></span></label>
+	  		      <label for="node-0-0-0-11"> companias[11] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid12"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid12"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid12"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-12" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid13"/><span></span></label>
+	  		      <label for="node-0-0-0-12"> companias[12] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid13"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid13"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid13"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-13" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid14"/><span></span></label>
+	  		      <label for="node-0-0-0-13"> companias[13] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid14"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid14"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid14"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-14" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid15"/><span></span></label>
+	  		      <label for="node-0-0-0-14"> companias[14] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid15"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid15"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid15"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-15" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid16"/><span></span></label>
+	  		      <label for="node-0-0-0-15"> companias[15] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid16"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid16"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid16"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-16" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid17"/><span></span></label>
+	  		      <label for="node-0-0-0-16"> companias[16] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid17"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid17"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid17"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-17" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid18"/><span></span></label>
+	  		      <label for="node-0-0-0-17"> companias[17] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid18"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid18"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid18"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-18" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid19"/><span></span></label>
+	  		      <label for="node-0-0-0-18"> companias[18] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid19"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid19"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid19"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</li>
+<li><input type="checkbox" class="ctrlCB" id="node-0-0-0-19" /><label>
+				  <input type="checkbox" class="ctrlCB" id="inputid20"/><span></span></label>
+	  		      <label for="node-0-0-0-19"> companias[19] + </label>
+<ul><li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-0" /><label><input type="checkbox" class="ctrlCB" id="inputid20"/><span></span></label><label for="node-0-0-0-0-0"> XXXXX </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-1" /><label><input type="checkbox" class="ctrlCB" id="inputid20"/><span></span></label><label for="node-0-0-0-0-1"> YYYYY </label></li>
+<li> <input type="checkbox" class="ctrlCB" id="node-0-0-0-0-2" /><label><input type="checkbox" class="ctrlCB" id="inputid20"/><span></span></label><label for="node-0-0-0-0-2"> ZZZZZ </label></li>
+</ul>
+</ul>
 </div>
-</nav>     
-<!-- ##### //// VERT MENU ###### -->
 
 
-<!-- ## TOP MENU ## -->
+<form class="" id="selectLayerForm" >
+
+<fieldset>
+	<input type="radio" name="visiblelayer" value="energia" checked/>
+		<label for="layerEnergia"> Energía </label>
+</fieldset>
+<fieldset>		
+	<input type="radio" name="visiblelayer" value="temperatura"/>
+		<label for="layerTemperatura"> Temperatura </label>
+</fieldset>
+<fieldset>		
+	<input type="radio" name="visiblelayer" value="viento"/>
+		<label for="layerViento"> Velocidad de viento </label>
+</fieldset>
+<fieldset>	
+	<input type="radio" name="visiblelayer" value="companias"/>
+		<label for="layerCompanias"> Compañias </label>	
+</fieldset>
+</form>
+
+
+
+</navi>     
+
 <article>
-		<div class="flex-container">
-		 	 <div class="flex-item">
-      			<p>Crear un panel</p>
-                <button class="btn btn-success" id="boton_crearGeoJPoint" type="button">Crear</button>
-      		 </div>
-      		 <div class="flex-item">
-      			<p>Mostrar todos los paneles</p>
-                <button class="btn btn-primary" id="boton_cargarTodosGeoJPoint" type="button">Mostrar</button>
-      		</div>
-      		 <div class="flex-item">
-      		 	<p>Despejar mapa</p>
-         		<button class="btn btn-warning" id="boton_limpiar" type="button">Limpiar</button>
-      		</div>
-      		<div class="flex-item">
-      			<p>Pruebas</p>
-         		<button id="btn_topos" type="button" class="btn btn-warning btn-xl">
-          			<span class="glyphicon glyphicon-cog">TOPOS</span> 
-       			</button>      		
-      		</div>
-		</div>
-
-<div id="ocultar"></div>
-
-<!-- ## //// TOP MENU ## -->
-
-
- <!-- #############   MAP ################### -->
-
-<div id="mymap">
-	<div class="center-map">
-	    <div id="mapid"></div>
-	</div>
-</div>	 
-
-<!-- ##############   /// MAP    #################### -->
-
-<!-- ## LOWER MENU ## -->
-
-		<div class="flex-container">
-            
-             <div class="flex-item">
-        	    <p>Cargar desde opendata</p>
-        	    <button class="btn btn-primary" id="boton_query1" type="button">query1</button>
-             </div>
-             
-             <div class="flex-item">
-       		     <p>Añadir una capa GEO json</p>
-       		     <button class="btn btn-primary" id="boton_query2" type="button">query2</button>
-     		 </div>
-     		 
-     		 <div class="flex-item">
-     		    <p>Query sobre una capa GEO json</p>
-   		        <button class="btn btn-primary" id="boton_query3" type="button">query3</button>
-             </div>
-            
-             <div class="flex-item">
-     	       <p>Cargar TOPO json</p>
-     	       <button class="btn btn-primary" id="boton_query4" type="button">query4</button>
-      		</div>
-       </div>
+	 <div id="ocultar"></div>
+	 <div id="mapid"></div>
 </article>
-<aside></aside>
+
 </div>
-<!-- ## ////   LOWER MENU ## -->
+
 <footer></footer>
+
 </body>
 </html>
