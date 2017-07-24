@@ -74,7 +74,9 @@ body {
    background: white;
    }
    
-
+#vertical-menu {
+	padding: 20px;
+}
  
 
   
@@ -117,7 +119,7 @@ http://martinivanov.net/tag/html5-treeview/ */
     vertical-align: top;
     text-align: center;
     color: #e74c3c;
-    font-size: 8px;
+    font-size: 10px;
     line-height: 13px;
 }
  
@@ -133,7 +135,7 @@ http://martinivanov.net/tag/html5-treeview/ */
  
 .acidjs-css3-treeview
 {
-    font: normal 11px/16px "Segoe UI", Arial, Sans-serif;
+    font: normal 16px/16px "Segoe UI", Arial, Sans-serif;
 }
  
 .acidjs-css3-treeview li
