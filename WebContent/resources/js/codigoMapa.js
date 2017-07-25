@@ -258,6 +258,18 @@ mymap.on('click', getCoordinates);
 
 $("#boton_limpiar").on("click",function(e){
 	
+	
+	for (var i=0; i < markerArrEN.length; i++) {
+			mymap.removeLayer(markerArrEN[i]);
+		}	
+	for (var i=0; i < markerArrTE.length; i++) {
+			mymap.removeLayer(markerArrTE[i]);
+		}	
+	for (var i=0; i < markerArrVI.length; i++) {
+			mymap.removeLayer(markerArrVI[i]);
+		}	
+		
+	
 	for (var i=0; i < markerArr.length; i++) {
 		mymap.removeLayer(markerArr[i]);
 		};

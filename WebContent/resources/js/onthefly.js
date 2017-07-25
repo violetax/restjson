@@ -2,6 +2,40 @@ $.noConflict();
 
 jQuery( function( $ ) {
 	
+	
+///// FLUJO DE INFO /////////
+var flujoCount = 1;
+var topoData ;
+var intervalFunc = setInterval(flowTopoData, 500); 
+
+var limpiarMarkers = function() {
+	for (var i=0; i < markerArrEN.length; i++) {
+			mymap.removeLayer(markerArrEN[i]);
+		}	
+	for (var i=0; i < markerArrTE.length; i++) {
+			mymap.removeLayer(markerArrTE[i]);
+		}	
+	for (var i=0; i < markerArrVI.length; i++) {
+			mymap.removeLayer(markerArrVI[i]);
+		}	
+}
+$("#boton_limpiar").on("click",function(e){
+	
+	limpiarMarkers();
+});
+		
+
+function flowTopoData () {	
+	topoData = "resources/topojson/periodo." + flujoCount + ".periodoFEATCOL.topo.json";
+	flujoCount++
+	if (flujoCount>= 96) {	
+		flujoCount = 1
+		//clearInterval(intervalFunc);
+		console.log("¡Ciclo hecho!")
+	}
+}
+
+	
 	L.TopoJSON = L.GeoJSON.extend({  
 		  addData: function(jsonData) {    
 		    if (jsonData.type === "Topology") {
@@ -201,18 +235,16 @@ jQuery( function( $ ) {
 	 			mymap.removeLayer(markerArrVI[i]);
 	 		}	
 
-		var topoData;
-		var interval=0;		
-		
-		var intervalFunc = setInterval(ajaxCall, 500); 
-		function ajaxCall(){
-			interval++;
-			topoData = "resources/topojson/periodo." + interval + ".periodoFEATCOL.topo.json";
+
+		//var intervalFunc = setInterval(ajaxCall, 500); 
+		//function ajaxCall(){
+		//	interval++;
+		//	topoData = "resources/topojson/periodo." + interval + ".periodoFEATCOL.topo.json";
 			$.getJSON(topoData).done(addTopoData);
-			if (interval>= 1) {
-				clearInterval(intervalFunc);
-			}
-		};	
+		//	if (interval>= 1) {
+		//		clearInterval(intervalFunc);
+		//	}
+	//	};	
 		
 
 		function addTopoData(topoData){ 
@@ -224,12 +256,8 @@ jQuery( function( $ ) {
 			 arr = markerArrEN; 
 	         for (var i=0; i < arr.length; i++) {
 	 			mymap.removeLayer(arr[i]);
-	 		}
-	         
-	    	 topoLayer.addData(topoData);
-			 topoLayer.addTo(mymap);	
-		//	 console.log(topoData);
-			 
+	 		}         
+	    	 topoLayer.addData(topoData);		 
 			};			
 		
 		
@@ -245,18 +273,10 @@ jQuery( function( $ ) {
 
 	$("#btn_topos_3paras").on("click", function() {		
 
-		var topoData;
-		var interval=0;		
-		
-		var intervalFunc = setInterval(ajaxCall, 500); 
-		function ajaxCall(){
-			interval++;
-			topoData = "resources/topojson/periodo." + interval + ".periodoFEATCOL.topo.json";
-			$.getJSON(topoData).done(addTopoData);
-			if (interval>= 1) {
-				clearInterval(intervalFunc);
-			}
-		};	
+	//	var intervalFunc = setInterval(ajaxCall, 500); 
+	//	function ajaxCall(){
+			$.getJSON(topoData).done(addTopoData);			
+	//	};	
 		
 		function addTopoData(topoData){ 
 			
@@ -287,25 +307,31 @@ jQuery( function( $ ) {
 //////###### BUSCADOR ##################///////////////////////
 function buscarPanel() {
 		
-		var $valId =  $('input[id="identificador"]');  
-		var $valCompany = $('#compania option:selected');   		
-	
-		console.log($valId.val());
-		console.log($valCompany.text());
-		
-		//var checkedCo = $.trim($label.text());
-		
-		var isChecked = false;
-		if(isChecked === false) {			
-		 	isChecked = true;
-		} else {		
-			var indexCheckedCo = checkedCompaniesArr.indexOf(checkedCo);
-			if (indexCheckedCo > -1) {			
-				checkedCompaniesArr.splice(indexCheckedCo, 1);
+			var $valId =  $('input[id="identificador"]').val();  
+			var $valCompany = $('#compania option:selected').text();   		
+			var topoLayerBusqueda = new L.TopoJSON(null, {filter: layerFilter});
+			
+			function layerFilter(feature) {
+				if (!$valId) {
+					if (feature.properties.panelId.compania === $valCompany) return true
+				} else if ($valCompany === "Escoja") {
+					if (feature.properties.panelId.compania === $valId) return true
+				} else if (feature.properties.panelId.compania === $valCompany && feature.properties.panelId.compania === $valId ) {
+					return true
+				} else {
+					return;			
+				}
+				  
+				}
+			
+			$.getJSON(topoData).done(addTopoData);
+			limpiarMarkers();
+			
+			function addTopoData(topoData){ 				
+					topoLayerBusqueda.addData(topoData);
+					topoLayerBusqueda.addTo(mymap);						
+				console.log(topoData.features);
 			}
-			isChecked = false;
-		}	 	   
-
 }; //END OF function for btn_BUSCADOR
 
 
