@@ -16,8 +16,8 @@ jQuery( function( $ ) {
 		  }  
 		});
 
-
-	//////////////### TOPO JSON ##### ///////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////### DEFINIR LAYERS TOPO JSON ##### /////////////////
 	
 	//VARIABLE FEATURE COLLECTIONS
 	//7: energia, humedad, inclinacion, insolacion, orientacion,temperatura, viento
@@ -49,11 +49,7 @@ jQuery( function( $ ) {
 	var rangoViento4 = 20;
 	var rangoViento5 = 50;
 	var rangoViento6 = 80;
-	
-	var byCompany = function (feature) {
-		
-	};
-	
+
 	var pointToLayerEnergia = function (feature, latlng) {
 		var energia = feature.properties.energia;
 		if (energia < rangoEnergia1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
@@ -74,103 +70,215 @@ jQuery( function( $ ) {
 		}};
 	var pointToLayerviento = function (feature, latlng) {
 		var velocidadviento = feature.properties.velocidadviento;
-		if (velocidadviento < rangoViento1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return;
-		} else if (velocidadviento < rangoViento2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return;
-		} else if (velocidadviento < rangoViento3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return;
+		if (velocidadviento < rangoViento1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return; 
+		} else if (velocidadviento < rangoViento2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker);  return;
+		} else if (velocidadviento < rangoViento3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker);  return;
 		} else if (velocidadviento < rangoViento4) { marker = L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return;
-		} else if (velocidadviento < rangoViento5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return;
+		} else if (velocidadviento < rangoViento5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker);  return;
 		} else if (velocidadviento < rangoViento6) { marker = L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return;
-		}};
+		}
+	};
+	
+	//////////////////// COMPANIAS ////////////////////////
+	
+
+		
+	///////////
 		
 		var topoLayerEnergia = new L.TopoJSON(null,{
 		    'style': function (feature) {},
-		    pointToLayer: pointToLayerEnergia,
-		    filter: byCompany });
+		    pointToLayer: pointToLayerEnergia});
 		
 		var topoLayerTemperatura = new L.TopoJSON(null,{
 		    'style': function (feature) {},
-		    pointToLayer: pointToLayerTemperatura,
-		    filter: byCompany });
+		    pointToLayer: pointToLayerTemperatura});
 		
 		var topoLayerViento = new L.TopoJSON(null,{
 		    'style': function (feature) {},
-		    pointToLayer: pointToLayerviento,
-		    filter: byCompany });
-		
-//////////////////////////////////////////////////////////////////
-//if not exists at start: $(document).on('change', 'input[type="checkbox"]',function(e,t){
-	/// SHOW SOME COMPANIES ONLY
+		    pointToLayer: pointToLayerviento});
 
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////
+//////###### RECOGER VALORES DE LAS CHECKBOXES ####### ///////////	
+		//flechaCheckBox_ID == label[for=id] == company name
+		//squareCheckBox es lo que el user controla
+		//flechaCheckBox contiene lo que el user quiere
+		
+		
+	// ARRAYS OF IDS
+	var squareCheckBox_Arr_of_ids = [];
+	var flechaCheckBox_Arr_of_ids = [];
+	// ARRAYS OF CHECKED-NOT-CHECKED
+	var checkedCompaniesArr = [];
+	var uncheckedCompaniesArr = [];	
 	
-	var checkboxArr = [];
-	var flechaArr = [];
-	for (var x = 0; x<companias.length; x++ ) {
-		flecha = "node-0-0-0-" + x;
-		checkbox =  "inputid" + x;
-		checkboxArr.push(checkbox);	
-		flechaArr.push(flecha);
-	}
+	for (var x = 0; x<companias.length; x++ ) {		
+		flechaCheckBox = "node-0-0-0-" + x;
+		squareCheckBox =  "inputid" + x;		
+		flechaCheckBox_Arr_of_ids.push(flechaCheckBox);
+		squareCheckBox_Arr_of_ids.push(squareCheckBox);			
+	}	
+	for (var x = 0; x< squareCheckBox_Arr_of_ids.length; x++ ) {	
+		getCompanyName(x);		
+	}	
 	
+	function printArr(arr) {for (var i=0; i<arr.length; i++) {console.log(arr[i]);}}
 	
-	for (var x = 0; x< checkboxArr.length; x++ ) {	
-		getCompany(x);		
-	}
+	//STRIP OF WHITESPACES:
+	//https://stackoverflow.com/questions/360491/how-do-i-strip-white-space-when-grabbing-text-with-jquery
 	
-	
-	function getCompany(x) {			
-		checkboxItem =  $('#' + checkboxArr[x]);
-		flechita =  flechaArr[x]; //$('#' + flechaArr[x]);			
-		checkboxItem.click(function() {	
-			input = $('input[id="' + ) ;
-	 	    $label = $('label[for="' + flechaArr[x] + '"]');
-	 	    console.log($label.text());
+	function getCompanyName(x) {
+		
+		var isChecked = false;
+		var squareCheckBoxItem =  $('#' + squareCheckBox_Arr_of_ids[x]);
+		var flechaCheckBoxItemID =  flechaCheckBox_Arr_of_ids[x]; 		
+		
+		squareCheckBoxItem.click(function() {	
+		$label = $('label[for="' + flechaCheckBox_Arr_of_ids[x] + '"]');  
+		var checkedCo = $.trim($label.text());
+		
+		if(isChecked === false) {			
+			checkedCompaniesArr.push(checkedCo);
+		 	isChecked = true;
+		 	//printArr(checkedCompaniesArr);
+		} else {
+			//https://stackoverflow.com/questions/5767325/how-do-i-remove-a-particular-element-from-an-array-in-javascript
+			var indexCheckedCo = checkedCompaniesArr.indexOf(checkedCo);
+			if (indexCheckedCo > -1) {			
+				checkedCompaniesArr.splice(indexCheckedCo, 1);
+				//printArr(checkedCompaniesArr);
+			}
+			isChecked = false;
+		}	 	   
 			});
 		
 	}
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 	
+///////////////////////////////////////////////////////////////////	
+/////////########## MOSTRAR CAPAS COMPANIAS ##########///////////	
 
+
+	//https://stackoverflow.com/questions/7378228/check-if-an-element-is-present-in-an-array
+	//function isInArray(variable, array){ var count=array.length;for(var i=0;i<count;i++)
+	//    {if(array[i]===variable){return true;}}return false;}
 	
-/////////////////////////////////////////////////////////////////////////			
-
-
-	/////////########## AUTO AJAX ##########////////////////////////////////////
-
-	var topoData;
-	var interval=0;		
-	//for (var i=1; i<97; i++) {setInterval(ajaxCall, 3500); if (i=96) {console.log("Day done!")}}
-		
-	function ajaxCall(){
-		$.getJSON(topoData).done(addTopoData);
-		interval++;
-		topoData = "resources/topojson/periodo." + interval + ".periodoFEATCOL.topo.json";
-		console.log(topoData);
-	};	
+	function isInArray(value, array) {
+		  return array.indexOf(value) > -1;
+		}
 	
-
-	function addTopoData(topoData){ 
-		
-		 var topoLayer = "";
-		 var visibleLayer = $("input[name='visiblelayer']:checked").val();
-         switch (visibleLayer){
-         case "energia": topoLayer = topoLayerEnergia;  arr = markerArrEN; break;
-         case "temperatura": topoLayer = topoLayerTemperatura; arr = markerArrTE; break;
-         case "viento": topoLayer = topoLayerViento; arr = markerArrVI; break;
-         } 
-         
-         for (var i=0; i < arr.length; i++) {
- 			mymap.removeLayer(arr[i]);
- 		}
-    	 topoLayer.addData(topoData);
-		 topoLayer.addTo(mymap);
+	var pointToLayerCompania = function (feature, latlng) {
+		var compania = feature.properties.panelId.compania;
+		var energia = feature.properties.energia;
+		if ( isInArray(compania, checkedCompaniesArr) ) {	
+			if (energia < rangoEnergia1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(compania +": "+ energia + "W").addTo(mymap); markerArrEN.push(marker); return;
+			} else if (energia < rangoEnergia2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(compania +": "+ energia + "W").addTo(mymap); markerArrEN.push(marker); return;
+			} else if (energia < rangoEnergia3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(compania +": "+ energia + "W").addTo(mymap); markerArrEN.push(marker); return;
+			} else if (energia < rangoEnergia4) { marker = L.marker(latlng,{icon: redIcon}).bindTooltip(compania +": "+ energia + "W").addTo(mymap); markerArrEN.push(marker); return;
+			} else if (energia < rangoEnergia5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(compania +": "+ energia + "W").addTo(mymap); markerArrEN.push(marker); return;
+			} else if (energia < rangoEnergia6) { marker = L.marker(latlng,{icon: violetIcon}).bindTooltip(compania +": "+ energia + "W").addTo(mymap); markerArrEN.push(marker); return;
+			}
+		}
 		};
+		
+	var topoLayerCompaniaEnergia = new L.TopoJSON(null,{
+	    pointToLayer: pointToLayerCompania});
 	
+	$("#btn_topos_companias").on("click", function() {	
 
+		console.log(checkedCompaniesArr);
+		
+		if ( isInArray("ACCE", checkedCompaniesArr) ) {	
+			console.log("ACCE IS");
+			} else {
+				console.log("de que hablas?");
+			}
+		
+		var topoData;
+		var interval=0;		
+		
+		var intervalFunc = setInterval(ajaxCall, 500); 
+		function ajaxCall(){
+			interval++;
+			topoData = "resources/topojson/periodo." + interval + ".periodoFEATCOL.topo.json";
+			$.getJSON(topoData).done(addTopoData);
+			if (interval>= 1) {
+				clearInterval(intervalFunc);
+			}
+		};	
+		
+
+		function addTopoData(topoData){ 
+			
+			 var topoLayer = "";
+			 topoLayer = topoLayerCompaniaEnergia; 
+			// console.log(topoLayer);
+			 
+			 arr = markerArrEN; 
+	         for (var i=0; i < arr.length; i++) {
+	 			mymap.removeLayer(arr[i]);
+	 		}
+	         
+	    	 topoLayer.addData(topoData);
+			 topoLayer.addTo(mymap);	
+		//	 console.log(topoData);
+			 
+			};			
+		
+		
+		
+		
+	}); //END OF btn_topos_companias
 	
-	$("#btn_topos").on("click", function() {
-		
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////	
 	
+///////////////////////////////////////////////////////////////////	
+/////////########## MOSTRAR CAPAS 3 PARAMETROS ##########///////////
+
+	$("#btn_topos_3paras").on("click", function() {		
+
+		var topoData;
+		var interval=0;		
 		
+		var intervalFunc = setInterval(ajaxCall, 500); 
+		function ajaxCall(){
+			interval++;
+			topoData = "resources/topojson/periodo." + interval + ".periodoFEATCOL.topo.json";
+			$.getJSON(topoData).done(addTopoData);
+			if (interval>= 1) {
+				clearInterval(intervalFunc);
+			}
+		};	
 		
-	})//END OF TOPOS
+
+		function addTopoData(topoData){ 
+			
+			 var topoLayer = "";
+			 var visibleLayer = $("input[name='visiblelayer']:checked").val();
+	         switch (visibleLayer){
+	         case "energia": topoLayer = topoLayerEnergia;  arr = markerArrEN; break;
+	         case "temperatura": topoLayer = topoLayerTemperatura; arr = markerArrTE; break;
+	         case "viento": topoLayer = topoLayerViento; arr = markerArrVI; break;
+	         } 
+	         
+	    	 console.log(topoLayer);
+	         for (var i=0; i < arr.length; i++) {
+	 			mymap.removeLayer(arr[i]);
+	 		}
+	    	 topoLayer.addData(topoData);
+			 topoLayer.addTo(mymap);	
+			 console.log(topoData);
+			 
+			};	
+		
+	});//END OF btn_topos_3paras
+
+	//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 
 });//END OF JQUERY FUNCTION

@@ -74,6 +74,61 @@
 	
 
 	
+	var topoLayerEnergia = new L.TopoJSON(null,{
+	    'style': function (feature) {},
+	    onEachFeature: function (feature, latlng) {
+			var energia = feature.properties.energia;
+			var marker = feature.properties.panelId.compania + feature.properties.panelId.id;
+			var energiaLayerGroup = L.layerGroup([]);	
+		
+				   if (energia < rangoEnergia1) { energiaLayerGroup.addLayer(L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.energia + "W")); 
+			} else if (energia < rangoEnergia2) { energiaLayerGroup.addLayer(L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.energia + "W")); 
+			} else if (energia < rangoEnergia3) { energiaLayerGroup.addLayer(L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.energia + "W")); 
+			} else if (energia < rangoEnergia4) { energiaLayerGroup.addLayer(L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.energia + "W")); 
+			} else if (energia < rangoEnergia5) { energiaLayerGroup.addLayer(L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.energia + "W")); 
+			} else if (energia < rangoEnergia6) { energiaLayerGroup.addLayer(L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.energia + "W")); 
+			}
+				   console.log(energiaLayerGroup);   
+		},
+	    });
+	
+	var topoLayerTemperatura = new L.TopoJSON(null,{
+	    'style': function (feature) {},
+	    onEachFeature: function (feature) {
+			var temperatura = feature.properties.temperatura;
+			var marker = feature.properties.panelId.compania + feature.properties.panelId.id;
+			var temperaturaLayerGroup = L.layerGroup([]);
+			if (temperatura < rangoTemperatura1) { temperaturaLayerGroup.addLayer(L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.temperatura + "C")); return ; 
+			} else if (temperatura < rangoTemperatura2) { temperaturaLayerGroup.addLayer(L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.temperatura + "C")); return ;  
+			} else if (temperatura < rangoTemperatura3) { temperaturaLayerGroup.addLayer(L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.temperatura + "C")); return ; 
+			} else if (temperatura < rangoTemperatura4) { temperaturaLayerGroup.addLayer(L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.temperatura + "C")); return ; 
+			} else if (temperatura < rangoTemperatura5) { temperaturaLayerGroup.addLayer(L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.temperatura + "C")); return ;  
+			} else if (temperatura < rangoTemperatura6) { temperaturaLayerGroup.addLayer(L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.temperatura + "C")); return ; 
+			}},
+	    filter: byCompany });
+	
+	var topoLayerViento = new L.TopoJSON(null,{
+	    'style': function (feature) {},
+	    onEachFeature: function (feature, latlng) {
+			var velocidadviento = feature.properties.velocidadviento;
+			var vientoLayerGroup = L.layerGroup([]);
+			if (velocidadviento < rangoViento1) { vientoLayerGroup.addLayer(L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h")); return;
+			} else if (velocidadviento < rangoViento2) { vientoLayerGroup.addLayer(L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h")); return;
+			} else if (velocidadviento < rangoViento3) { vientoLayerGroup.addLayer(L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h")); return;
+			} else if (velocidadviento < rangoViento4) { vientoLayerGroup.addLayer(L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h")); return;
+			} else if (velocidadviento < rangoViento5) { vientoLayerGroup.addLayer(L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h")); return;
+			} else if (velocidadviento < rangoViento6) { vientoLayerGroup.addLayer(L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h")); return;
+			}},
+	    filter: byCompany });
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//console.log(checkboxArr[0]);
 	var checkboxArr = [];
 	for (var x in companias.length ) {
