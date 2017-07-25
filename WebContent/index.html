@@ -18,6 +18,7 @@
         </style>
       
     <link rel="stylesheet" href="resources/css/styles.css" >
+    <link rel="stylesheet" href="resources/css/styles-min.css" >
      <!-- Leaflet style. REQUIRED! -->
 	<link rel="stylesheet" href="http://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -66,20 +67,16 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-       </button>
-    <button class="btn btn-success" id="boton_crearGeoJPoint" type="button">Crear</button>
-    <button class="btn btn-warning" id="boton_cargarTodosGeoJPoint" type="button">Mostrar</button>
-    <button class="btn btn-warning" id="boton_limpiar" type="button">Limpiar</button>
+    <button class="btn btn-warning" id="boton_limpiar" type="button">LIMPIAR</button>
     <button id="btn_topos_3paras" type="button" class="btn btn-info btn-xl">
-    	<span class="glyphicon glyphicon-cog">3PARAS</span></button>
+    	<span class="glyphicon glyphicon-circle-arrow-right">	PARÁMETROS</span></button>
     <button id="btn_topos_companias" type="button" class="btn btn-info btn-xl">
-    	<span class="glyphicon glyphicon-cog">COMPAÑIAS</span></button>
-    <button class="btn btn-basic" id="boton_query1" type="button">OpenData</button>
-    <button class="btn btn-basic" id="boton_query2" type="button">ShowLayer</button>
-   	<button class="btn btn-basic" id="boton_query3" type="button">QueryLayer</button>
-    <button class="btn btn-basic" id="boton_query4" type="button">Empty</button>     		
-    </div>
+    	<span class="glyphicon glyphicon-circle-arrow-right">	COMPAÑIAS</span></button> 
+       <button id="btn_BUSCADOR" type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal">
+    	<span class="glyphicon glyphicon glyphicon-search">	BUSCADOR</span></button> 		
+    </div><!-- nav-bar header -->		
 </nav>
+
 <div class="spacer">&nbsp;</div>
 <div id='main'>
 <!-- #####  VERT MENU ###### -->
@@ -171,7 +168,6 @@
 <div class="spacer">&nbsp;</div>
 
 <form class="" id="selectLayerForm" >
-
 <fieldset>
 	<input type="radio" name="visiblelayer" value="energia" checked/>
 		<label for="layerEnergia"> Energía </label>
@@ -186,6 +182,52 @@
 </fieldset>
 </form>
 
+<div class="spacer">&nbsp;</div>
+<div class="btn-group">
+	<button class="btn btn-info mydropdown">Hacer filtro</button>
+	<button class="btn btn-info dropdown-toggle mydropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<span class='caret'></span><span class='sr-only'>Toggle Dropdown</span>
+	</button>
+	<ul class="dropdown-menu">
+		<li><label><input type="checkbox" class="ctrlCB" id="busqueda-panel"/></label>
+			<label for="filtro-panel">Panel ID</label></li>
+		<li><label><input type="checkbox" class="ctrlCB" id="busqueda-compania"/></label>
+			<label for="filtro-compania">Compañia</label></li>
+		<li><label><input type="checkbox" class="ctrlCB" id="busqueda-insolacion"/></label>
+			<label for="filtro-insolacion">Insolación</label></li>
+	</ul>
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Buscar panel</h4>
+      </div>
+      <div class="modal-body">
+        <form id="busqueda-panel">
+            <div class="form-group">
+                <label for="identificador">Identificador</label>
+                <input type="number" min="1" class="form-control" name="identificador" id="identificador" placeholder="Identificador">
+            </div>
+            <div class="form-group">
+                <label for="compania">Compañia</label>
+                <input type="compania" class="form-control" name="compania" id="compania" placeholder="Compañia">
+            </div>
+         </form>
+		</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="modalBtnBuscarPanel">Buscar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
 
 
 </navi>     
@@ -198,6 +240,6 @@
 </div>
 
 <footer></footer>
-
+<div/>
 </body>
 </html>

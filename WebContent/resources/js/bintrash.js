@@ -160,3 +160,50 @@ $(checkboxItem).on('click',function(e,t){
 				    }
 			});
 			 var visibleLayer = $("input[name='visiblelayer']:checked").val();
+/////////////////////////////////////////////////////////////////////////////
+			 
+			 function showOptions() {
+
+
+				  //let $fila = $("<tr>");
+					$fila = $("tr:only-child");
+
+				    let $divDropDown = $("<divX/>", {
+				        class : "btn-group"
+				    });
+
+				    $divDropDown
+				        .append($("<button/>",{
+				            type:"button",
+				            class:"btn btn-info",
+				            text: "Acciones"
+				        }))
+				        .append($("<button/>",{
+				            type:"button",
+				            class:"btn btn-info dropdown-toggle",
+				            "data-toggle":"dropdown",
+				            "aria-haspopup":"true",
+				            "aria-expanded":"false",
+				            html: "<span class='caret'></span><span class='sr-only'>Toggle Dropdown</span>"
+				        }))
+				        .append($("<ul/>",{
+				            class:"dropdown-menu"
+				        })
+				            .append($("<li/>",{
+				                html: "<a href='#'>Editar</a>"
+				            }))
+				            .append($("<li/>",{
+				                html: "<a href='#'>Borrar</a>"
+				            })));
+				            
+				    let $col1 = $("<td>").append($("<input>",{type: 'checkbox',value: "yiuhuu"}));
+				    let $col2 = $("<td>").text("hola");
+				    let $col3 = $("<td>").append($divDropDown);
+
+				    $fila.append($col1).append($col2).append($col3);
+
+				    return $fila;
+				}; //END OF function for btn_BUSCADOR
+
+			 
+			 

@@ -23,6 +23,7 @@ jQuery( function( $ ) {
 	//7: energia, humedad, inclinacion, insolacion, orientacion,temperatura, viento
 	//1: company
 	
+	var markerArrays = ["markerArrEN", "markerArrTE", "markerArrVI"]
 	var markerArrEN = [];
 	var markerArrTE = [];
 	var markerArrVI = [];
@@ -81,8 +82,6 @@ jQuery( function( $ ) {
 	
 	//////////////////// COMPANIAS ////////////////////////
 	
-
-		
 	///////////
 		
 		var topoLayerEnergia = new L.TopoJSON(null,{
@@ -188,16 +187,20 @@ jQuery( function( $ ) {
 	var topoLayerCompaniaEnergia = new L.TopoJSON(null,{
 	    pointToLayer: pointToLayerCompania});
 	
+	
+	
 	$("#btn_topos_companias").on("click", function() {	
+	
+			for (var i=0; i < markerArrEN.length; i++) {
+	 			mymap.removeLayer(markerArrEN[i]);
+	 		}	
+			for (var i=0; i < markerArrTE.length; i++) {
+	 			mymap.removeLayer(markerArrTE[i]);
+	 		}	
+			for (var i=0; i < markerArrVI.length; i++) {
+	 			mymap.removeLayer(markerArrVI[i]);
+	 		}	
 
-		console.log(checkedCompaniesArr);
-		
-		if ( isInArray("ACCE", checkedCompaniesArr) ) {	
-			console.log("ACCE IS");
-			} else {
-				console.log("de que hablas?");
-			}
-		
 		var topoData;
 		var interval=0;		
 		
@@ -255,7 +258,6 @@ jQuery( function( $ ) {
 			}
 		};	
 		
-
 		function addTopoData(topoData){ 
 			
 			 var topoLayer = "";
@@ -266,19 +268,35 @@ jQuery( function( $ ) {
 	         case "viento": topoLayer = topoLayerViento; arr = markerArrVI; break;
 	         } 
 	         
-	    	 console.log(topoLayer);
+	    	// console.log(topoLayer);
 	         for (var i=0; i < arr.length; i++) {
 	 			mymap.removeLayer(arr[i]);
 	 		}
 	    	 topoLayer.addData(topoData);
 			 topoLayer.addTo(mymap);	
-			 console.log(topoData);
+			// console.log(topoData);
 			 
 			};	
 		
 	});//END OF btn_topos_3paras
 
-	//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////
+//////###### BUSCADOR ##################///////////////////////
+function buscarPanel() {
+
+
+  
+}; //END OF function for btn_BUSCADOR
+
+
+$("#btn_BUSCADOR").on("click", function() {		
+	buscarPanel();
+});
+	
+
+            
+	
 });//END OF JQUERY FUNCTION
