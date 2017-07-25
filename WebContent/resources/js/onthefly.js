@@ -286,14 +286,33 @@ jQuery( function( $ ) {
 //////////////////////////////////////////////////////////////////
 //////###### BUSCADOR ##################///////////////////////
 function buscarPanel() {
+		
+		var $valId =  $('input[id="identificador"]');  
+		var $valCompany = $('#compania option:selected');   		
+	
+		console.log($valId.val());
+		console.log($valCompany.text());
+		
+		//var checkedCo = $.trim($label.text());
+		
+		var isChecked = false;
+		if(isChecked === false) {			
+		 	isChecked = true;
+		} else {		
+			var indexCheckedCo = checkedCompaniesArr.indexOf(checkedCo);
+			if (indexCheckedCo > -1) {			
+				checkedCompaniesArr.splice(indexCheckedCo, 1);
+			}
+			isChecked = false;
+		}	 	   
 
-
-  
 }; //END OF function for btn_BUSCADOR
 
 
-$("#btn_BUSCADOR").on("click", function() {		
+
+$("#modalBtnBuscarPanel").on("click", function() {		
 	buscarPanel();
+	$("#myModal").modal('hide');
 });
 	
 

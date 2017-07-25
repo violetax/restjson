@@ -4,7 +4,7 @@
     height: 20px;
 }
 
-.btn { width: 100px; }
+.btn { width: 150px; }
 .btn-group { display: flex; }
 .mydropdown {width: 100%; }
 .dropdown-menu {
@@ -215,7 +215,7 @@ http://martinivanov.net/tag/html5-treeview/ */
     height: 13px;
     vertical-align: top;
     text-align: center;
-    color: #e74c3c;
+    color: #40e0d0;
     font-size: 10px;
     line-height: 13px;
 }
