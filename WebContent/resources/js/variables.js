@@ -44,6 +44,7 @@ var markersCG_busqueda = L.markerClusterGroup();
 //7: energia, humedad, inclinacion, insolacion, orientacion,temperatura, viento
 //1: company
 
+
 var markerArrays = ["markerArrEN", "markerArrTE", "markerArrVI"]
 var markerArrEN = [];
 var markerArrTE = [];

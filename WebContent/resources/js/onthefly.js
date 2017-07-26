@@ -166,54 +166,55 @@ function flowTopoData () {
 		
 //////////////////////////////////////////////////////////////////
 //////###### BUSCADOR ##################///////////////////////
-	function buscarPanel() {
-		
-		limpiarMarkers();
-		
-		//  topoData = "resources/geojson/pruebas.1.topo.json";
+		function buscarPanel() {
 			
-				var $valId_ =  $('input[id="identificador"]').val();
-				var $valId = parseInt($valId_);
-				var $valCompany = $('#compania option:selected').text();   		
+			limpiarMarkers();
+				
+					var $valId_ =  $('input[id="identificador"]').val();
+					var $valId = parseInt($valId_);
+					var $valCompany = $('#compania option:selected').text();   		
+							
+					var pointToLayerBUSQ = function (feature, latlng) {
+						var marker = L.marker(latlng,{icon: icon_PanSolar_NEGRO}); markerArrEN.push(marker);
+						return marker;
+					}; //END pointToLayerBUSQ
+					
+					function filterBUSQ(feature, latlng) {
+						var fpValId = feature.properties.panelId.id;
+						var fpValCompany = feature.properties.panelId.compania;				
+						if (!$valId && fpValCompany === $valCompany) {
+							 return true;
+						} else if ($valId === fpValId && $valCompany === fpValCompany) {
+							return true						
+						} else if (!$valCompany && $valId === fpValId) { 
+							 return true 			
+						} else {
+							return;			
+						}
+						  
+						}; // END filterBUSQ
+					
+					var onEachFeatureBUSQ = function(feature, layer) {
+						var fpValId = feature.properties.panelId.id;
+						var fpValCompany = feature.properties.panelId.compania;	
+						layer.bindPopup("Panel: " + fpValCompany + " ID: " + fpValId );
+					}; //END onEachFeatureBUSQ
 						
-				var pointToLayerBUSQ = function (feature, latlng) {
-					return L.marker(latlng,{icon: icon_PanSolar_NEGRO}); markerArrEN.push(marker)				  
-				}; //END pointToLayerBUSQ
-				
-				function filterBUSQ(feature, latlng) {
-					var fpValId = feature.properties.panelId.id;
-					var fpValCompany = feature.properties.panelId.compania;				
-					if (!$valId && fpValCompany === $valCompany) {
-						 return true;
-					} else if ($valId === fpValId && $valCompany === fpValCompany) {
-						return true						
-					} else if (!$valCompany && $valId === fpValId) { 
-						 return true 			
-					} else {
-						return;			
+					var topoLayerBusqueda = new L.TopoJSON(null, { pointToLayer: pointToLayerBUSQ,
+						filter: filterBUSQ,
+						onEachFeature: onEachFeatureBUSQ});
+						
+					$.getJSON(topoData).done(addTopoData);
+					
+					function addTopoData(topoData){ 				
+							topoLayerBusqueda.addData(topoData);
+							markersCG_busqueda.addLayer(topoLayerBusqueda);
+							mymap.addLayer(markersCG_busqueda);
+							mymap.fitBounds(markersCG_busqueda.getBounds());
+					//	console.log(topoData.features);
 					}
-					  
-					}; // END filterBUSQ
-				
-				var onEachFeatureBUSQ = function(feature, layer) {
-					var fpValId = feature.properties.panelId.id;
-					var fpValCompany = feature.properties.panelId.compania;	
-					layer.bindPopup("Panel: " + fpValCompany + " ID: " + fpValId );
-				}; //END onEachFeatureBUSQ
-					
-				var topoLayerBusqueda = new L.TopoJSON(null, { pointToLayer: pointToLayerBUSQ,
-					filter: filterBUSQ,
-					onEachFeature: onEachFeatureBUSQ});
-					
-				$.getJSON(topoData).done(addTopoData);
-				limpiarMarkers();
-				
-				function addTopoData(topoData){ 				
-						topoLayerBusqueda.addData(topoData);
-						topoLayerBusqueda.addTo(mymap);						
-				//	console.log(topoData.features);
-				}
-	}; //END OF function for btn_BUSCADOR
+		}; //END OF function for btn_BUSCADOR
+		
 
 
 

@@ -8,6 +8,12 @@ function isInArray(value, array) {
 
 /////LIMPIAR MARKERS//////////////////////////////
 var limpiarMarkers = function() {
+	
+if (markersCG_busqueda) {
+	//Caulquiera de los dos metodos: mymap.removeLayer(markersCG_busqueda);
+	markersCG_busqueda.clearLayers();
+}
+
 for (var i=0; i < markerArrEN.length; i++) {
 		mymap.removeLayer(markerArrEN[i]);
 	}	
