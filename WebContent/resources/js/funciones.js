@@ -13,6 +13,14 @@ if (markersCG_busqueda) {
 	//Caulquiera de los dos metodos: mymap.removeLayer(markersCG_busqueda);
 	markersCG_busqueda.clearLayers();
 }
+if (markersCG_COMPANIAS) {
+	//Caulquiera de los dos metodos: mymap.removeLayer(markersCG_busqueda);
+	markersCG_COMPANIAS.clearLayers();
+}
+if (markersCG_PRUEBAS) {
+	//Caulquiera de los dos metodos: mymap.removeLayer(markersCG_busqueda);
+	markersCG_PRUEBAS.clearLayers();
+}
 
 for (var i=0; i < markerArrEN.length; i++) {
 		mymap.removeLayer(markerArrEN[i]);

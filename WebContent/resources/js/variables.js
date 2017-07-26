@@ -40,6 +40,8 @@ var allMarkersLayer = L.layerGroup();
 
 /// MARKER CLUSTERS ///
 var markersCG_busqueda = L.markerClusterGroup();
+var markersCG_COMPANIAS = L.markerClusterGroup();
+var markersCG_PRUEBAS = L.markerClusterGroup();
 //VARIABLE FEATURE COLLECTIONS PARA LAS LAYERS /////////////////////////////////////////////////////////
 //7: energia, humedad, inclinacion, insolacion, orientacion,temperatura, viento
 //1: company
@@ -51,6 +53,9 @@ var markerArrTE = [];
 var markerArrVI = [];
 
 var companias = ["ACCE","AUPN","EEPN","ENDS","EONE","EOPN","FLPN","GDFS","GEPN","GNFE","HCEN","HLPN","IBDR","IMPN","NTRG","NXPN","PEPN","SHEL","SYPN","VMPN"];
+var companiasGrandes = ["ACCE","ENDS","EONE","GDFS","GNFE","HCEN","IBDR","NTRG","SHEL"];
+var companiasPequenas = ["AUPN","EEPN","EOPN","FLPN","GEPN","HLPN","IMPN",,"NXPN","PEPN","SYPN","VMPN"];
+
 //RANGO ENERGIA
 var rangoEnergia1 = 1;
 var rangoEnergia2 = 2;

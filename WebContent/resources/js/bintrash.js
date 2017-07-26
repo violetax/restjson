@@ -1,53 +1,38 @@
-	////////////////////////////////////////////////////////////////
-//////###### BUSCADOR ##################///////////////////////
-	function buscarPanel() {
-		
-		limpiarMarkers();
-		
-		//  topoData = "resources/geojson/pruebas.1.topo.json";
-			
-				var $valId_ =  $('input[id="identificador"]').val();
-				var $valId = parseInt($valId_);
-				var $valCompany = $('#compania option:selected').text();   		
-						
-				var pointToLayerBUSQ = function (feature, latlng) {
-					return L.marker(latlng,{icon: icon_PanSolar_NEGRO}); markerArrEN.push(marker)				  
-				}; //END pointToLayerBUSQ
-				
-				function filterBUSQ(feature, latlng) {
-					var fpValId = feature.properties.panelId.id;
-					var fpValCompany = feature.properties.panelId.compania;				
-					if (!$valId && fpValCompany === $valCompany) {
-						 return true;
-					} else if ($valId === fpValId && $valCompany === fpValCompany) {
-						return true						
-					} else if (!$valCompany && $valId === fpValId) { 
-						 return true 			
-					} else {
-						return;			
-					}
-					  
-					}; // END filterBUSQ
-				
-				var onEachFeatureBUSQ = function(feature, layer) {
-					var fpValId = feature.properties.panelId.id;
-					var fpValCompany = feature.properties.panelId.compania;	
-					layer.bindPopup("Panel: " + fpValCompany + " ID: " + fpValId );
-				}; //END onEachFeatureBUSQ
-					
-				var topoLayerBusqueda = new L.TopoJSON(null, { pointToLayer: pointToLayerBUSQ,
-					filter: filterBUSQ,
-					onEachFeature: onEachFeatureBUSQ});
-					
-				$.getJSON(topoData).done(addTopoData);
-				limpiarMarkers();
-				
-				function addTopoData(topoData){ 				
-						topoLayerBusqueda.addData(topoData);
-						topoLayerBusqueda.addTo(mymap);						
-				//	console.log(topoData.features);
-				}
-	}; //END OF function for btn_BUSCADOR
+//// ******* PENDIENTE ***********////////////
+
+$("#boton_pruebas").on("click",function(){
+	
+	console.log(companias.length);
+	   console.log(checkedCompaniesArr.length);
+	   printArr(checkedCompaniesArr);
+	
+
+//array to store layers for each feature type
+var mapLayerGroups = [];
+/*
+ *for all features:
+ *for each feature type create a layerGroup  
+ *and add each feature to the respective layerGroup
+*/
+function onEachFeature(feature, featureLayer) {
+    //does layerGroup already exist? if not create it and add to map	
+	var lg = mapLayerGroups[feature.properties.panelId.compania];
+	
+    if (lg === undefined) {
+        lg = new L.layerGroup();
+        //add the layer to the map
+        lg.addTo(mymap);
+        //store layer
+        mapLayerGroups[feature.properties.panelId.compania] = lg;	      
+        //add the feature to the layer
+        lg.addLayer(featureLayer); 
+        console.log(feature.properties.panelId.compania);		    
+    }
+	};
+	
+});//END OF PRUEBAS
+
+//////////////////////////////
 	
 	
 	

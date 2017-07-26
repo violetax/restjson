@@ -46,72 +46,78 @@ function flowTopoData () {
 		//flechaCheckBox_ID == label[for=id] == company name
 		//squareCheckBox es lo que el user controla
 		//flechaCheckBox contiene lo que el user quiere
-		
-		
+				
 	// ARRAYS OF IDS
 	var squareCheckBox_Arr_of_ids = [];
 	var flechaCheckBox_Arr_of_ids = [];
 	// ARRAYS OF CHECKED-NOT-CHECKED
 	var checkedCompaniesArr = [];
 	var uncheckedCompaniesArr = [];	
+	var countCheckBoxes = companiasGrandes.length + 1;
 	
-	for (var x = 0; x<companias.length; x++ ) {		
+	for (var x = 0; x < countCheckBoxes; x++ ) {		
 		flechaCheckBox = "node-0-0-0-" + x;
 		squareCheckBox =  "inputid" + x;		
 		flechaCheckBox_Arr_of_ids.push(flechaCheckBox);
 		squareCheckBox_Arr_of_ids.push(squareCheckBox);			
 	}	
-	for (var x = 0; x< squareCheckBox_Arr_of_ids.length; x++ ) {	
-		getCompanyName(x);		
+	for (var x = 0; x < squareCheckBox_Arr_of_ids.length; x++ ) {	
+		getCompanyName(x);		// squareCheckBox_Arr_of_ids.length == 10 == 9 companias + grupo pequenas
 	}	
 	
-	function printArr(arr) {for (var i=0; i<arr.length; i++) {console.log(arr[i]);}}
+	function printArr(arr) {for (var i=0; i<arr.length; i++) {console.log(arr[i]);}} //end function printArr
+	function cleanCheckedCompaniesArr() {		
+		if (checkedCompaniesArr.length > 0) {
+			 for (var i = 0; i < checkedCompaniesArr.length; i++) { 
+				 	delete checkedCompaniesArr[i];
+			 }
+		};
+	}; //end function cleanCheckedCompaniesArr
 	
 	//STRIP OF WHITESPACES:
 	//https://stackoverflow.com/questions/360491/how-do-i-strip-white-space-when-grabbing-text-with-jquery
 	
-	function getCompanyName(x) {
+	function getCompanyName(x) { 
 		
+		var todasChecked = false;
 		var isChecked = false;
 		var squareCheckBoxItem =  $('#' + squareCheckBox_Arr_of_ids[x]);
-		var flechaCheckBoxItemID =  flechaCheckBox_Arr_of_ids[x]; 		
+		var flechaCheckBoxItemID =  flechaCheckBox_Arr_of_ids[x]; 	
 		
-		squareCheckBoxItem.click(function() {	
-		$label = $('label[for="' + flechaCheckBox_Arr_of_ids[x] + '"]');  
-		var checkedCo = $.trim($label.text());
+	
+		var $todasCompanias = $('#inputTodas');
 		
-		if(isChecked === false) {			
-			checkedCompaniesArr.push(checkedCo);
-		 	isChecked = true;
-		 	//printArr(checkedCompaniesArr);
-		} else {
-			//https://stackoverflow.com/questions/5767325/how-do-i-remove-a-particular-element-from-an-array-in-javascript
-			var indexCheckedCo = checkedCompaniesArr.indexOf(checkedCo);
-			if (indexCheckedCo > -1) {			
-				checkedCompaniesArr.splice(indexCheckedCo, 1);
-				//printArr(checkedCompaniesArr);
+		$todasCompanias.click(function() {
+			if(todasChecked === false) {
+				todasChecked = true;
+			} else {
+				cleanCheckedCompaniesArr();
+				todasChecked = false;
 			}
-			isChecked = false;
-		}	 	   
-			});
+		});
+// end $todasCompanias.clic */
+
+		squareCheckBoxItem.click(function() {	
+					$label = $('label[for="' + flechaCheckBox_Arr_of_ids[x] + '"]');  
+					var checkedCo = $.trim($label.text());
+					
+					if(isChecked === false) {			
+						checkedCompaniesArr.push(checkedCo);
+					 	isChecked = true;
+					} else {
+						//https://stackoverflow.com/questions/5767325/how-do-i-remove-a-particular-element-from-an-array-in-javascript
+						var indexCheckedCo = checkedCompaniesArr.indexOf(checkedCo);
+						if (indexCheckedCo > -1) {			
+							checkedCompaniesArr.splice(indexCheckedCo, 1);
+						}
+						isChecked = false;
+					}	 	   
+			}); // end squareCheckBoxItem.click
 		
 	}
 //////////////////////////////////////////////////////////////////
 ////////////////## FUNCIONES LAYERS ###///////////////////////////
 
-	var pointToLayerCompania = function (feature, latlng) {
-		var compania = feature.properties.panelId.compania;
-		var energia = feature.properties.energia;
-		if ( isInArray(compania, checkedCompaniesArr) ) {	
-			if (energia < rangoEnergia1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(compania +": "+ energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-			} else if (energia < rangoEnergia2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(compania +": "+ energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-			} else if (energia < rangoEnergia3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(compania +": "+ energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-			} else if (energia < rangoEnergia4) { marker = L.marker(latlng,{icon: redIcon}).bindTooltip(compania +": "+ energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-			} else if (energia < rangoEnergia5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(compania +": "+ energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-			} else if (energia < rangoEnergia6) { marker = L.marker(latlng,{icon: violetIcon}).bindTooltip(compania +": "+ energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-			}
-		}
-		};
 //////////////////////////////		
 	var pointToLayerEnergia = function (feature, latlng) {
 		var energia = feature.properties.energia;
@@ -157,9 +163,6 @@ function flowTopoData () {
 		    'style': function (feature) {},
 		    pointToLayer: pointToLayerviento});
 
-		var topoLayerCompaniaEnergia = new L.TopoJSON(null,{
-		    pointToLayer: pointToLayerCompania});
-	
 
 //////////////////////////////////////////////////////////////////
 //////////////### BOTONES ##### //////////////////////////////////	
@@ -255,50 +258,123 @@ function flowTopoData () {
 $("#btn_topos_companias").on("click", function() {	
 
 	limpiarMarkers();
-		$.getJSON(topoData).done(addTopoData);
+
+	//var companyName =  getCompanyName(XXXX);						
+	var pointToLayerCOMPANIAS = function (feature, latlng) {
+		var marker = L.marker(latlng,{icon: icon_PanSolar_NEGRO}); markerArrEN.push(marker);
+		return marker;
+	}; //END pointToLayerCOMPANIAS
+	
+	function filterCOMPANIAS(feature, latlng) {
+		var fpCompanyName = feature.properties.panelId.compania;					
+		if (isInArray(fpCompanyName, checkedCompaniesArr)) {
+			
+		return true;
+							  
+		};
+	};// END filterCOMPANIAS
+				
+	var onEachFeatureCOMPANIAS = function(feature, layer) {
+		var fpValId = feature.properties.panelId.id;
+		var fpValCompany = feature.properties.panelId.compania;	
+		layer.bindPopup("Panel: " + fpValCompany + " ID: " + fpValId );
+		//layer.bindTooltip("Energia: "+ feature.properties.energia + "W")
+	}; //END onEachFeatureBUSQ
 		
-	function addTopoData(topoData){ 
+	var topoLayerCOMPANIAS = new L.TopoJSON(null, { pointToLayer: pointToLayerCOMPANIAS,
+		filter: filterCOMPANIAS,
+		onEachFeature: onEachFeatureCOMPANIAS});
 		
-		 var topoLayer = "";
-		 topoLayer = topoLayerCompaniaEnergia;    
-    	 topoLayer.addData(topoData);		 
-		};			
+	$.getJSON(topoData).done(addTopoData);
 	
-	
-	
+	function addTopoData(topoData){ 				
+			topoLayerCOMPANIAS.addData(topoData);
+			markersCG_COMPANIAS.addLayer(topoLayerCOMPANIAS);
+			mymap.addLayer(markersCG_COMPANIAS);
+	}	
 	
 }); //END OF btn_topos_companias
 
 //////////////////////////////////////////////////////////////////
 //////###### PRUEBAS ##################///////////////////////
-
+	
+	
 $("#boton_pruebas").on("click",function(){
-	
 
-//array to store layers for each feature type
-var mapLayerGroups = [];
-/*
- *for all features:
- *for each feature type create a layerGroup  
- *and add each feature to the respective layerGroup
-*/
-function onEachFeature(feature, featureLayer) {
-    //does layerGroup already exist? if not create it and add to map	
-	var lg = mapLayerGroups[feature.properties.panelId.compania];
+	limpiarMarkers();
+
+	//var companyName =  getCompanyName(XXXX);						
+	var pointToLayerPRUEBAS = function (feature, latlng) {
+		var marker = L.marker(latlng,{icon: icon_PanSolar_NEGRO}); markerArrEN.push(marker);
+		return marker;
 	
-    if (lg === undefined) {
-        lg = new L.layerGroup();
-        //add the layer to the map
-        lg.addTo(mymap);
-        //store layer
-        mapLayerGroups[feature.properties.panelId.compania] = lg;	      
-        //add the feature to the layer
-        lg.addLayer(featureLayer); 
-        console.log(feature.properties.panelId.compania);		    
-    }
-	};
 	
+	}; //END pointToLayerPRUEBAS
+	
+	function filterPRUEBAS(feature, latlng) {
+		var fpCompanyName = feature.properties.panelId.compania;					
+		if (isInArray(fpCompanyName, checkedCompaniesArr)) {
+			
+		return true;
+							  
+		};
+	};// END filterPRUEBAS
+				
+	var onEachFeaturePRUEBAS = function(feature, layer) {
+		var fpValId = feature.properties.panelId.id;
+		var fpValCompany = feature.properties.panelId.compania;	
+		var fpenergia = feature.properties.energia;
+		var fptemperatura = feature.properties.temperatura;
+		var fpviento = feature.properties.velocidadviento;
+		
+		 var parameter = $("input[name='visiblelayer']:checked").val();
+	     switch (parameter){
+	     case "energia": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId + " ENERGIA: " + fpenergia ); break;
+	     case "temperatura": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId + " TEMPERATURA: " + fpenergia); break;
+	     case "viento": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId+ " VIENTO: " + fpviento ); break;
+	     } 
+	
+		//layer.bindTooltip("Energia: "+ feature.properties.energia + "W")
+	}; //END onEachFeatureBUSQ
+		
+	var topoLayerPRUEBAS = new L.TopoJSON(null, { pointToLayer: pointToLayerPRUEBAS,
+		filter: filterPRUEBAS,
+		onEachFeature: onEachFeaturePRUEBAS});
+		
+	$.getJSON(topoData).done(addTopoData);
+	
+	function addTopoData(topoData){ 				
+			topoLayerPRUEBAS.addData(topoData);
+			markersCG_PRUEBAS.addLayer(topoLayerPRUEBAS);
+			mymap.addLayer(markersCG_PRUEBAS);
+	}	
+	limpiarMarkers();
+	$.getJSON(topoData).done(addTopoData);				
+
 });//END OF PRUEBAS
             
 	
 });//END OF JQUERY FUNCTION
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
