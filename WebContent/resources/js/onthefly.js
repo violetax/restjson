@@ -103,7 +103,6 @@ function flowTopoData () {
 						printArr(checkedCompaniesArr);
 						}
 					}; 
-				count=11;
 				// end while
 				todasChecked = true;
 			} else {
