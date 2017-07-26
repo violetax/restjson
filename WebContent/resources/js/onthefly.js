@@ -232,23 +232,6 @@ function flowTopoData () {
 
 	$("#btn_topos_3paras").on("click", function() {		
 
-		limpiarMarkers();
-			$.getJSON(topoData).done(addTopoData);			
-
-		function addTopoData(topoData){ 
-			
-			 var topoLayer = "";
-			 var visibleLayer = $("input[name='visiblelayer']:checked").val();
-	         switch (visibleLayer){
-	         case "energia": topoLayer = topoLayerEnergia;  arr = markerArrEN; break;
-	         case "temperatura": topoLayer = topoLayerTemperatura; arr = markerArrTE; break;
-	         case "viento": topoLayer = topoLayerViento; arr = markerArrVI; break;
-	         } 
-
-	    	 topoLayer.addData(topoData);
-			 topoLayer.addTo(mymap);	
-
-			};	
 		
 	});//END OF btn_topos_3paras
 
@@ -256,50 +239,6 @@ function flowTopoData () {
 /////////########## MOSTRAR POR COMPAÑIA ##########///////////
 
 $("#btn_topos_companias").on("click", function() {	
-
-	limpiarMarkers();
-
-	//var companyName =  getCompanyName(XXXX);						
-	var pointToLayerCOMPANIAS = function (feature, latlng) {
-		var marker = L.marker(latlng,{icon: icon_PanSolar_NEGRO}); markerArrEN.push(marker);
-		return marker;
-	}; //END pointToLayerCOMPANIAS
-	
-	function filterCOMPANIAS(feature, latlng) {
-		var fpCompanyName = feature.properties.panelId.compania;					
-		if (isInArray(fpCompanyName, checkedCompaniesArr)) {
-			
-		return true;
-							  
-		};
-	};// END filterCOMPANIAS
-				
-	var onEachFeatureCOMPANIAS = function(feature, layer) {
-		var fpValId = feature.properties.panelId.id;
-		var fpValCompany = feature.properties.panelId.compania;	
-		layer.bindPopup("Panel: " + fpValCompany + " ID: " + fpValId );
-		//layer.bindTooltip("Energia: "+ feature.properties.energia + "W")
-	}; //END onEachFeatureBUSQ
-		
-	var topoLayerCOMPANIAS = new L.TopoJSON(null, { pointToLayer: pointToLayerCOMPANIAS,
-		filter: filterCOMPANIAS,
-		onEachFeature: onEachFeatureCOMPANIAS});
-		
-	$.getJSON(topoData).done(addTopoData);
-	
-	function addTopoData(topoData){ 				
-			topoLayerCOMPANIAS.addData(topoData);
-			markersCG_COMPANIAS.addLayer(topoLayerCOMPANIAS);
-			mymap.addLayer(markersCG_COMPANIAS);
-	}	
-	
-}); //END OF btn_topos_companias
-
-//////////////////////////////////////////////////////////////////
-//////###### PRUEBAS ##################///////////////////////
-	
-	
-$("#boton_pruebas").on("click",function(){
 
 	limpiarMarkers();
 
@@ -351,7 +290,17 @@ $("#boton_pruebas").on("click",function(){
 	limpiarMarkers();
 	$.getJSON(topoData).done(addTopoData);				
 
+
+}); //END OF btn_topos_companias
+
+//////////////////////////////////////////////////////////////////
+//////###### PRUEBAS ##################///////////////////////
+	
+	
+$("#boton_pruebas").on("click",function(){
+
 });//END OF PRUEBAS
+
             
 	
 });//END OF JQUERY FUNCTION
