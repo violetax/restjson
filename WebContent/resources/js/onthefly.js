@@ -52,7 +52,6 @@ function flowTopoData () {
 	var flechaCheckBox_Arr_of_ids = [];
 	// ARRAYS OF CHECKED-NOT-CHECKED
 	var checkedCompaniesArr = [];
-	var uncheckedCompaniesArr = [];	
 	var countCheckBoxes = companiasGrandes.length + 1;
 	
 	for (var x = 0; x < countCheckBoxes; x++ ) {		
@@ -68,53 +67,105 @@ function flowTopoData () {
 	function printArr(arr) {for (var i=0; i<arr.length; i++) {console.log(arr[i]);}} //end function printArr
 	function cleanCheckedCompaniesArr() {		
 		if (checkedCompaniesArr.length > 0) {
-			 for (var i = 0; i < checkedCompaniesArr.length; i++) { 
-				 	delete checkedCompaniesArr[i];
-			 }
+			for (var i=0; i < checkedCompaniesArr.length; i++) {
+					var indexItemToRemove = checkedCompaniesArr.indexOf(checkedCompaniesArr[i]);
+					if (indexItemToRemove > -1) {			
+						checkedCompaniesArr.splice(indexItemToRemove, 1);
+					}
+				}
 		};
 	}; //end function cleanCheckedCompaniesArr
 	
 	//STRIP OF WHITESPACES:
 	//https://stackoverflow.com/questions/360491/how-do-i-strip-white-space-when-grabbing-text-with-jquery
-	
+	var count= 0;
 	function getCompanyName(x) { 
 		
 		var todasChecked = false;
+		var pequenasChecked = false;
 		var isChecked = false;
-		var squareCheckBoxItem =  $('#' + squareCheckBox_Arr_of_ids[x]);
+		var $squareCheckBoxItem =  $('#' + squareCheckBox_Arr_of_ids[x]);
 		var flechaCheckBoxItemID =  flechaCheckBox_Arr_of_ids[x]; 	
 		
 	
 		var $todasCompanias = $('#inputTodas');
+		var $pequenas = $('#inputid9');
 		
+				
 		$todasCompanias.click(function() {
 			if(todasChecked === false) {
+				while (count <10) {
+					count++
+					if (count=10) {
+						for (var i = 0; i < companias.length; i++) {
+							checkedCompaniesArr.push(companias[i]);
+						}
+						printArr(checkedCompaniesArr);
+						}
+					}; 
+				count=11;
+				// end while
 				todasChecked = true;
 			} else {
 				cleanCheckedCompaniesArr();
 				todasChecked = false;
+				console.log(todasChecked);
 			}
-		});
-// end $todasCompanias.clic */
+		}); // end $todasCompanias.clic */
+		
+		
+		
+		$pequenas.click(function() {
+			if(pequenasChecked === false) {
+				pequenasChecked = true;
+			} else {			
+				pequenasChecked = false;
+			}
+		}); // end $todasCompanias.clic */
 
-		squareCheckBoxItem.click(function() {	
+
+		$squareCheckBoxItem.click(function() {	
 					$label = $('label[for="' + flechaCheckBox_Arr_of_ids[x] + '"]');  
 					var checkedCo = $.trim($label.text());
-					
-					if(isChecked === false) {			
-						checkedCompaniesArr.push(checkedCo);
-					 	isChecked = true;
-					} else {
-						//https://stackoverflow.com/questions/5767325/how-do-i-remove-a-particular-element-from-an-array-in-javascript
-						var indexCheckedCo = checkedCompaniesArr.indexOf(checkedCo);
-						if (indexCheckedCo > -1) {			
-							checkedCompaniesArr.splice(indexCheckedCo, 1);
+				
+			if(pequenasChecked) {
+				for (var i = 0; i < companiasPequenas.length; i++) {
+					checkedCompaniesArr.push(companiasPequenas[i]);
+				}
+			} else {
+				for (var i=0; i < companiasPequenas.length; i++) {
+					if (isInArray(companiasPequenas[i], checkedCompaniesArr)) {
+						var indexItemToRemove = checkedCompaniesArr.indexOf(companiasPequenas[i]);
+						if (indexItemToRemove > -1) {			
+							checkedCompaniesArr.splice(indexItemToRemove, 1);
 						}
-						isChecked = false;
-					}	 	   
+					}
+			}}; //end check pequenas
+			
+		
+			if (todasChecked) {			
+				
+			} else {
+				if(isChecked === false) {			
+					checkedCompaniesArr.push(checkedCo);
+				 	isChecked = true;
+
+				} else {
+					var indexCheckedCo = checkedCompaniesArr.indexOf(checkedCo);
+					if (indexCheckedCo > -1) {			
+						checkedCompaniesArr.splice(indexCheckedCo, 1);
+					}
+					isChecked = false;
+				}		
+			}; //end check ALL
+			
+			
+						 	   
 			}); // end squareCheckBoxItem.click
 		
-	}
+	 	printArr(checkedCompaniesArr);
+		
+	}; // END OG GETCOMPANYNAME
 //////////////////////////////////////////////////////////////////
 ////////////////## FUNCIONES LAYERS ###///////////////////////////
 

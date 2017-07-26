@@ -54,7 +54,7 @@ var markerArrVI = [];
 
 var companias = ["ACCE","AUPN","EEPN","ENDS","EONE","EOPN","FLPN","GDFS","GEPN","GNFE","HCEN","HLPN","IBDR","IMPN","NTRG","NXPN","PEPN","SHEL","SYPN","VMPN"];
 var companiasGrandes = ["ACCE","ENDS","EONE","GDFS","GNFE","HCEN","IBDR","NTRG","SHEL"];
-var companiasPequenas = ["AUPN","EEPN","EOPN","FLPN","GEPN","HLPN","IMPN",,"NXPN","PEPN","SYPN","VMPN"];
+var companiasPequenas = ["AUPN","EEPN","EOPN","FLPN","GEPN","HLPN","IMPN","NXPN","PEPN","SYPN","VMPN"];
 
 //RANGO ENERGIA
 var rangoEnergia1 = 1;
