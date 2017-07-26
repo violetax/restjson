@@ -12,6 +12,16 @@
 	 font-style: ;
 }
 
+/*MARKER CLUSTER*/
+
+.mycluster {
+			width: 40px;
+			height: 40px;
+			background-color: greenyellow;
+			text-align: center;
+			font-size: 24px;
+		}
+
 /* MODAL STYLE */
 /*
 *  https://stackoverflow.com/questions/17911918/bootstrap-modal-popping-up-but-has-a-tinted-page-and-cant-interact

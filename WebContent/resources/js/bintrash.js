@@ -205,5 +205,22 @@ $(checkboxItem).on('click',function(e,t){
 				    return $fila;
 				}; //END OF function for btn_BUSCADOR
 
-			 
+	
+				
+				
+				console.log("fpValId:");
+				console.log(typeof(fpValId));
+				console.log(fpValId);
+				
+				console.log("$valId:");
+				console.log(typeof($valId));
+				console.log($valId);
+				
+				console.log("fpValCompany:");
+				console.log(typeof(fpValCompany));
+				console.log(fpValCompany);
+				
+				console.log("$valCompany:");
+				console.log(typeof($valCompany));
+				console.log($valCompany);
 			 

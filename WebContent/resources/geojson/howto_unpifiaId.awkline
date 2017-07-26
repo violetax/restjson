@@ -1,0 +1,1 @@
+awk -v nl=0 '{nl=NR; sub(XXXX,nl); print}' file_ids_repes > file_bueno

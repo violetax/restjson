@@ -1,23 +1,45 @@
-/// HTML FUNCTIONS //////////////////////////////////////
-function myFunction() {
-    var arbol = document.getElementById('vertical-menu');
-    var mevesnomeves = document.getElementById('mevesnomeves');
+//FUNCIONES GENERALES ////////////////////////
 
-    if (arbol.style.display === 'none') {
-    	arbol.style.display = 'block';
-    	document.getElementById('mevesnomeves').textContent="Ocultar árbol";
-    } else {
-    	arbol.style.display = 'none';
-    	document.getElementById('mevesnomeves').textContent="Mostrar árbol";
-    }
+////BUSCAR EN ARRAY ////////////////////////////
+function isInArray(value, array) {
+  return array.indexOf(value) > -1;
 }
+////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////
+/////LIMPIAR MARKERS//////////////////////////////
+var limpiarMarkers = function() {
+for (var i=0; i < markerArrEN.length; i++) {
+		mymap.removeLayer(markerArrEN[i]);
+	}	
+for (var i=0; i < markerArrTE.length; i++) {
+		mymap.removeLayer(markerArrTE[i]);
+	}	
+for (var i=0; i < markerArrVI.length; i++) {
+		mymap.removeLayer(markerArrVI[i]);
+	}	
+}
+////////////////////////////////////////////////
 
-
-//FUNCIONES ########## TOPO ## JSON ##############////////////////////////////////////////////// 
-//ANADIR CAPA/////////////////////////////////////
-
+//Recoger las coordenadas de un punto/////////////////////////////////////
+//Crear variable string con forma de json con las coordenadas de un punto
+function getCoordinates(ev) {
+	latx = ev.latlng.lat.toString();
+	lngx = ev.latlng.lng.toString();
+	
+	nuevoPunto = "{\"latitud\": " + latx + ", \"longitud\": " + lngx + "}";  //JSON.stringify({ "Latitud": lat , "Longitud": lng });     
+	jsonCoords =  JSON.stringify({ "Latitud": latx , "Longitud": lngx });
+	
+	if (clickCircle != undefined) {
+		   mymap.removeLayer(clickCircle);
+		    };
+		    clickCircle = L.circle([latx, lngx], 500, {
+		       	color: 'red',
+		       	fillColor: '#f03',
+		       	fillOpacity: 0.5
+		       }).addTo(mymap);
+		    document.getElementById("ocultar").style.display = 'block'; //'none'
+		    document.getElementById("ocultar").textContent = nuevoPunto;
+};
 
 //FUNCIONES ########## GEO ## JSON ##############////////////////////////////////////////////// 
 //ANADIR CAPA/////////////////////////////////////
@@ -83,43 +105,3 @@ function addLayer(layer) {
  }
 
 }
-
-//FUNCIONES GENERALES ////////////////////////
-//Recoger las coordenadas de un punto/////////////////////////////////////
-//Crear variable string con forma de json con las coordenadas de un punto
-function getCoordinates(ev) {
-	latx = ev.latlng.lat.toString();
-	lngx = ev.latlng.lng.toString();
-	
-	nuevoPunto = "{\"latitud\": " + latx + ", \"longitud\": " + lngx + "}";  //JSON.stringify({ "Latitud": lat , "Longitud": lng });     
-	jsonCoords =  JSON.stringify({ "Latitud": latx , "Longitud": lngx });
-	
-	if (clickCircle != undefined) {
-		   mymap.removeLayer(clickCircle);
-		    };
-		    clickCircle = L.circle([latx, lngx], 500, {
-		       	color: 'red',
-		       	fillColor: '#f03',
-		       	fillOpacity: 0.5
-		       }).addTo(mymap);
-		    document.getElementById("ocultar").style.display = 'block'; //'none'
-		    document.getElementById("ocultar").textContent = nuevoPunto;
-};
-
-
-//Recoger las coordenadas de varios puntos/////////////////////////////////////
-//Crear variable string con forma de json con las coordenadas de un punto
-function getCoordinatesBunch(ev) {
-	   latx = ev.latlng.lat.toString();
-	   lngx = ev.latlng.lng.toString();
-	   jsonCoords =  JSON.stringify({ "Latitud": latx , "Longitud": lngx }); 
-	   
-		    clickCircle2 = new L.circle([latx, lngx], 500, {
-		       	color: 'green',
-		       	fillColor: '#f01',
-		       	fillOpacity: 0.5
-		       }).addTo(mymap);
-		  
-		jcoorsArr.push(clickCircle2);		    
-
-};

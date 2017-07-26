@@ -52,7 +52,9 @@
    crossorigin=""></script>   
            
            <script  type="text/javascript"  src="resources/js/leaflet-providers.js"></script>
-           <script src="resources/js/leaflet.markercluster-src.js"></script>
+           <script src="resources/js/leaflet.markercluster.js"></script>
+           <link rel="stylesheet" href="resources/css/MarkerCluster.css">
+           <link rel="stylesheet" href="resources/css/MarkerCluster.Default.css">
              
 </head>
 <body>
@@ -72,7 +74,10 @@
     <button id="btn_topos_companias" type="button" class="btn btn-info btn-xl">
     	<span class="glyphicon glyphicon-circle-arrow-right">	COMPAÑIAS</span></button> 
        <button id="btn_BUSCADOR" type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal">
-    	<span class="glyphicon glyphicon glyphicon-search">	BUSCADOR</span></button> 		
+    	<span class="glyphicon glyphicon glyphicon-search">	BUSCADOR</span></button> 	
+    	
+    	  <button class="btn btn-danger" id="boton_pruebas" type="button">PRUEBAS</button>
+    		
     </div><!-- nav-bar header -->		
 </nav>
 
@@ -215,7 +220,7 @@
                 <label for="compania">Compañia</label>
       
             	 <select class="form-control" id="compania">
-            	 	<option>Escoja</option>
+            	 	<option value="" disabled selected></option>
 					<option>ACCE</option>
 					<option>AUPN</option>
 					<option>EEPN</option>

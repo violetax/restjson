@@ -1,26 +1,16 @@
 $.noConflict();
 
 jQuery( function( $ ) {
-	
-	
+		
 ///// FLUJO DE INFO /////////
 var flujoCount = 1;
 var topoData ;
-var intervalFunc = setInterval(flowTopoData, 500); 
+//var intervalFunc = setInterval(flowTopoData, 500); 
+//TEMP TOPODATA:
+//topoData = "resources/topojson/periodo.1.periodoFEATCOL.topo.json";
+topoData = "resources/geojson/pruebas.1.topo.json";
 
-var limpiarMarkers = function() {
-	for (var i=0; i < markerArrEN.length; i++) {
-			mymap.removeLayer(markerArrEN[i]);
-		}	
-	for (var i=0; i < markerArrTE.length; i++) {
-			mymap.removeLayer(markerArrTE[i]);
-		}	
-	for (var i=0; i < markerArrVI.length; i++) {
-			mymap.removeLayer(markerArrVI[i]);
-		}	
-}
-$("#boton_limpiar").on("click",function(e){
-	
+$("#boton_limpiar").on("click",function(e){	
 	limpiarMarkers();
 });
 		
@@ -49,91 +39,8 @@ function flowTopoData () {
 		    }
 		  }  
 		});
-
-//////////////////////////////////////////////////////////////////
-//////////////### DEFINIR LAYERS TOPO JSON ##### /////////////////
 	
-	//VARIABLE FEATURE COLLECTIONS
-	//7: energia, humedad, inclinacion, insolacion, orientacion,temperatura, viento
-	//1: company
 	
-	var markerArrays = ["markerArrEN", "markerArrTE", "markerArrVI"]
-	var markerArrEN = [];
-	var markerArrTE = [];
-	var markerArrVI = [];
-	
-	var companias = ["ACCE","AUPN","EEPN","ENDS","EONE","EOPN","FLPN","GDFS","GEPN","GNFE","HCEN","HLPN","IBDR","IMPN","NTRG","NXPN","PEPN","SHEL","SYPN","VMPN"];
-//RANGO ENERGIA
-	var rangoEnergia1 = 1;
-	var rangoEnergia2 = 2;
-	var rangoEnergia3 = 3;
-	var rangoEnergia4 = 4;
-	var rangoEnergia5 = 5;
-	var rangoEnergia6 = 6;
-//RANGO TEMPERATURA
-	var rangoTemperatura1 = 5;
-	var rangoTemperatura2 = 10;
-	var rangoTemperatura3 = 20;
-	var rangoTemperatura4 = 30;
-	var rangoTemperatura5 = 40;
-	var rangoTemperatura6 = 50;
-//RANGO VIENTO
-	var rangoViento1 = 2.5;
-	var rangoViento2 = 5;
-	var rangoViento3 = 10;
-	var rangoViento4 = 20;
-	var rangoViento5 = 50;
-	var rangoViento6 = 80;
-
-	var pointToLayerEnergia = function (feature, latlng) {
-		var energia = feature.properties.energia;
-		if (energia < rangoEnergia1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-		} else if (energia < rangoEnergia2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-		} else if (energia < rangoEnergia3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-		} else if (energia < rangoEnergia4) { marker = L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-		} else if (energia < rangoEnergia5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-		} else if (energia < rangoEnergia6) { marker = L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-		}};
-	var pointToLayerTemperatura = function (feature, latlng) {
-		var temperatura = feature.properties.temperatura;
-		if (temperatura < rangoTemperatura1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
-		} else if (temperatura < rangoTemperatura2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
-		} else if (temperatura < rangoTemperatura3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
-		} else if (temperatura < rangoTemperatura4) { marker = L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
-		} else if (temperatura < rangoTemperatura5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
-		} else if (temperatura < rangoTemperatura6) { marker = L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
-		}};
-	var pointToLayerviento = function (feature, latlng) {
-		var velocidadviento = feature.properties.velocidadviento;
-		if (velocidadviento < rangoViento1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return; 
-		} else if (velocidadviento < rangoViento2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker);  return;
-		} else if (velocidadviento < rangoViento3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker);  return;
-		} else if (velocidadviento < rangoViento4) { marker = L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return;
-		} else if (velocidadviento < rangoViento5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker);  return;
-		} else if (velocidadviento < rangoViento6) { marker = L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return;
-		}
-	};
-	
-	//////////////////// COMPANIAS ////////////////////////
-	
-	///////////
-		
-		var topoLayerEnergia = new L.TopoJSON(null,{
-		    'style': function (feature) {},
-		    pointToLayer: pointToLayerEnergia});
-		
-		var topoLayerTemperatura = new L.TopoJSON(null,{
-		    'style': function (feature) {},
-		    pointToLayer: pointToLayerTemperatura});
-		
-		var topoLayerViento = new L.TopoJSON(null,{
-		    'style': function (feature) {},
-		    pointToLayer: pointToLayerviento});
-
-//////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////
-
-
 //////////////////////////////////////////////////////////////////
 //////###### RECOGER VALORES DE LAS CHECKBOXES ####### ///////////	
 		//flechaCheckBox_ID == label[for=id] == company name
@@ -190,20 +97,8 @@ function flowTopoData () {
 		
 	}
 //////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////
-	
-///////////////////////////////////////////////////////////////////	
-/////////########## MOSTRAR CAPAS COMPANIAS ##########///////////	
+////////////////## FUNCIONES LAYERS ###///////////////////////////
 
-
-	//https://stackoverflow.com/questions/7378228/check-if-an-element-is-present-in-an-array
-	//function isInArray(variable, array){ var count=array.length;for(var i=0;i<count;i++)
-	//    {if(array[i]===variable){return true;}}return false;}
-	
-	function isInArray(value, array) {
-		  return array.indexOf(value) > -1;
-		}
-	
 	var pointToLayerCompania = function (feature, latlng) {
 		var compania = feature.properties.panelId.compania;
 		var energia = feature.properties.energia;
@@ -217,67 +112,125 @@ function flowTopoData () {
 			}
 		}
 		};
-		
-	var topoLayerCompaniaEnergia = new L.TopoJSON(null,{
-	    pointToLayer: pointToLayerCompania});
-	
-	
-	
-	$("#btn_topos_companias").on("click", function() {	
-	
-			for (var i=0; i < markerArrEN.length; i++) {
-	 			mymap.removeLayer(markerArrEN[i]);
-	 		}	
-			for (var i=0; i < markerArrTE.length; i++) {
-	 			mymap.removeLayer(markerArrTE[i]);
-	 		}	
-			for (var i=0; i < markerArrVI.length; i++) {
-	 			mymap.removeLayer(markerArrVI[i]);
-	 		}	
-
-
-		//var intervalFunc = setInterval(ajaxCall, 500); 
-		//function ajaxCall(){
-		//	interval++;
-		//	topoData = "resources/topojson/periodo." + interval + ".periodoFEATCOL.topo.json";
-			$.getJSON(topoData).done(addTopoData);
-		//	if (interval>= 1) {
-		//		clearInterval(intervalFunc);
-		//	}
-	//	};	
-		
-
-		function addTopoData(topoData){ 
-			
-			 var topoLayer = "";
-			 topoLayer = topoLayerCompaniaEnergia; 
-			// console.log(topoLayer);
-			 
-			 arr = markerArrEN; 
-	         for (var i=0; i < arr.length; i++) {
-	 			mymap.removeLayer(arr[i]);
-	 		}         
-	    	 topoLayer.addData(topoData);		 
-			};			
-		
-		
-		
-		
-	}); //END OF btn_topos_companias
+//////////////////////////////		
+	var pointToLayerEnergia = function (feature, latlng) {
+		var energia = feature.properties.energia;
+		if (energia < rangoEnergia1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
+		} else if (energia < rangoEnergia2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
+		} else if (energia < rangoEnergia3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
+		} else if (energia < rangoEnergia4) { marker = L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
+		} else if (energia < rangoEnergia5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
+		} else if (energia < rangoEnergia6) { marker = L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
+		}};
+	var pointToLayerTemperatura = function (feature, latlng) {
+		var temperatura = feature.properties.temperatura;
+		if (temperatura < rangoTemperatura1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
+		} else if (temperatura < rangoTemperatura2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
+		} else if (temperatura < rangoTemperatura3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
+		} else if (temperatura < rangoTemperatura4) { marker = L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
+		} else if (temperatura < rangoTemperatura5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
+		} else if (temperatura < rangoTemperatura6) { marker = L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
+		}};
+	var pointToLayerviento = function (feature, latlng) {
+		var velocidadviento = feature.properties.velocidadviento;
+		if (velocidadviento < rangoViento1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return; 
+		} else if (velocidadviento < rangoViento2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker);  return;
+		} else if (velocidadviento < rangoViento3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker);  return;
+		} else if (velocidadviento < rangoViento4) { marker = L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return;
+		} else if (velocidadviento < rangoViento5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker);  return;
+		} else if (velocidadviento < rangoViento6) { marker = L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return;
+		}
+	};
 	
 //////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////	
+//////////////### DEFINIR LAYERS TOPO JSON ##### /////////////////
+		
+		var topoLayerEnergia = new L.TopoJSON(null,{
+		    'style': function (feature) {},
+		    pointToLayer: pointToLayerEnergia});
+		
+		var topoLayerTemperatura = new L.TopoJSON(null,{
+		    'style': function (feature) {},
+		    pointToLayer: pointToLayerTemperatura});
+		
+		var topoLayerViento = new L.TopoJSON(null,{
+		    'style': function (feature) {},
+		    pointToLayer: pointToLayerviento});
+
+		var topoLayerCompaniaEnergia = new L.TopoJSON(null,{
+		    pointToLayer: pointToLayerCompania});
+	
+
+//////////////////////////////////////////////////////////////////
+//////////////### BOTONES ##### //////////////////////////////////	
+		
+//////////////////////////////////////////////////////////////////
+//////###### BUSCADOR ##################///////////////////////
+	function buscarPanel() {
+		
+		limpiarMarkers();
+		
+		//  topoData = "resources/geojson/pruebas.1.topo.json";
+			
+				var $valId_ =  $('input[id="identificador"]').val();
+				var $valId = parseInt($valId_);
+				var $valCompany = $('#compania option:selected').text();   		
+						
+				var pointToLayerBUSQ = function (feature, latlng) {
+					return L.marker(latlng,{icon: icon_PanSolar_NEGRO}); markerArrEN.push(marker)				  
+				}; //END pointToLayerBUSQ
+				
+				function filterBUSQ(feature, latlng) {
+					var fpValId = feature.properties.panelId.id;
+					var fpValCompany = feature.properties.panelId.compania;				
+					if (!$valId && fpValCompany === $valCompany) {
+						 return true;
+					} else if ($valId === fpValId && $valCompany === fpValCompany) {
+						return true						
+					} else if (!$valCompany && $valId === fpValId) { 
+						 return true 			
+					} else {
+						return;			
+					}
+					  
+					}; // END filterBUSQ
+				
+				var onEachFeatureBUSQ = function(feature, layer) {
+					var fpValId = feature.properties.panelId.id;
+					var fpValCompany = feature.properties.panelId.compania;	
+					layer.bindPopup("Panel: " + fpValCompany + " ID: " + fpValId );
+				}; //END onEachFeatureBUSQ
+					
+				var topoLayerBusqueda = new L.TopoJSON(null, { pointToLayer: pointToLayerBUSQ,
+					filter: filterBUSQ,
+					onEachFeature: onEachFeatureBUSQ});
+					
+				$.getJSON(topoData).done(addTopoData);
+				limpiarMarkers();
+				
+				function addTopoData(topoData){ 				
+						topoLayerBusqueda.addData(topoData);
+						topoLayerBusqueda.addTo(mymap);						
+				//	console.log(topoData.features);
+				}
+	}; //END OF function for btn_BUSCADOR
+
+
+
+	$("#modalBtnBuscarPanel").on("click", function() {		
+		buscarPanel();
+		$("#myModal").modal('hide');
+	});
+
 	
 ///////////////////////////////////////////////////////////////////	
 /////////########## MOSTRAR CAPAS 3 PARAMETROS ##########///////////
 
 	$("#btn_topos_3paras").on("click", function() {		
 
-	//	var intervalFunc = setInterval(ajaxCall, 500); 
-	//	function ajaxCall(){
+		limpiarMarkers();
 			$.getJSON(topoData).done(addTopoData);			
-	//	};	
-		
+
 		function addTopoData(topoData){ 
 			
 			 var topoLayer = "";
@@ -287,61 +240,64 @@ function flowTopoData () {
 	         case "temperatura": topoLayer = topoLayerTemperatura; arr = markerArrTE; break;
 	         case "viento": topoLayer = topoLayerViento; arr = markerArrVI; break;
 	         } 
-	         
-	    	// console.log(topoLayer);
-	         for (var i=0; i < arr.length; i++) {
-	 			mymap.removeLayer(arr[i]);
-	 		}
+
 	    	 topoLayer.addData(topoData);
 			 topoLayer.addTo(mymap);	
-			// console.log(topoData);
-			 
+
 			};	
 		
 	});//END OF btn_topos_3paras
 
-//////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////	
+/////////########## MOSTRAR POR COMPAÑIA ##########///////////
 
-//////////////////////////////////////////////////////////////////
-//////###### BUSCADOR ##################///////////////////////
-function buscarPanel() {
+$("#btn_topos_companias").on("click", function() {	
+
+	limpiarMarkers();
+		$.getJSON(topoData).done(addTopoData);
 		
-			var $valId =  $('input[id="identificador"]').val();  
-			var $valCompany = $('#compania option:selected').text();   		
-			var topoLayerBusqueda = new L.TopoJSON(null, {filter: layerFilter});
-			
-			function layerFilter(feature) {
-				if (!$valId) {
-					if (feature.properties.panelId.compania === $valCompany) return true
-				} else if ($valCompany === "Escoja") {
-					if (feature.properties.panelId.compania === $valId) return true
-				} else if (feature.properties.panelId.compania === $valCompany && feature.properties.panelId.compania === $valId ) {
-					return true
-				} else {
-					return;			
-				}
-				  
-				}
-			
-			$.getJSON(topoData).done(addTopoData);
-			limpiarMarkers();
-			
-			function addTopoData(topoData){ 				
-					topoLayerBusqueda.addData(topoData);
-					topoLayerBusqueda.addTo(mymap);						
-				console.log(topoData.features);
-			}
-}; //END OF function for btn_BUSCADOR
+	function addTopoData(topoData){ 
+		
+		 var topoLayer = "";
+		 topoLayer = topoLayerCompaniaEnergia;    
+    	 topoLayer.addData(topoData);		 
+		};			
+	
+	
+	
+	
+}); //END OF btn_topos_companias
 
+//////////////////////////////////////////////////////////////////
+//////###### PRUEBAS ##################///////////////////////
 
-
-$("#modalBtnBuscarPanel").on("click", function() {		
-	buscarPanel();
-	$("#myModal").modal('hide');
-});
+$("#boton_pruebas").on("click",function(){
 	
 
+//array to store layers for each feature type
+var mapLayerGroups = [];
+/*
+ *for all features:
+ *for each feature type create a layerGroup  
+ *and add each feature to the respective layerGroup
+*/
+function onEachFeature(feature, featureLayer) {
+    //does layerGroup already exist? if not create it and add to map	
+	var lg = mapLayerGroups[feature.properties.panelId.compania];
+	
+    if (lg === undefined) {
+        lg = new L.layerGroup();
+        //add the layer to the map
+        lg.addTo(mymap);
+        //store layer
+        mapLayerGroups[feature.properties.panelId.compania] = lg;	      
+        //add the feature to the layer
+        lg.addLayer(featureLayer); 
+        console.log(feature.properties.panelId.compania);		    
+    }
+	};
+	
+});//END OF PRUEBAS
             
 	
 });//END OF JQUERY FUNCTION
