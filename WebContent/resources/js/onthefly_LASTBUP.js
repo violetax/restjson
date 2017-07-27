@@ -1,35 +1,23 @@
 $.noConflict();
 
 jQuery( function( $ ) {
-	
-	
-console.log("Funcionan mis funciones?");
-
-//console.log("isInArray(el, arr): returns boolean ok");
-//console.log("emptyArr(array): does");
-//console.log("fillUpArr(sourceArr, targetArr): does");
-//console.log("removeArrElementByVal(arr, itemToRemove): does");
-//console.log("removeDuplicatesArr(dupArr, uniqueArr): noooooooooo!");
-
-var companias = ["ACCE","AUPN","EEPN","ENDS","EONE","EOPN","FLPN","GDFS","GEPN","GNFE","HCEN","HLPN","IBDR","IMPN","NTRG","NXPN","PEPN","SHEL","SYPN","VMPN"];
-var dupArr =  ["ACCE","AUPN","EEPN","ENDS","EONE", "XXXX", "ACCE","AUPN","EEPN","ENDS","EONE","EOPN" ]
-var uniqueArr = [];
-
-
-
-//removeDuplicatesArr(pruebasArr, uniqueArr);
-
-
-
-
-
-	
-	
-	
 		
 // FUNCIONES CON JQUERY ///
-
-
+	var uniqueArr = [];
+	removeDuplicatesArr(checkedCompaniesArr, uniqueArr)
+	function removeDuplicatesArr(arr, uniqueArr) {
+	//	$.each(arr, function(i, el){
+		for (var i=0; i < arr.length; i++) {
+			if(isInArray(arr[i], uniqueArr)) {
+				uniqueArr.push(arr[i]);
+				//console.log(arr[i]);
+			//	console.log(uniqueArr);
+			} else { }//console.log(uniqueArr);console.log(arr[i]); console.log("isInArray");}
+		}			
+	//	});
+		return uniqueArr;
+	}; //end of removeDuplicatesArr(arr)
+//////
 	
 ///// FLUJO DE INFO /////////
 var flujoCount = 1;

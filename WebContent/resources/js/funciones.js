@@ -1,10 +1,58 @@
 //FUNCIONES GENERALES ////////////////////////
 
 ////BUSCAR EN ARRAY ////////////////////////////
-function isInArray(value, array) {
-  return array.indexOf(value) > -1;
-}
+// return boolean
+function isInArray(el, arr) {
+	for (var i=0 ; i < arr.length; i++) {
+		if (el === arr[i]) {
+			return true;
+		} else {
+			return false;
+		};
+	};
+};
+
 ////////////////////////////////////////////////
+// REMOVE DUPLICATES IN ARRAY
+function removeDuplicatesArr(dupArr, uniqueArr) {
+	if (dupArr.length > 0) {
+		for (var i=0; i < dupArr.length; i++) {
+			if(!isInArray(dupArr[i], uniqueArr)) {
+				uniqueArr.push(dupArr[i]);
+			} else {
+				break;
+			}
+		};	
+	}
+}; //end of removeDuplicatesArr(arr)
+
+////////////////////////////////////////////////////
+/// VACIAR ARRAY
+function emptyArr(array) {
+	  while (array.length) {
+	    array.pop();
+	  }
+	};//end function emptyArr(checkedCompaniesArr)
+	
+//////////////////////////////////////////////////////
+// COPIAR 
+function traspasarArr(sourceArr, targetArr) {
+	if (sourceArr.length > 0) {
+		for (var i=0; i<sourceArr.length; i++) {
+			targetArr.push(sourceArr[i]);
+		}
+	}
+}; //end of fillUpArr(sourceArr, targetArr)
+
+//////////////////////////////////////////////////////
+/// BORRAR ELEMENTO DE ARRAY BY VAL
+function removeArrElementByVal(arr, itemToRemove) {
+	var indexItemToRemove = arr.indexOf(itemToRemove);
+	if (indexItemToRemove > -1) {
+		arr.splice(indexItemToRemove, 1);
+	}
+}; //end of removeArrElementByVal(arr, itemToRemove)
+
 
 /////LIMPIAR MARKERS//////////////////////////////
 var limpiarMarkers = function() {
@@ -17,9 +65,9 @@ if (markersCG_COMPANIAS) {
 	//Caulquiera de los dos metodos: mymap.removeLayer(markersCG_busqueda);
 	markersCG_COMPANIAS.clearLayers();
 }
-if (markersCG_PRUEBAS) {
+if (markersCG_PanelesFILTERED) {
 	//Caulquiera de los dos metodos: mymap.removeLayer(markersCG_busqueda);
-	markersCG_PRUEBAS.clearLayers();
+	markersCG_PanelesFILTERED.clearLayers();
 }
 
 for (var i=0; i < markerArrEN.length; i++) {
@@ -55,67 +103,3 @@ function getCoordinates(ev) {
 		    document.getElementById("ocultar").textContent = nuevoPunto;
 };
 
-//FUNCIONES ########## GEO ## JSON ##############////////////////////////////////////////////// 
-//ANADIR CAPA/////////////////////////////////////
-function addLayer(layer) {
-  var leaf_layer;
-  if (layer.type == "MultiPoint") {
-      leaf_layer = L.geoJson(layer, { pointToLayer: function (feature, latlng) {return L.circleMarker(latlng, layer.style); }})
-      leaf_layer.bindPopup(layer.type);
-  } else if (layer.type == "MultiLineString") {
-      leaf_layer = L.geoJson(layer, {style: layer.style });
-      leaf_layer.bindPopup(layer.type);
-  } else  {
-  	for (var i=0; i< layer.features.length; i++) {
-  		feature = layer.features[0];
-  	}
-      leaf_layer = L.geoJson(layer, {
-      	style: function(feature) {
-      		 /*		
-            switch (feature.properties.style) {
-            case 'Orange': return {
-                fillColor: "#e9bc3b",
-                color: "#ac8613",
-                opacity: 1,
-                fillOpacity: 0.8 
-            };
-            case 'Blue': return {
-                fillColor: "#0099ff",
-                color: "#005f9d",
-                opacity: 1,
-                fillOpacity: 0.8 
-            };}}
-     */
-      		switch (feature.properties.name) {
-            case 'Parque Alava': 
-          	  console.log("Alava");
-            return {
-                fillColor: "#e9bc3b",
-                color: "#ac8613",
-                opacity: 1,
-                fillOpacity: 0.8 
-            };
-            case 'Parque Bizkaia': 
-          	  console.log("Bizkaia");
-          	  return {
-                fillColor: "#0099ff",
-                color: "#005f9d",
-                opacity: 1,
-                fillOpacity: 0.8 
-            };
-            case 'Parque Gipuzkoa': 
-          	  console.log("Gipuzkoa");
-          	  return {
-                fillColor: "#0099ff",
-                color: "#005f9d",
-                opacity: 1,
-                fillOpacity: 0.8 
-            };}}
-   
-          
-      		
-      }).addTo(mymap);
-      layerArr.push(leaf_layer);
- }
-
-}

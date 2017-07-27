@@ -1,36 +1,7 @@
 $.noConflict();
 
 jQuery( function( $ ) {
-	
-	
-console.log("Funcionan mis funciones?");
-
-//console.log("isInArray(el, arr): returns boolean ok");
-//console.log("emptyArr(array): does");
-//console.log("fillUpArr(sourceArr, targetArr): does");
-//console.log("removeArrElementByVal(arr, itemToRemove): does");
-//console.log("removeDuplicatesArr(dupArr, uniqueArr): noooooooooo!");
-
-var companias = ["ACCE","AUPN","EEPN","ENDS","EONE","EOPN","FLPN","GDFS","GEPN","GNFE","HCEN","HLPN","IBDR","IMPN","NTRG","NXPN","PEPN","SHEL","SYPN","VMPN"];
-var dupArr =  ["ACCE","AUPN","EEPN","ENDS","EONE", "XXXX", "ACCE","AUPN","EEPN","ENDS","EONE","EOPN" ]
-var uniqueArr = [];
-
-
-
-//removeDuplicatesArr(pruebasArr, uniqueArr);
-
-
-
-
-
-	
-	
-	
 		
-// FUNCIONES CON JQUERY ///
-
-
-	
 ///// FLUJO DE INFO /////////
 var flujoCount = 1;
 var topoData ;
@@ -50,7 +21,7 @@ function flowTopoData () {
 	if (flujoCount>= 96) {	
 		flujoCount = 1
 		//clearInterval(intervalFunc);
-		//console.log("¡Ciclo hecho!")
+		console.log("¡Ciclo hecho!")
 	}
 }
 
@@ -81,7 +52,7 @@ function flowTopoData () {
 		flechaCheckBox_Arr_of_ids.push(flechaCheckBox);
 		squareCheckBox_Arr_of_ids.push(squareCheckBox);			
 	}	
-	for (var x = 0; x < squareCheckBox_Arr_of_ids.length - 1; x++ ) {	
+	for (var x = 0; x < squareCheckBox_Arr_of_ids.length; x++ ) {	
 		getCompanyName(x);		// 10 veces: squareCheckBox_Arr_of_ids.length == 10 == 9 companias + grupo grupoPequenasCheckBox
 	}	
 
@@ -89,7 +60,6 @@ function flowTopoData () {
 	function getCompanyName(x) { 
 
 		var unaCHECK = false;
-		var checkedCompaniesArrPREV = [];
 		var $unaCompaniaCheckBox =  $('#' + squareCheckBox_Arr_of_ids[x]);		
 		//var flechaCheckBoxItemID =  flechaCheckBox_Arr_of_ids[x]; 	
 		$unaCompaniaCheckBox.click(function() {	
@@ -98,18 +68,17 @@ function flowTopoData () {
 			var checkedCo = $.trim($label.text());
 
 				if(unaCHECK === false) {			
-					checkedCompaniesArrPREV.push(checkedCo);
-					removeDuplicatesArr(checkedCompaniesArrPREV, checkedCompaniesArr)
+					checkedCompaniesArr.push(checkedCo);
 				 	unaCHECK = true;
 
 				} else {
-					removeArrElementByVal(checkedCompaniesArrPREV, checkedCo)
-					removeDuplicatesArr(checkedCompaniesArrPREV, checkedCompaniesArr)
+					removeArrElementByVal(checkedCompaniesArr, checkedCo)
 					unaCHECK = false;
 				}		
 		 	   
 			}); // end unaCompaniaCheckBox.click
 		
+	 	consoleLogArr(checkedCompaniesArr);
 		
 	}; // END OG GETCOMPANYNAME
 
@@ -121,7 +90,7 @@ function flowTopoData () {
 //////###### BUSCADOR ##################///////////////////////
 		function buscarPanel() {
 			
-//			limpiarMarkers();
+			limpiarMarkers();
 				
 					var $valId_ =  $('input[id="identificador"]').val();
 					var $valId = parseInt($valId_);
@@ -212,122 +181,50 @@ function flowTopoData () {
 	}); // end $todasCompaniasCheckBox.clic */
 	
 
-/// ##################################################
 $("#btn_topos_companias").on("click", function() {	
-	
+
+// LIMPIAR MARCADORES Y LLAYERS PREVIAS
 	limpiarMarkers();
-	
-//	emptyArr(checkedCompaniesArr);
-/// RECOGER NOMBRE COMPANIA
-	
-	
-	/// PENDIENTE QUE NO DOBLE
-	for (var i=0; i < companias.length; i++) {			
-		$checkBox = $('input[id="' + companias[i] + '"]');  
-		$label = $('label[for="' + companias[i] + '"]');  
-		var checkedCompany = $.trim($label.text());
-		
-		if ($checkBox.prop('checked')) {
-			checkedCompaniesArr.push(checkedCompany);
-		};		
-	}; //console.log(checkedCompaniesArr);
 
+// AJUSTAR checkedCompaniesArr
+	if (todasCHECK) {
+		emptyArr(checkedCompaniesArr);
+		fillUpArr(companias, checkedCompaniesArr);
+	} else {
+		if (grupoPequenasCheckBoxCHECK) {
+			fillUpArr(companiasPequenas, checkedCompaniesArr);
+		} 
+	}; // end check chekBoxes
+
+// FUNCIONES DE LA TOPOJSON LAYER					
+	var pointToLayerPanelesFILTERED = function (feature, latlng) {
+		var marker = L.marker(latlng,{icon: icon_PanSolar_NEGRO}); markerArrEN.push(marker);
+		return marker;	
+	}; //END pointToLayerPanelesFILTERED
 	
-var parameter = $("input[name='visiblelayer']:checked").val();
-
-// FUNCIONES DE LA TOPOJSON LAYER	
-
-//var marker = L.marker(latlng,{icon: icon_PanSolar_NEGRO}); markerArrEN.push(marker);
-//return marker;
-
-
-var pointToLayerGRAL = function(parameter, fpParameter, latlng) {
-	var rangosArr = [];
-	var rangosEnergia = [1,2,3,4,5,6];
-	var rangosTemperatura = [5,10,15,20,30,40,50];
-	var rangosViento = [2,5,10,20,50,80];
-	
-	marker1 = L.marker(latlng,{icon: blueIcon}); 
-	marker2 = L.marker(latlng,{icon: greenIcon}); 
-	marker3 = L.marker(latlng,{icon: yellowIcon}); 
-	marker4 = L.marker(latlng,{icon: redIcon}); 
-	marker5 = L.marker(latlng,{icon: orangeIcon}); 
-	marker6 = L.marker(latlng,{icon: violetIcon}); 
-	var markerArrParameter = [marker1,marker2,marker3,marker4,marker5,marker6];
-	
-	switch (parameter){
-    case "energia": 
-    	fillUpArr(rangosEnergia, rangosArr);
-    	break;
-    case "temperatura": 
-    	fillUpArr(rangosTemperatura, rangosArr);
-    	break;
-    case "viento": 
-    	fillUpArr(rangosViento, rangosArr);
-    	break;
-	}; //end of switch (parameter)
-	
-		var numberOfCorrelatedItems = 6;
-		for (var i=0; i < numberOfCorrelatedItems; i++) {
-			var ctrlParameter = parseInt(fpParameter);
-			var ctrlRango = parseInt(rangosArr[i]);
-			if (ctrlParameter < ctrlRango) {
-				marker =  markerArrParameter[i];
-			} //end if
-		}; //end for
-		return marker;
-}; //END pointToLayerPanelesFILTERED
-
-var pointToLayerPanelesFILTERED = function (feature, latlng) {	
-	//var fpParameter = feature.properties.energia;
-	var fpParameter;
-	
-	switch (parameter){
-    case "energia": 
-    	fpParameter = feature.properties.energia;
-    	break;
-    case "temperatura": 
-    	fpParameter = feature.properties.temperatura;
-    	break;
-    case "viento": 
-    	fpParameter = feature.properties.velocidadviento;
-    	break;
-	}; //end of switch (parameter)
-	
-	//console.log(fpParameter);
-	var marker = pointToLayerGRAL(parameter, fpParameter, latlng);
-	return marker;
-};// END filterPanelesFILTERED
-
-
-var filterPanelesFILTERED = function(feature, latlng) {
-	var fpCompanyName = feature.properties.panelId.compania;					
-	if (isInArray(fpCompanyName, checkedCompaniesArr)) {	
-		return true;	  
-	};
-}
-
+	function filterPanelesFILTERED(feature, latlng) {
+		var fpCompanyName = feature.properties.panelId.compania;					
+		if (isInArray(fpCompanyName, checkedCompaniesArr)) {
+			
+		return true;
+							  
+		};
+	};// END filterPanelesFILTERED
 				
 	var onEachFeaturePanelesFILTERED = function(feature, layer) {
-	//	console.log("HERE");
-		
 		var fpValId = feature.properties.panelId.id;
 		var fpValCompany = feature.properties.panelId.compania;	
 		var fpenergia = feature.properties.energia;
 		var fptemperatura = feature.properties.temperatura;
 		var fpviento = feature.properties.velocidadviento;
 		
-		htmlComun = "Panel Id: " +  fpValCompany + " " + fpValId +"<br /> "
-			
-		htmlEnergia =  htmlComun + "Energia: " + fpenergia;
-		htmlTemperatura = htmlComun +  "Temperatura: " + fptemperatura;
-		htmlViento = htmlComun + "Viento: " + fpviento;
-		
-		switch (parameter){
-		case "energia": layer.bindTooltip(htmlEnergia); break;
-		case "temperatura": layer.bindTooltip(htmlTemperatura); break;
-		case "viento": layer.bindTooltip(htmlViento); break;
-		} 
+		 var parameter = $("input[name='visiblelayer']:checked").val();
+	     switch (parameter){
+	     case "energia": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId + " ENERGIA: " + fpenergia ); break;
+	     case "temperatura": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId + " TEMPERATURA: " + fpenergia); break;
+	     case "viento": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId+ " VIENTO: " + fpviento ); break;
+	     } 
+	
 	}; //END onEachFeatureBUSQ
 
 // TOPOJSON LAYER
@@ -337,8 +234,7 @@ var filterPanelesFILTERED = function(feature, latlng) {
 		
 	$.getJSON(topoData).done(addTopoData);
 	
-	
-	function addTopoData(topoData){ 	
+	function addTopoData(topoData){ 				
 			topoLayerPanelesFILTERED.addData(topoData);
 			markersCG_PanelesFILTERED.addLayer(topoLayerPanelesFILTERED);
 			mymap.addLayer(markersCG_PanelesFILTERED);

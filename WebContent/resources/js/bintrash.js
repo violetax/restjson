@@ -120,20 +120,121 @@ $(checkboxItem).on('click',function(e,t){
 
 	
 				
+//////// HARI CHECKBOXES //////////////////
+				console.log("checkedCompaniesArr PREV");
+				console.log(checkedCompaniesArr);
+
+			// AJUSTAR checkedCompaniesArr
+				if (todasCHECK) {
+					emptyArr(checkedCompaniesArr);
+					fillUpArr(companias, checkedCompaniesArr);
+					console.log("todascheck true");
+					console.log(checkedCompaniesArr);
+				} else {
+					console.log("todascheck false");
+					if (checkedCompaniesArr.length > 0 && checkedCompaniesArr.length < 20 || checkedCompaniesArr.length === 0) {
+						console.log("checkedCompaniesArr.length > 0 && checkedCompaniesArr.length < 20");
+						console.log(checkedCompaniesArr);
+						if (grupoPequenasCheckBoxCHECK) {
+							fillUpArr(companiasPequenas, checkedCompaniesArr);
+							console.log("grupoPequenasCheckBoxCHECK true");
+							console.log(checkedCompaniesArr);
+						} else {
+							for (var i=0; i< companiasPequenas.length; i++) {
+								removeArrElementByVal(checkedCompaniesArr, companiasPequenas[i]);
+							}
+							console.log("grupoPequenasCheckBoxCHECK false");
+							console.log(checkedCompaniesArr);
+						}
+					}  else if (checkedCompaniesArr.length === 20) {
+						emptyArr(checkedCompaniesArr);
+						console.log("checkedCompaniesArr.length === 20");
+						console.log(checkedCompaniesArr);
+					};
+					
+				}; // end check chekBoxes
+
+		//////// \\\ HARI CHECKBOXES //////////////////		 
 				
-				console.log("fpValId:");
-				console.log(typeof(fpValId));
-				console.log(fpValId);
+				/// more hari
+				// LIMPIAR MARCADORES Y LLAYERS PREVIAS
+				limpiarMarkers();
+				if (uniqueArr.length>0) {
+					emptyArr(uniqueArr);
+				};
+
+				console.log("checkedCompaniesArr PREV");
+				console.log(checkedCompaniesArr);
+
+			// AJUSTAR checkedCompaniesArr
+				if (todasCHECK) {
+					emptyArr(checkedCompaniesArr);
+					fillUpArr(companias, checkedCompaniesArr);
+					console.log("todascheck true");
+					console.log(checkedCompaniesArr);
+				} else if (grupoPequenasCheckBoxCHECK) {
+						console.log("grupoPequenasCheckBoxCHECK true");
+						console.log(checkedCompaniesArr);
+						//se suman las pequenas
+						fillUpArr(companiasPequenas, checkedCompaniesArr);
+						console.log(checkedCompaniesArr.length);
+						console.log(checkedCompaniesArr);
+						//se borran dups porsiaca
+						if (checkedCompaniesArr.length != 11) {
+							console.log("checkedCompaniesArr.length != 11");
+							console.log(checkedCompaniesArr);
+							//1. se hace un arr con single values
+							removeDuplicatesArr(checkedCompaniesArr, uniqueArr)
+							console.log(checkedCompaniesArr);
+							console.log(uniqueArr);
+							//. se borra el arr general
+							emptyArr(checkedCompaniesArr);
+							console.log(checkedCompaniesArr);
+							//. se rellena el arr general con los single vasl
+							fillUpArr(checkedCompaniesArr, uniqueArr);
+							console.log("After removeDuplicatesArr");
+							console.log(checkedCompaniesArr);
+						}
+
+				} else {
+					for (var i=0; i< companiasPequenas.length; i++) {
+						removeArrElementByVal(checkedCompaniesArr, companiasPequenas[i]);
+					}
+					console.log("grupoPequenasCheckBoxCHECK false");
+						console.log(checkedCompaniesArr); }; // end check chekBoxes
 				
-				console.log("$valId:");
-				console.log(typeof($valId));
-				console.log($valId);
-				
-				console.log("fpValCompany:");
-				console.log(typeof(fpValCompany));
-				console.log(fpValCompany);
-				
-				console.log("$valCompany:");
-				console.log(typeof($valCompany));
-				console.log($valCompany);
-			 
+				/* Lasty
+				 * else {
+						//se borran dups porsiaca
+						//1. se hace un arr con sigle values
+						removeDuplicatesArr(checkedCompaniesArr, uniqueArr)
+						//. se borra el arr general
+						emptyArr(checkedCompaniesArr);
+						//. se rellena el arr general con los single vasl
+						fillUpArr(checkedCompaniesArr, uniqueArr);
+						console.log("grupoPequenasCheckBoxCHECK false");
+						console.log(checkedCompaniesArr);
+					}		
+					*/
+
+					/*
+					if (checkedCompaniesArr.length > 0 && checkedCompaniesArr.length < 20 || checkedCompaniesArr.length === 0) {
+						console.log("checkedCompaniesArr.length > 0 && checkedCompaniesArr.length < 20");
+						console.log(checkedCompaniesArr);
+						if (grupoPequenasCheckBoxCHECK) {
+							fillUpArr(companiasPequenas, checkedCompaniesArr);
+							console.log("grupoPequenasCheckBoxCHECK true");
+							console.log(checkedCompaniesArr);
+						} else {
+							for (var i=0; i< companiasPequenas.length; i++) {
+								removeArrElementByVal(checkedCompaniesArr, companiasPequenas[i]);
+							}
+							console.log("grupoPequenasCheckBoxCHECK false");
+							console.log(checkedCompaniesArr);
+						}
+					}  else if (checkedCompaniesArr.length === 20) {
+						emptyArr(checkedCompaniesArr);
+						console.log("checkedCompaniesArr.length === 20");
+						console.log(checkedCompaniesArr);
+					};
+					*/

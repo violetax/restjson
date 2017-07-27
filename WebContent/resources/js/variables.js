@@ -37,11 +37,17 @@ var panelesLayer;				// to layer
 var allMarkersLayer = L.layerGroup();
 
 
+// ARRAYS OF IDS
+var squareCheckBox_Arr_of_ids = [];
+var flechaCheckBox_Arr_of_ids = [];
+// ARRAYS OF CHECKED-NOT-CHECKED
+var checkedCompaniesArr = [];
+
 
 /// MARKER CLUSTERS ///
 var markersCG_busqueda = L.markerClusterGroup();
 var markersCG_COMPANIAS = L.markerClusterGroup();
-var markersCG_PRUEBAS = L.markerClusterGroup();
+var markersCG_PanelesFILTERED = L.markerClusterGroup();
 //VARIABLE FEATURE COLLECTIONS PARA LAS LAYERS /////////////////////////////////////////////////////////
 //7: energia, humedad, inclinacion, insolacion, orientacion,temperatura, viento
 //1: company
@@ -63,6 +69,9 @@ var rangoEnergia3 = 3;
 var rangoEnergia4 = 4;
 var rangoEnergia5 = 5;
 var rangoEnergia6 = 6;
+
+
+
 //RANGO TEMPERATURA
 var rangoTemperatura1 = 5;
 var rangoTemperatura2 = 10;
