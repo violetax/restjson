@@ -52,84 +52,92 @@ function flowTopoData () {
 		flechaCheckBox_Arr_of_ids.push(flechaCheckBox);
 		squareCheckBox_Arr_of_ids.push(squareCheckBox);			
 	}	
-//	for (var x = 0; x < squareCheckBox_Arr_of_ids.length - 1; x++ ) {//}	
+	for (var x = 0; x < squareCheckBox_Arr_of_ids.length - 1; x++ ) {
+		getCompanyName(x);
+	}
 
 ///////////////////////////////////////////////////////////////////	
 /////////########## MOSTRAR POR COMPAÑIA ##########///////////
 
-$("#btn_topos_companias").on("click", function() {	
-	
-	limpiarMarkers();
-	
-//	emptyArr(checkedCompaniesArr);
+var checkedCompaniesArr = [];
+//emptyArr(checkedCompaniesArr);
 /// RECOGER NOMBRE COMPANIA
-	
-	var checkedCompaniesArr = [];
-	
 	var unaCHECK = false;
 	var todasCHECK = false;
 	var grupoPequenasCheckBoxCHECK = false;	
 
-	var $unaCompaniaCheckBox =  $('#' + squareCheckBox_Arr_of_ids[x]);	
+
 	var $todasCompaniasCheckBox = $('#inputTodas');
 	var $grupoPequenasCheckBox = $('#inputid9');
 	
 	
 	$todasCompaniasCheckBox.click(function() {
 		if(todasCHECK === false) {
-			todasCHECK = true;			
+			todasCHECK = true;	
+			grupoPequenasCheckBoxCHECK = true
 			if (checkedCompaniesArr.length > 1) {
 				emptyArr(checkedCompaniesArr);
-			};
-			traspasarArr(companias, checkedCompaniesArr)			
+			}; 
+			traspasarArr(companias, checkedCompaniesArr)	
+			console.log(checkedCompaniesArr);
 		} else {
 			todasCHECK = false;
 			if (checkedCompaniesArr.length > 1) {
 				emptyArr(checkedCompaniesArr);
-			};			
+			}; console.log(checkedCompaniesArr);			
 		}
 		return checkedCompaniesArr;
 	}); // end $todasCompaniasCheckBox.clic */
 	
-
-	$unaCompaniaCheckBox.click(function() {	
-		
-		$label = $('label[for="' + flechaCheckBox_Arr_of_ids[x] + '"]');  
-		var checkedCo = $.trim($label.text());
-
-			if(unaCHECK === false) {
-				if(!isInArray(checkedCo, checkedCompaniesArr))
-					checkedCompaniesArr.push(checkedCo);
-					unaCHECK = true;
-			} else {
-				if(isInArray(checkedCo, checkedCompaniesArr)) {
-					removeArrElementByVal(checkedCompaniesArrPREV, checkedCo);
-				}
-				unaCHECK = false;
-			}			
-			return checkedCompaniesArr;
-		}); // end unaCompaniaCheckBox.click
-
-
 	$grupoPequenasCheckBox.click(function() {
 		if(grupoPequenasCheckBoxCHECK === false) {
-			if (!isInArray(companiasPequenas[0], checkedCompaniesArr)) {
-				traspasarArr(companiasPequenas, checkedCompaniesArr)
-			}
-			grupoPequenasCheckBoxCHECK = true;
-		} else {	
+			grupoPequenasCheckBoxCHECK = true;	  
+		    if (!isInArray(companiasPequenas[0], checkedCompaniesArr)) {
+				console.log(checkedCompaniesArr);
+				traspasarArr(companiasPequenas, checkedCompaniesArr)		
+			} console.log(checkedCompaniesArr);
+		} else {
+			grupoPequenasCheckBoxCHECK = false;
 			if (isInArray(companiasPequenas[0], checkedCompaniesArr)) {
 				for (var i =0 ; i < companiasPequenas.length; i++) {
 					removeArrElementByVal(checkedCompaniesArr, companiasPequenas[i]);
-				}
-			}
-			grupoPequenasCheckBoxCHECK = false;
-		}
+				} console.log(checkedCompaniesArr);
+			}	
+		};
 		return checkedCompaniesArr;
 	}); // end $todasCompaniasCheckBox.clic */
+
+	function getCompanyName(x) {
+		
+		var $unaCompaniaCheckBox =  $('#' + squareCheckBox_Arr_of_ids[x]);	
+		$unaCompaniaCheckBox.click(function() {			
+			$label = $('label[for="' + flechaCheckBox_Arr_of_ids[x] + '"]');  
+			var checkedCo = $.trim($label.text());
+			console.log(checkedCo);
+			
+			if(!isInArray(checkedCo, checkedCompaniesArr)) {
+				checkedCompaniesArr.push(checkedCo);
+				console.log(checkedCompaniesArr);
+			} else {
+				removeArrElementByVal(checkedCompaniesArr, checkedCo);
+				console.log(checkedCompaniesArr);
+			} ;
+					
+				if(unaCHECK === false) {
+					unaCHECK = true;
+				} else {
+					unaCHECK = false; 
+				}
+	
+			}); // end unaCompaniaCheckBox.click
+		return checkedCompaniesArr;
+	};
 	
 
-console.log(checkedCompaniesArr);
+$("#btn_topos_companias").on("click", function() {	
+	
+limpiarMarkers();
+
 var parameter = $("input[name='visiblelayer']:checked").val();
 
 // FUNCIONES DE LA TOPOJSON LAYER	
@@ -141,7 +149,7 @@ var parameter = $("input[name='visiblelayer']:checked").val();
 var pointToLayerGRAL = function(parameter, fpParameter, latlng) {
 	var rangosArr = 		[];
 	var rangosEnergia = 	[1,2,3,4,5,6];
-	var rangosTemperatura = [5,10,15,20,30,40,50];
+	var rangosTemperatura = [10,15,20,30,40,50];
 	var rangosViento = 		[2,5,10,20,50,80];
 	
 	marker1 = L.marker(latlng,{icon: blueIcon}); 
@@ -163,17 +171,22 @@ var pointToLayerGRAL = function(parameter, fpParameter, latlng) {
     	traspasarArr(rangosViento, rangosArr);
     	break;
 	}; //end of switch (parameter)
-	
+	console.log(parameter);
 		var numberOfCorrelatedItems = 6;
-		for (var i=1; i <= numberOfCorrelatedItems; i++) {
+		for (var i = numberOfCorrelatedItems; i>= 2; i--) {
 			var ctrlParameter = parseInt(fpParameter);
-			var ctrlRangoMAX = parseInt(rangosArr[i]);
-			var ctrlRangoMIN = parseInt(rangosArr[i-1]);
-			if (ctrlParameter < ctrlRangoMAX && ctrlParameter > ctrlRangoMIN) {
+			var ctrlRangoMAX = parseInt(rangosArr[i-1]); 
+			var ctrlRangoMIN = parseInt(rangosArr[i-2]);
+			console.log(ctrlRangoMAX);
+			console.log(ctrlParameter);
+			console.log(ctrlRangoMIN);
+			if ((ctrlParameter < ctrlRangoMAX) && (ctrlParameter >= ctrlRangoMIN)) {
 				marker =  markerArrParameter[i];
+				return marker;
 			}; //end if
 		}; //end for
-		return marker;
+		//return marker;
+		//console.log(marker);
 }; //END pointToLayerPanelesFILTERED
 
 var pointToLayerPanelesFILTERED = function (feature, latlng) {	
@@ -198,7 +211,7 @@ var pointToLayerPanelesFILTERED = function (feature, latlng) {
 
 
 var filterPanelesFILTERED = function(feature, latlng) {
-	var fpCompanyName = feature.properties.panelId.compania;					
+	var fpCompanyName = feature.properties.panelId.compania;
 	if (isInArray(fpCompanyName, checkedCompaniesArr)) {	
 		return true;	  
 	};
@@ -219,9 +232,9 @@ var filterPanelesFILTERED = function(feature, latlng) {
 		htmlViento = htmlComun + "Viento: " + fpviento;
 		
 		switch (parameter){
-		case "energia": layer.bindTooltip(htmlEnergia); break;
-		case "temperatura": layer.bindTooltip(htmlTemperatura); break;
-		case "viento": layer.bindTooltip(htmlViento); break;
+			case "energia": layer.bindTooltip(htmlEnergia); break;
+			case "temperatura": layer.bindTooltip(htmlTemperatura); break;
+			case "viento": layer.bindTooltip(htmlViento); break;
 		} 
 	}; //END onEachFeatureBUSQ
 

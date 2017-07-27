@@ -6,10 +6,8 @@ function isInArray(el, arr) {
 	for (var i=0 ; i < arr.length; i++) {
 		if (el === arr[i]) {
 			return true;
-		} else {
-			return false;
-		};
-	};
+		} 
+	}; return false;
 };
 
 ////////////////////////////////////////////////
