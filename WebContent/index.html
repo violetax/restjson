@@ -84,7 +84,7 @@
 	    <button id="btn_topos_companias" type="button" class="btn btn-info btn-xl" title="Muestra todos los paneles que existen de las compa&ntilde;&iacute;as seleccionadas. Si se pincha sobre el marcador, aparece un mensaje informativo sobre el parametroMedida seleccionado.">
 	    	<span class="glyphicon glyphicon-circle-arrow-right">	VER PANELES	</span></button> 
 	  
-	    <button class="btn btn-danger" id="boton_pruebas" type="button">PRUEBAS</button>
+	    <button class="btn btn-success" id="boton_ayuda" type="button">C&Oacute;MO USAR ESTE SITIO</button>
 	  
 
     		
@@ -116,6 +116,37 @@
 <div class="spacer">&nbsp;</div>
 
 <!-- MODAL HERE // -->
+				<!-- MODAL -->
+						<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+						  <div class="modal-dialog" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        <h4 class="modal-title">Instrucciones de uso:</h4>
+						      </div>
+						      <div class="modal-body">
+						      <div>Suposiciones sobre los datos sobre los que funciona la p&aacute;gina: cada entidad (un panel solar) constituye un feature dentro de una feature collection en formato TopoJSON. Cada feature tiene las mismas propiedades: nombre de la compa&ntilde;&iacute;, identificador del panel, y 3 par&iacute;metros de medida.</div>
+						        <p>Para VER PANELES: </p>
+						        <ol>
+						        <li>En la columna izquierda de la p&aacute;gina, seleccionar un par&aacute;metro de medida y una o todas las compa&ntilde;&iacute;as. </li>
+						        <li>Pinchar el bot&oacute;n VER PANELES</li>
+						        <li>Volver a pinchar cada vez que se hace una nueva selecci&oacute;n.</li>
+						        </ol>
+						         <p>Para BUSCAR.</p>
+						         <p>Se busca de acuerdo con el nombre de la compa&ntilde;&iacute;a y con el identificador num&eacute;rico de cada panel.</p>
+						        <ol>
+						        <li>En la caja del buscador, introducir un caracteralfanum&eacute;rico.</li>
+						        <li>NO está desarrollada la visualizaci&oacute;n. (Pero s&iacute; se recogen los par&aacute;metros de b&uacute;squeda de forma din&aacute;mica en los datos de la base de datos).</li>
+						        </ol>
+							 </div>
+						      <div class="modal-footer">   
+						          <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Ok</button>                       
+						      </div>
+						    </div><!-- /.modal-content -->
+						  </div><!-- /.modal-dialog -->
+						</div><!-- /.modal -->
+
+
 
 <!--  BUSCADOR  -->
 	    <div class="ui-widget" id="busqueda">	    

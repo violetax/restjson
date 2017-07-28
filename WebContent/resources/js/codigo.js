@@ -126,6 +126,9 @@ var checkedCompaniesArr = [];
 //////###### BOTON COMPANIAS ####### ///////////	
 $("#btn_topos_companias").on("click", function() {	
 	
+	$(this).cursor("isHover");
+	tooltip();
+	
 	var parameter = $("input[name='visiblelayer']:checked").val();
 	$("#btn_topos_companias").tooltip();
 
@@ -288,9 +291,17 @@ var availableTags_tmp = [];
 var panelIdCompaniaTags = [];
 var panelIdIdTags = [];
    
-$("#boton_pruebas").on("click",function(){
 
 
+
+$("#boton_ayuda").on("click",function(){
+	//$("#myModal").modal('hide');
+	$('#myModal').modal('show')
+});
+
+
+
+$("#busqueda").on("click",function(){
 	
 	emptyArr(availableTags);
 	emptyArr(availableTags_tmp);
