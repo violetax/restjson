@@ -1,35 +1,61 @@
 $.noConflict();
 
 jQuery( function( $ ) {
-		
+	
+	
+////////FUNCIONAMIENTO VERTICAL MENU //////////////////////////////////////
+
+
+	$(".acidjs-css3-treeview").delegate("label input:checkbox", "change", function() {
+	    var
+	        checkbox = $(this),
+	        nestedList = checkbox.parent().next().next(),
+	        selectNestedListCheckbox = nestedList.find("label:not([for]) input:checkbox");
+	 
+	    if(checkbox.is(":checked")) {
+	        return selectNestedListCheckbox.prop("checked", true);
+	    }
+	    selectNestedListCheckbox.prop("checked", false);
+	});
+	
+	
+
+
+//DEFINIR MAPA BASE ##########///////////////////////////////////////////////////////////////////////
+
+initlat = 42.994603451901334;
+initlng = -2.4238586425781254;
+initzoom = 9;
+	
+mymap = L.map('mapid', { zoomControl: false} ).setView([initlat, initlng], initzoom);
+
+L.control.zoom({
+    position:'bottomright'
+}).addTo(mymap);
+
+initialLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+	maxZoom: 19,
+	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+	id: 'mapbox.streets'
+});
+
+initialLayer.addTo(mymap);
+
+
+//MOSTRAR LAS COORDENADAS DEL PUNTO EN PANTALLA ##########///////////////////////////////////////////////////////////////////////
+mymap.on('click', getCoordinates);
+
+
+/// CARGAR DATOS 
 var topoData ;
 
 topoData = "resources/topojson/muestra.featureCollection.topo.json";
 
-$("#boton_limpiar").on("click",function(e){	
-	limpiarMarkers();
-});
-		
 
-	
-	L.TopoJSON = L.GeoJSON.extend({  
-		  addData: function(jsonData) {    
-		    if (jsonData.type === "Topology") {
-		      for (key in jsonData.objects) {
-		        geojson = topojson.feature(jsonData, jsonData.objects[key]);
-		        L.GeoJSON.prototype.addData.call(this, geojson);
-		      }
-		    }    
-		    else {
-		      L.GeoJSON.prototype.addData.call(this, jsonData);
-		    }
-		  }  
-		});
-	
-	
-	
 //////////////////////////////////////////////////////////////////
-//////###### RECOGER VALORES DE LAS CHECKBOXES ####### ///////////	
+//////###### RECOGER NOMBRES DE LAS COMPANIAS DE LAS CHECKBOXES ####### ///////////	
 
 	var countCheckBoxes = companiasGrandes.length + 1;
 	
@@ -43,8 +69,6 @@ $("#boton_limpiar").on("click",function(e){
 		getCompanyName(x);
 	}
 
-///////////////////////////////////////////////////////////////////	
-/////////########## MOSTRAR POR COMPAÑIA ##########///////////
 
 var checkedCompaniesArr = [];
 //emptyArr(checkedCompaniesArr);
@@ -65,13 +89,12 @@ var checkedCompaniesArr = [];
 			if (checkedCompaniesArr.length > 1) {
 				emptyArr(checkedCompaniesArr);
 			}; 
-			traspasarArr(companias, checkedCompaniesArr)	
-			console.log(checkedCompaniesArr);
+			traspasarArr(companias, checkedCompaniesArr)				
 		} else {
 			todasCHECK = false;
 			if (checkedCompaniesArr.length > 1) {
 				emptyArr(checkedCompaniesArr);
-			}; console.log(checkedCompaniesArr);			
+			}; 			
 		}
 		return checkedCompaniesArr;
 	}); // end $todasCompaniasCheckBox.clic */
@@ -82,13 +105,13 @@ var checkedCompaniesArr = [];
 		    if (!isInArray(companiasPequenas[0], checkedCompaniesArr)) {
 				console.log(checkedCompaniesArr);
 				traspasarArr(companiasPequenas, checkedCompaniesArr)		
-			} console.log(checkedCompaniesArr);
+			}
 		} else {
 			grupoPequenasCheckBoxCHECK = false;
 			if (isInArray(companiasPequenas[0], checkedCompaniesArr)) {
 				for (var i =0 ; i < companiasPequenas.length; i++) {
 					removeArrElementByVal(checkedCompaniesArr, companiasPequenas[i]);
-				} console.log(checkedCompaniesArr);
+				} 
 			}	
 		};
 		return checkedCompaniesArr;
@@ -104,30 +127,51 @@ var checkedCompaniesArr = [];
 			
 			if(!isInArray(checkedCo, checkedCompaniesArr)) {
 				checkedCompaniesArr.push(checkedCo);
-				console.log(checkedCompaniesArr);
 			} else {
 				removeArrElementByVal(checkedCompaniesArr, checkedCo);
-				console.log(checkedCompaniesArr);
 			} ;
-					
+				
 				if(unaCHECK === false) {
 					unaCHECK = true;
 				} else {
 					unaCHECK = false; 
 				}
-	
 			}); // end unaCompaniaCheckBox.click
 		return checkedCompaniesArr;
 	};
 	
 
+
+////////////BOTONES
+//LIMPIEZA
+//VER PANELES
+//BOTON BUSCADOR
+//INFORMACION
+
+/////////// BTON LIMPIEZA
+$("#boton_limpiar").on("click",function(e){	
+limpiarMarkers();
+});
+
+
+
+L.TopoJSON = L.GeoJSON.extend({  
+ addData: function(jsonData) {    
+   if (jsonData.type === "Topology") {
+     for (key in jsonData.objects) {
+       geojson = topojson.feature(jsonData, jsonData.objects[key]);
+       L.GeoJSON.prototype.addData.call(this, geojson);
+     }
+   }    
+   else {
+     L.GeoJSON.prototype.addData.call(this, jsonData);
+   }
+ }  
+});
 	
-//////////////////////////////////////////////////////////////////
-//////###### BOTON COMPANIAS ####### ///////////	
+
+/////////// BTON VER PANELES	
 $("#btn_topos_companias").on("click", function() {	
-	
-	$(this).cursor("isHover");
-	tooltip();
 	
 	var parameter = $("input[name='visiblelayer']:checked").val();
 	$("#btn_topos_companias").tooltip();
@@ -248,8 +292,8 @@ var filterPanelesFILTERED = function(feature, latlng) {
 //////////////////////////////////////////////////////////////////
 
 
-//////////////////////////////////////////////////////////////////
-//////###### BUSCADOR ##################///////////////////////
+//////////BOTON BUSCADOR
+
 
 var parametrosObject = {};
 
@@ -292,7 +336,7 @@ var panelIdCompaniaTags = [];
 var panelIdIdTags = [];
    
 
-
+//BOTON INFORMACION
 
 $("#boton_ayuda").on("click",function(){
 	//$("#myModal").modal('hide');
@@ -332,9 +376,6 @@ $("#busqueda").on("click",function(){
 });//END OF boton_pruebas
 
 
-
-// CODIGO AYUDA
-//$( btn_topos_companias ).tooltip();
     
 });//END OF JQUERY FUNCTION
 
