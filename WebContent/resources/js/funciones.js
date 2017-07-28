@@ -18,7 +18,7 @@ function removeDuplicatesArr(dupArr, uniqueArr) {
 			if(!isInArray(dupArr[i], uniqueArr)) {
 				uniqueArr.push(dupArr[i]);
 			} else {
-				break;
+				continue;
 			}
 		};	
 	}

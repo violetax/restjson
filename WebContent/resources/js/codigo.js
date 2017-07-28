@@ -5,7 +5,6 @@ jQuery( function( $ ) {
 var topoData ;
 
 topoData = "resources/topojson/muestra.featureCollection.topo.json";
-console.log(topoData);
 
 $("#boton_limpiar").on("click",function(e){	
 	limpiarMarkers();
@@ -257,16 +256,13 @@ var parametros_nombre_Array = [];
 var parametros_id_Array = [];
 
 	var onEachFeatureBUSQUEDA = function(feature, layer) {
-		var para1Energia = feature.properties.parametroMedida1;
 		var para2Nombre = feature.properties.panelId.compania;
 		var para3Id = feature.properties.panelId.id;
 		
-		parametros_1_Array.push(para1Energia);
 		parametros_nombre_Array.push(para2Nombre);
 		parametros_id_Array.push(para3Id);
 		
 		parametrosObject = {
-				parametroMedida1 : parametros_1_Array,
 				panelIdCompania : parametros_nombre_Array,
 				panelIdId : parametros_id_Array
 		}
@@ -288,7 +284,7 @@ var parametros_id_Array = [];
 
 
 var availableTags = [];
-var parametroMedida1Tags = [];
+var availableTags_tmp = [];
 var panelIdCompaniaTags = [];
 var panelIdIdTags = [];
    
@@ -297,27 +293,17 @@ $("#boton_pruebas").on("click",function(){
 
 	
 	emptyArr(availableTags);
-	emptyArr(parametroMedida1Tags);
+	emptyArr(availableTags_tmp);
 	emptyArr(panelIdCompaniaTags);
 	emptyArr(panelIdIdTags);
+
 	
-	traspasarArr(parametrosObject.parametroMedida1, parametroMedida1Tags);
-	traspasarArr(parametrosObject.panelIdCompania, panelIdCompaniaTags);
-	traspasarArr(parametrosObject.panelIdId, panelIdIdTags);
+	traspasarArr(parametrosObject.panelIdCompania, availableTags_tmp);
+	traspasarArr(parametrosObject.panelIdId, availableTags_tmp);
 
-	//console.log(typeof(parametrosObject.parametroMedida1));
-
-	var switchParameterBusqueda = function() {   	
-		switch (parameter){
-			case "parametroMedida1": traspasarArr(parametroMedida1Tags, availableTags); break;
-			case "nombrecompania": traspasarArr(panelIdCompaniaTags, availableTags); break;
-			case "panelid": traspasarArr(panelIdIdTags, availableTags); break;
-	}; return availableTags
-	};  
-	switchParameterBusqueda();
+	removeDuplicatesArr(availableTags_tmp, availableTags);
 	
 
-	console.log(availableTags);
 	$( "#tags" ).autocomplete({
 	   // source: availableTags
 		 source: availableTags.map(function(a){
