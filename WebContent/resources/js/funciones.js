@@ -55,28 +55,15 @@ function removeArrElementByVal(arr, itemToRemove) {
 /////LIMPIAR MARKERS//////////////////////////////
 var limpiarMarkers = function() {
 	
-if (markersCG_busqueda) {
+if (markersCG_RESBUSQUEDA) {
 	//Caulquiera de los dos metodos: mymap.removeLayer(markersCG_busqueda);
-	markersCG_busqueda.clearLayers();
+	markersCG_RESBUSQUEDA.clearLayers();
 }
-if (markersCG_COMPANIAS) {
+if (markersCG_VERPANELES) {
 	//Caulquiera de los dos metodos: mymap.removeLayer(markersCG_busqueda);
-	markersCG_COMPANIAS.clearLayers();
-}
-if (markersCG_PanelesFILTERED) {
-	//Caulquiera de los dos metodos: mymap.removeLayer(markersCG_busqueda);
-	markersCG_PanelesFILTERED.clearLayers();
+	markersCG_VERPANELES.clearLayers();
 }
 
-for (var i=0; i < markerArrEN.length; i++) {
-		mymap.removeLayer(markerArrEN[i]);
-	}	
-for (var i=0; i < markerArrTE.length; i++) {
-		mymap.removeLayer(markerArrTE[i]);
-	}	
-for (var i=0; i < markerArrVI.length; i++) {
-		mymap.removeLayer(markerArrVI[i]);
-	}	
 }
 ////////////////////////////////////////////////
 
@@ -86,13 +73,13 @@ function getCoordinates(ev) {
 	latx = ev.latlng.lat.toString();
 	lngx = ev.latlng.lng.toString();
 	
-	nuevoPunto = "{\"latitud\": " + latx + ", \"longitud\": " + lngx + "}";  //JSON.stringify({ "Latitud": lat , "Longitud": lng });     
-	jsonCoords =  JSON.stringify({ "Latitud": latx , "Longitud": lngx });
+	var nuevoPunto = "{\"latitud\": " + latx + ", \"longitud\": " + lngx + "}";  //JSON.stringify({ "Latitud": lat , "Longitud": lng });     
+	var jsonCoords =  JSON.stringify({ "Latitud": latx , "Longitud": lngx });
 	
 	if (clickCircle != undefined) {
 		   mymap.removeLayer(clickCircle);
 		    };
-		    clickCircle = L.circle([latx, lngx], 500, {
+		    var clickCircle = L.circle([latx, lngx], 500, {
 		       	color: 'red',
 		       	fillColor: '#f03',
 		       	fillOpacity: 0.5

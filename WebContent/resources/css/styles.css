@@ -6,6 +6,12 @@
 
 .btn { width: 200px; 
  	font-family:  sans-serif;}
+ #btn_buscar {
+ 	width: 15%; 
+ 	position: relative;
+ 	float: right;
+ 	margin-right: 25px;
+ } 
 .btn-group { display: flex; }
 .mydropdown {width: 100%; }
 .dropdown-menu {
@@ -14,12 +20,18 @@
 }
 
 .ui-widget { 
+			
 			 background-color: #F0F8FF;
-    		 cursor: default;z-index:30 !important; 
+    		 cursor: default;
+    		 z-index:30 !important; 
     		}
 .ui-widget > label > span {
 	 font-weight: bold;
 }
+.ui-widget > input {
+	width: 200px;
+}
+
 
 /*MARKER CLUSTER*/
 
@@ -30,8 +42,6 @@
 			text-align: center;
 			font-size: 24px;
 		}
-
-
 
 #mapid { 
 height: 100%;

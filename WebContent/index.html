@@ -78,11 +78,8 @@
           <span class="icon-bar"></span>
 	   
 	    <button class="btn btn-warning" id="boton_limpiar" type="button">LIMPIAR</button>
-	   
-	    <button id="btn_topos_companias" type="button" class="btn btn-info btn-xl" title="Muestra todos los paneles que existen de las compa&ntilde;&iacute;as seleccionadas. Si se pincha sobre el marcador, aparece un mensaje informativo sobre el parametroMedida seleccionado.">
-	    	<span class="glyphicon glyphicon-circle-arrow-right">	VER PANELES	</span></button> 
 	  
-	    <button class="btn btn-success" id="boton_ayuda" type="button">C&Oacute;MO USAR ESTE SITIO</button>
+	    <button class="btn btn-info" id="boton_ayuda" type="button">C&Oacute;MO USAR ESTE SITIO</button>
 	  
 
     		
@@ -123,19 +120,17 @@
 						        <h4 class="modal-title">Instrucciones de uso:</h4>
 						      </div>
 						      <div class="modal-body">
-						      <div>Suposiciones sobre los datos sobre los que funciona la p&aacute;gina: cada entidad (un panel solar) constituye un feature dentro de una feature collection en formato TopoJSON. Cada feature tiene las mismas propiedades: nombre de la compa&ntilde;&iacute;, identificador del panel, y 3 par&iacute;metros de medida.</div>
-						        <p>Para VER PANELES: </p>
+						      <div><b>Suposiciones sobre los datos sobre los que funciona la p&aacute;gina:</b> cada entidad (un panel solar) constituye un feature dentro de una feature collection en formato TopoJSON. Cada feature tiene las mismas propiedades: nombre de la compa&ntilde;&iacute;a, identificador del panel, y 3 par&aacute;metros de medida.</div>
+						      <br />
+						        <p><b>Para VER PANELES: </b></p>
 						        <ol>
-						        <li>En la columna izquierda de la p&aacute;gina, seleccionar un par&aacute;metro de medida y una o todas las compa&ntilde;&iacute;as. </li>
-						        <li>Pinchar el bot&oacute;n VER PANELES</li>
+						        <li>En la columna izquierda de la p&aacute;gina, seleccionar un par&aacute;metro de medida con los radiobuttons y una o todas las compa&ntilde;&iacute;as en las checkboxes. Las checkboxes se expanden, pero no hay nada desarrollado detr&aacute;s. </li>
+						        <li>Pinchar el bot&oacute;n VER PANELES, y hover sobre los marcadores para ver los tooltips.</li>						   
 						        <li>Volver a pinchar cada vez que se hace una nueva selecci&oacute;n.</li>
 						        </ol>
-						         <p>Para BUSCAR.</p>
-						         <p>Se busca de acuerdo con el nombre de la compa&ntilde;&iacute;a y con el identificador num&eacute;rico de cada panel.</p>
-						        <ol>
-						        <li>En la caja del buscador, introducir un caracteralfanum&eacute;rico.</li>
-						        <li>NO está desarrollada la visualizaci&oacute;n. (Pero s&iacute; se recogen los par&aacute;metros de b&uacute;squeda de forma din&aacute;mica en los datos de la base de datos).</li>
-						        </ol>
+						         <p><b>Para BUSCAR.</b></p>
+						         <p>Se busca directamente en el archivo base de datos el nombre de la compa&ntilde;&iacute;a o el identificador num&eacute;rico de cada panel.</p>						    
+						        <p>Hover sobre los marcadores para ver los tooltips.</p>					     
 							 </div>
 						      <div class="modal-footer">   
 						          <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Ok</button>                       
@@ -147,12 +142,18 @@
 
 
 <!--  BUSCADOR  -->
-	    <div class="ui-widget" id="busqueda">	    
-		  <label for="tags"><span class="glyphicon glyphicon glyphicon-search">	BUSCADOR </span></button> </label>
+	    <div class="ui-widget" id="busqueda">
+	    
+	    <div class="flexItemBusq">
+	      <label for="tags"><span class="glyphicon glyphicon glyphicon-search">BUSCADOR </span></button> </label>
 		  <input id="tags">
+		  <button id="btn_buscar" type="button" class="btn btn-success btn-sm" title="Busca por nombre de compa&ntilde;&iacute;a o identificador de panel.">
+	      <span class="glyphicon glyphicon-search"></span></button>
+	    </div>
 		</div>
 
-
+<div class="spacer">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
 
 <div class="acidjs-css3-treeview" id="vertical-menu"> 
 
@@ -248,6 +249,8 @@
         </li>
     </ul>
 </div>
+	    <button id="btn_topos_companias" type="button" class="btn btn-success btn-xl" title="Muestra todos los paneles que existen de las compa&ntilde;&iacute;as seleccionadas. Si se pincha sobre el marcador, aparece un mensaje informativo sobre el parametroMedida seleccionado.">
+	    	<span class="glyphicon glyphicon-circle-arrow-right">	VER PANELES	</span></button> 
 
 </navi>     
 
