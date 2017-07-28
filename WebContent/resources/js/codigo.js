@@ -2,28 +2,15 @@ $.noConflict();
 
 jQuery( function( $ ) {
 		
-///// FLUJO DE INFO /////////
-var flujoCount = 1;
 var topoData ;
-//var intervalFunc = setInterval(flowTopoData, 500); 
-//TEMP TOPODATA:
-//topoData = "resources/topojson/periodo.1.periodoFEATCOL.topo.json";
-topoData = "resources/geojson/pruebas.1.topo.json";
+
+topoData = "resources/topojson/muestra.featureCollection.topo.json";
+console.log(topoData);
 
 $("#boton_limpiar").on("click",function(e){	
 	limpiarMarkers();
 });
 		
-
-function flowTopoData () {	
-	topoData = "resources/topojson/periodo." + flujoCount + ".periodoFEATCOL.topo.json";
-	flujoCount++
-	if (flujoCount>= 96) {	
-		flujoCount = 1
-		//clearInterval(intervalFunc);
-		console.log("¡Ciclo hecho!")
-	}
-}
 
 	
 	L.TopoJSON = L.GeoJSON.extend({  
@@ -39,6 +26,7 @@ function flowTopoData () {
 		    }
 		  }  
 		});
+	
 	
 	
 //////////////////////////////////////////////////////////////////
@@ -134,22 +122,22 @@ var checkedCompaniesArr = [];
 	};
 	
 
+	
+//////////////////////////////////////////////////////////////////
+//////###### BOTON COMPANIAS ####### ///////////	
 $("#btn_topos_companias").on("click", function() {	
 	
-limpiarMarkers();
+	var parameter = $("input[name='visiblelayer']:checked").val();
+	$("#btn_topos_companias").tooltip();
 
-var parameter = $("input[name='visiblelayer']:checked").val();
+limpiarMarkers();
 
 // FUNCIONES DE LA TOPOJSON LAYER	
 
-//var marker = L.marker(latlng,{icon: icon_PanSolar_NEGRO}); markerArrEN.push(marker);
-//return marker;
-
-
 var pointToLayerGRAL = function(parameter, fpParameter, latlng) {
 	var rangosArr = 		[];
-	var rangosEnergia = 	[1,2,3,4,5,6];
-	var rangosTemperatura = [10,15,20,30,40,50];
+	var rangosEnergia = 	[0,2,3,4,5,6];
+	var rangosTemperatura = [10,20,40,60,80,100];
 	var rangosViento = 		[2,5,10,20,50,80];
 	
 	marker1 = L.marker(latlng,{icon: blueIcon}); 
@@ -161,25 +149,23 @@ var pointToLayerGRAL = function(parameter, fpParameter, latlng) {
 	var markerArrParameter = [marker1,marker2,marker3,marker4,marker5,marker6];
 	
 	switch (parameter){
-    case "energia": 
+    case "parametroMedida1": 
     	traspasarArr(rangosEnergia, rangosArr);
     	break;
-    case "temperatura": 
+    case "parametroMedida2": 
     	traspasarArr(rangosTemperatura, rangosArr);
     	break;
-    case "viento": 
+    case "parametroMedida3": 
     	traspasarArr(rangosViento, rangosArr);
     	break;
 	}; //end of switch (parameter)
-	console.log(parameter);
+//	console.log(parameter);
+//	console.log(fpParameter);
 		var numberOfCorrelatedItems = 6;
 		for (var i = numberOfCorrelatedItems; i>= 2; i--) {
 			var ctrlParameter = parseInt(fpParameter);
 			var ctrlRangoMAX = parseInt(rangosArr[i-1]); 
 			var ctrlRangoMIN = parseInt(rangosArr[i-2]);
-			console.log(ctrlRangoMAX);
-			console.log(ctrlParameter);
-			console.log(ctrlRangoMIN);
 			if ((ctrlParameter < ctrlRangoMAX) && (ctrlParameter >= ctrlRangoMIN)) {
 				marker =  markerArrParameter[i];
 				return marker;
@@ -190,20 +176,24 @@ var pointToLayerGRAL = function(parameter, fpParameter, latlng) {
 }; //END pointToLayerPanelesFILTERED
 
 var pointToLayerPanelesFILTERED = function (feature, latlng) {	
-	//var fpParameter = feature.properties.energia;
+	 
+	//var fpParameter = feature.properties.parametroMedida1;
 	var fpParameter;
 	
 	switch (parameter){
-    case "energia": 
-    	fpParameter = feature.properties.energia;
+    case "parametroMedida1": 
+    	fpParameter = feature.properties.parametroMedida1;
     	break;
-    case "temperatura": 
-    	fpParameter = feature.properties.temperatura;
+    case "parametroMedida2": 
+    	fpParameter = feature.properties.parametroMedida2;
     	break;
-    case "viento": 
-    	fpParameter = feature.properties.velocidadviento;
+    case "parametroMedida3": 
+    	fpParameter = feature.properties.parametroMedida3;
     	break;
 	}; //end of switch (parameter)
+	
+	//console.log(parameter);
+	//console.log(fpParameter);
 	
 	var marker = pointToLayerGRAL(parameter, fpParameter, latlng);
 	return marker;
@@ -221,20 +211,20 @@ var filterPanelesFILTERED = function(feature, latlng) {
 
 		var fpValId = feature.properties.panelId.id;
 		var fpValCompany = feature.properties.panelId.compania;	
-		var fpenergia = feature.properties.energia;
-		var fptemperatura = feature.properties.temperatura;
-		var fpviento = feature.properties.velocidadviento;
+		var fpparametroMedida1 = feature.properties.parametroMedida1;
+		var fpparametroMedida2 = feature.properties.parametroMedida2;
+		var fpparametroMedida3 = feature.properties.parametroMedida3;
 		
 		htmlComun = "Panel Id: " +  fpValCompany + " " + fpValId +"<br /> "
 			
-		htmlEnergia =  htmlComun + "Energia: " + fpenergia;
-		htmlTemperatura = htmlComun +  "Temperatura: " + fptemperatura;
-		htmlViento = htmlComun + "Viento: " + fpviento;
+		htmlParametro1 =  htmlComun + "Parametro1: " + fpparametroMedida1 + "&micro;";
+		htmlParametro2 = htmlComun +  "Parametro2: " + fpparametroMedida2 + "%";
+		htmlParametro3 = htmlComun + "Parametro3: " + fpparametroMedida3  + "%";
 		
 		switch (parameter){
-			case "energia": layer.bindTooltip(htmlEnergia); break;
-			case "temperatura": layer.bindTooltip(htmlTemperatura); break;
-			case "viento": layer.bindTooltip(htmlViento); break;
+			case "parametroMedida1": layer.bindTooltip(htmlParametro1); break;
+			case "parametroMedida2": layer.bindTooltip(htmlParametro2); break;
+			case "parametroMedida3": layer.bindTooltip(htmlParametro3); break;
 		} 
 	}; //END onEachFeatureBUSQ
 
@@ -253,77 +243,102 @@ var filterPanelesFILTERED = function(feature, latlng) {
 	}	
 
 }); //END OF btn_topos_companias
-
 //////////////////////////////////////////////////////////////////
-//////###### PanelesFILTERED ##################///////////////////////
-	
-	
-$("#boton_pruebas").on("click",function(){
-
-});//END OF PanelesFILTERED
 
 
 //////////////////////////////////////////////////////////////////
 //////###### BUSCADOR ##################///////////////////////
-	function buscarPanel() {
+
+var parametrosObject = {};
+
+
+var parametros_1_Array = [];
+var parametros_nombre_Array = [];
+var parametros_id_Array = [];
+
+	var onEachFeatureBUSQUEDA = function(feature, layer) {
+		var para1Energia = feature.properties.parametroMedida1;
+		var para2Nombre = feature.properties.panelId.compania;
+		var para3Id = feature.properties.panelId.id;
 		
-//		limpiarMarkers();
-			
-				var $valId_ =  $('input[id="identificador"]').val();
-				var $valId = parseInt($valId_);
-				var $valCompany = $('#compania option:selected').text();   		
-						
-				var pointToLayerBUSQ = function (feature, latlng) {
-					var marker = L.marker(latlng,{icon: icon_PanSolar_NEGRO}); markerArrEN.push(marker);
-					return marker;
-				}; //END pointToLayerBUSQ
-				
-				function filterBUSQ(feature, latlng) {
-					var fpValId = feature.properties.panelId.id;
-					var fpValCompany = feature.properties.panelId.compania;				
-					if (!$valId && fpValCompany === $valCompany) {
-						 return true;
-					} else if ($valId === fpValId && $valCompany === fpValCompany) {
-						return true						
-					} else if (!$valCompany && $valId === fpValId) { 
-						 return true 			
-					} else {
-						return;			
-					}
-					  
-					}; // END filterBUSQ
-				
-				var onEachFeatureBUSQ = function(feature, layer) {
-					var fpValId = feature.properties.panelId.id;
-					var fpValCompany = feature.properties.panelId.compania;	
-					layer.bindPopup("Panel: " + fpValCompany + " ID: " + fpValId );
-				}; //END onEachFeatureBUSQ
-					
-				var topoLayerBusqueda = new L.TopoJSON(null, { pointToLayer: pointToLayerBUSQ,
-					filter: filterBUSQ,
-					onEachFeature: onEachFeatureBUSQ});
-					
-				$.getJSON(topoData).done(addTopoData);
-				
-				function addTopoData(topoData){ 				
-						topoLayerBusqueda.addData(topoData);
-						markersCG_busqueda.addLayer(topoLayerBusqueda);
-						mymap.addLayer(markersCG_busqueda);
-						mymap.fitBounds(markersCG_busqueda.getBounds());
-				//	console.log(topoData.features);
-				}
-	}; //END OF function for btn_BUSCADOR
+		parametros_1_Array.push(para1Energia);
+		parametros_nombre_Array.push(para2Nombre);
+		parametros_id_Array.push(para3Id);
+		
+		parametrosObject = {
+				parametroMedida1 : parametros_1_Array,
+				panelIdCompania : parametros_nombre_Array,
+				panelIdId : parametros_id_Array
+		}
+
+		return parametrosObject;
+	};
+	
+	// TOPOJSON LAYER
+	var topoLayerBUSQUEDA = new L.TopoJSON(null, { 
+		onEachFeature: onEachFeatureBUSQUEDA});
+		
+	$.getJSON(topoData).done(addTopoData);
+	
+	
+	function addTopoData(topoData){ 	
+			topoLayerBUSQUEDA.addData(topoData);
+	};
+/////////////////////////////////////////////////////////
+
+
+var availableTags = [];
+var parametroMedida1Tags = [];
+var panelIdCompaniaTags = [];
+var panelIdIdTags = [];
+   
+$("#boton_pruebas").on("click",function(){
+
+
+	
+	emptyArr(availableTags);
+	emptyArr(parametroMedida1Tags);
+	emptyArr(panelIdCompaniaTags);
+	emptyArr(panelIdIdTags);
+	
+	traspasarArr(parametrosObject.parametroMedida1, parametroMedida1Tags);
+	traspasarArr(parametrosObject.panelIdCompania, panelIdCompaniaTags);
+	traspasarArr(parametrosObject.panelIdId, panelIdIdTags);
+
+	//console.log(typeof(parametrosObject.parametroMedida1));
+
+	var switchParameterBusqueda = function() {   	
+		switch (parameter){
+			case "parametroMedida1": traspasarArr(parametroMedida1Tags, availableTags); break;
+			case "nombrecompania": traspasarArr(panelIdCompaniaTags, availableTags); break;
+			case "panelid": traspasarArr(panelIdIdTags, availableTags); break;
+	}; return availableTags
+	};  
+	switchParameterBusqueda();
 	
 
+	console.log(availableTags);
+	$( "#tags" ).autocomplete({
+	   // source: availableTags
+		 source: availableTags.map(function(a){
+			 if(typeof(a) === "number"){
+				 return a.toString()
+			 } else {
+				 return a;
+			 }
+	         
+	     })
+	  });
 
 
-$("#modalBtnBuscarPanel").on("click", function() {		
-	buscarPanel();
-	$("#myModal").modal('hide');
-});
 
-            
-	
+});//END OF boton_pruebas
+
+
+
+// CODIGO AYUDA
+//$( btn_topos_companias ).tooltip();
+    
 });//END OF JQUERY FUNCTION
 
 

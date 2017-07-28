@@ -74,17 +74,19 @@
         <![endif]-->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">     
     <div class="navbar-header">
-       <!--   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> -->
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-    <button class="btn btn-warning" id="boton_limpiar" type="button">LIMPIAR</button>
-    <button id="btn_topos_companias" type="button" class="btn btn-info btn-xl">
-    	<span class="glyphicon glyphicon-circle-arrow-right">	VER PANELES</span></button> 
-       <button id="btn_BUSCADOR" type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal">
-    	<span class="glyphicon glyphicon glyphicon-search">	BUSCADOR</span></button> 	 	
-    	  <button class="btn btn-danger" id="boton_pruebas" type="button">PRUEBAS</button>
+	   
+	    <button class="btn btn-warning" id="boton_limpiar" type="button">LIMPIAR</button>
+	   
+	    <button id="btn_topos_companias" type="button" class="btn btn-info btn-xl" title="Muestra todos los paneles que existen de las compa&ntilde;&iacute;as seleccionadas. Si se pincha sobre el marcador, aparece un mensaje informativo sobre el parametroMedida seleccionado.">
+	    	<span class="glyphicon glyphicon-circle-arrow-right">	VER PANELES	</span></button> 
+	  
+	    <button class="btn btn-danger" id="boton_pruebas" type="button">PRUEBAS</button>
+	  
+
     		
     </div><!-- nav-bar header -->		
 </nav>
@@ -98,100 +100,29 @@
 
 <form class="" id="selectLayerForm" >
 <fieldset>
-	<input type="radio" name="visiblelayer" value="energia" checked/>
-		<label for="layerEnergia"> Energía </label>
+	<input type="radio" name="visiblelayer" value="parametroMedida1" checked/>
+		<label for="parametroMedida1"> parametroMedida1 </label>
 </fieldset>
 <fieldset>		
-	<input type="radio" name="visiblelayer" value="temperatura"/>
-		<label for="layerTemperatura"> Temperatura </label>
+	<input type="radio" name="visiblelayer" value="parametroMedida2"/>
+		<label for="parametroMedida2"> parametroMedida2 </label>
 </fieldset>
 <fieldset>		
-	<input type="radio" name="visiblelayer" value="viento"/>
-		<label for="layerViento"> Velocidad de viento </label>
+	<input type="radio" name="visiblelayer" value="parametroMedida3"/>
+		<label for="parametroMedida3"> parametroMedida3 </label>
 </fieldset>
 </form>
 
 <div class="spacer">&nbsp;</div>
-<div class="btn-group">
-	<button class="btn btn-info mydropdown">Elegir compañia</button>
-	<button class="btn btn-info dropdown-toggle mydropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		<span class='caret'></span><span class='sr-only'>Toggle Dropdown</span>
-	</button>
-<ul class="dropdown-menu">
- <li><label><input type="checkbox" class="ctrlCB" id="ACCE"/></label><label for="ACCE">ACCE</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="AUPN"/></label><label for="AUPN">AUPN</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="EEPN"/></label><label for="EEPN">EEPN</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="ENDS"/></label><label for="ENDS">ENDS</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="EONE"/></label><label for="EONE">EONE</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="EOPN"/></label><label for="EOPN">EOPN</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="FLPN"/></label><label for="FLPN">FLPN</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="GDFS"/></label><label for="GDFS">GDFS</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="GEPN"/></label><label for="GEPN">GEPN</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="GNFE"/></label><label for="GNFE">GNFE</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="HCEN"/></label><label for="HCEN">HCEN</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="HLPN"/></label><label for="HLPN">HLPN</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="IBDR"/></label><label for="IBDR">IBDR</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="IMPN"/></label><label for="IMPN">IMPN</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="NTRG"/></label><label for="NTRG">NTRG</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="NXPN"/></label><label for="NXPN">NXPN</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="PEPN"/></label><label for="PEPN">PEPN</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="SHEL"/></label><label for="SHEL">SHEL</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="SYPN"/></label><label for="SYPN">SYPN</label></li>
- <li><label><input type="checkbox" class="ctrlCB" id="VMPN"/></label><label for="VMPN">VMPN</label></li>
-<ul>
 
-</div>
+<!-- MODAL HERE // -->
 
-<!-- MODAL -->
-<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Buscar panel</h4>
-      </div>
-      <div class="modal-body">
-        <form id="busqueda-panel">
-            <div class="form-group">
-                <label for="identificador">Identificador</label>
-                <input type="number" min="1" class="form-control" name="identificador" id="identificador" placeholder="Identificador">
-            </div>
-            <div class="form-group">
-                <label for="compania">Compañia</label>
-      
-            	 <select class="form-control" id="compania">
-            	 	<option value="" disabled selected></option>
-					<option>ACCE</option>
-					<option>AUPN</option>
-					<option>EEPN</option>
-					<option>ENDS</option>
-					<option>EONE</option>
-					<option>EOPN</option>
-					<option>FLPN</option>
-					<option>GDFS</option>
-					<option>GEPN</option>
-					<option>GNFE</option>
-					<option>HCEN</option>
-					<option>HLPN</option>
-					<option>IBDR</option>
-					<option>IMPN</option>
-					<option>NTRG</option>
-					<option>NXPN</option>
-					<option>PEPN</option>
-					<option>SHEL</option>
-					<option>SYPN</option>
-					<option>VMPN</option>				
-				 </select>
-            </div>
-         </form>
+<!--  BUSCADOR  -->
+	    <div class="ui-widget" id="busqueda">	    
+		  <label for="tags"><span class="glyphicon glyphicon glyphicon-search">	BUSCADOR </span></button> </label>
+		  <input id="tags">
 		</div>
-      <div class="modal-footer">
-          <button type="button"  class="btn btn-primary" id="modalBtnBuscarPanel">Buscar</button>     
-          <button class="btn btn-small" data-dismiss="modal" aria-hidden="true">Cancel</button>                       
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+
 
 
 <div class="acidjs-css3-treeview" id="vertical-menu"> 
@@ -200,99 +131,94 @@
 	          <li>
 	          <input type="checkbox" id="node-0-0" checked="checked" />
 	          <label><input type="checkbox" id="inputTodas" /><span></span></label> 
-	          <label for="node-0-0">Eléctricas</label>
+	          <label for="node-0-0">Compa&ntilde;&iacute;as el&eacute;ctricas</label>
 
 
 <ul>	  		      
 <li><input type="checkbox" class="ctrlCB" id="node-0-0-0-0" /><label>
 				  <input type="checkbox" class="ctrlCB" id="inputid0"/><span></span></label>
 	  		      <label for="node-0-0-0-0"> ACCE </label>
-<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> Energía <div class="energiamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> Temperatura <div class="temperaturamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> Viento <div class="vientomedio"></div> </label></li>
+<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> parametroMedida1 <div class="parametroMedida1media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> parametroMedida2 <div class="parametroMedida2media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> parametroMedida3 <div class="parametroMedida3medio"></div> </label></li>
 </ul>
 </li>
 <li><input type="checkbox" class="ctrlCB" id="node-0-0-0-1" /><label>
 				  <input type="checkbox" class="ctrlCB" id="inputid1"/><span></span></label>
 	  		      <label for="node-0-0-0-1"> ENDS </label>
-<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> Energía <div class="energiamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> Temperatura <div class="temperaturamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> Viento <div class="vientomedio"></div> </label></li>
+<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> parametroMedida1 <div class="parametroMedida1media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> parametroMedida2 <div class="parametroMedida2media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> parametroMedida3 <div class="parametroMedida3medio"></div> </label></li>
 </ul>
 </li>
 <li><input type="checkbox" class="ctrlCB" id="node-0-0-0-2" /><label>
 				  <input type="checkbox" class="ctrlCB" id="inputid2"/><span></span></label>
 	  		      <label for="node-0-0-0-2"> EONE </label>
-<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> Energía <div class="energiamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> Temperatura <div class="temperaturamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> Viento <div class="vientomedio"></div> </label></li>
+<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> parametroMedida1 <div class="parametroMedida1media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> parametroMedida2 <div class="parametroMedida2media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> parametroMedida3 <div class="parametroMedida3medio"></div> </label></li>
 </ul>
 </li>
 <li><input type="checkbox" class="ctrlCB" id="node-0-0-0-3" /><label>
 				  <input type="checkbox" class="ctrlCB" id="inputid3"/><span></span></label>
 	  		      <label for="node-0-0-0-3"> GDFS </label>
-<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> Energía <div class="energiamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> Temperatura <div class="temperaturamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> Viento <div class="vientomedio"></div> </label></li>
+<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> parametroMedida1 <div class="parametroMedida1media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> parametroMedida2 <div class="parametroMedida2media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> parametroMedida3 <div class="parametroMedida3medio"></div> </label></li>
 </ul>
 </li>
 <li><input type="checkbox" class="ctrlCB" id="node-0-0-0-4" /><label>
 				  <input type="checkbox" class="ctrlCB" id="inputid4"/><span></span></label>
 	  		      <label for="node-0-0-0-4"> GNFE </label>
-<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> Energía <div class="energiamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> Temperatura <div class="temperaturamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> Viento <div class="vientomedio"></div> </label></li>
+<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> parametroMedida1 <div class="parametroMedida1media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> parametroMedida2 <div class="parametroMedida2media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> parametroMedida3 <div class="parametroMedida3medio"></div> </label></li>
 </ul>
 </li>
 <li><input type="checkbox" class="ctrlCB" id="node-0-0-0-5" /><label>
 				  <input type="checkbox" class="ctrlCB" id="inputid5"/><span></span></label>
 	  		      <label for="node-0-0-0-5"> HCEN </label>
-<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> Energía <div class="energiamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> Temperatura <div class="temperaturamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> Viento <div class="vientomedio"></div> </label></li>
+<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> parametroMedida1 <div class="parametroMedida1media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> parametroMedida2 <div class="parametroMedida2media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> parametroMedida3 <div class="parametroMedida3medio"></div> </label></li>
 </ul>
 </li>
 <li><input type="checkbox" class="ctrlCB" id="node-0-0-0-6" /><label>
 				  <input type="checkbox" class="ctrlCB" id="inputid6"/><span></span></label>
 	  		      <label for="node-0-0-0-6"> IBDR </label>
-<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> Energía <div class="energiamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> Temperatura <div class="temperaturamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> Viento <div class="vientomedio"></div> </label></li>
+<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> parametroMedida1 <div class="parametroMedida1media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> parametroMedida2 <div class="parametroMedida2media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> parametroMedida3 <div class="parametroMedida3medio"></div> </label></li>
 </ul>
 </li>
 <li><input type="checkbox" class="ctrlCB" id="node-0-0-0-7" /><label>
 				  <input type="checkbox" class="ctrlCB" id="inputid7"/><span></span></label>
 	  		      <label for="node-0-0-0-7"> NTRG </label>
-<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> Energía <div class="energiamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> Temperatura <div class="temperaturamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> Viento <div class="vientomedio"></div> </label></li>
+<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> parametroMedida1 <div class="parametroMedida1media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> parametroMedida2 <div class="parametroMedida2media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> parametroMedida3 <div class="parametroMedida3medio"></div> </label></li>
 </ul>
 </li>
 <li><input type="checkbox" class="ctrlCB" id="node-0-0-0-8" /><label>
 				  <input type="checkbox" class="ctrlCB" id="inputid8"/><span></span></label>
 	  		      <label for="node-0-0-0-8"> SHEL </label>
 		          
-<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> Energía <div class="energiamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> Temperatura <div class="temperaturamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> Viento <div class="vientomedio"></div> </label></li>
+<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> parametroMedida1 <div class="parametroMedida1media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> parametroMedida2 <div class="parametroMedida2media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> parametroMedida3 <div class="parametroMedida3medio"></div> </label></li>
 </ul>
 </li>
 <li><input type="checkbox" class="ctrlCB" id="node-0-0-0-9" /><label>
 				  <input type="checkbox" class="ctrlCB" id="inputid9"/><span></span></label>
 	  		      <label for="node-0-0-0-9"> Grupo Pequeñas</label>
-<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> Energía <div class="energiamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> Temperatura <div class="temperaturamedia"></div> </label></li>
-<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> Viento <div class="vientomedio"></div> </label></li>
+<ul><li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-0"> parametroMedida1 <div class="parametroMedida1media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-1"> parametroMedida2 <div class="parametroMedida2media"></div> </label></li>
+<li> <label><input type="checkbox" class="ctrlCB" id=""/><span></span></label><label for="node-0-0-0-0-2"> parametroMedida3 <div class="parametroMedida3medio"></div> </label></li>
 </ul>
 </li></ul>
-
         </li>
     </ul>
-
-
 </div>
-
-
 
 </navi>     
 

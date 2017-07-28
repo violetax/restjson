@@ -170,31 +170,31 @@ function flowTopoData () {
 
 //////////////////////////////		
 	var pointToLayerEnergia = function (feature, latlng) {
-		var energia = feature.properties.energia;
-		if (energia < rangoEnergia1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-		} else if (energia < rangoEnergia2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-		} else if (energia < rangoEnergia3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-		} else if (energia < rangoEnergia4) { marker = L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-		} else if (energia < rangoEnergia5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
-		} else if (energia < rangoEnergia6) { marker = L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.energia + "W").addTo(mymap); markerArrEN.push(marker); return;
+		var parametroMedida1 = feature.properties.parametroMedida1;
+		if (parametroMedida1 < rangoEnergia1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.parametroMedida1 + "W").addTo(mymap); markerArrEN.push(marker); return;
+		} else if (parametroMedida1 < rangoEnergia2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.parametroMedida1 + "W").addTo(mymap); markerArrEN.push(marker); return;
+		} else if (parametroMedida1 < rangoEnergia3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.parametroMedida1 + "W").addTo(mymap); markerArrEN.push(marker); return;
+		} else if (parametroMedida1 < rangoEnergia4) { marker = L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.parametroMedida1 + "W").addTo(mymap); markerArrEN.push(marker); return;
+		} else if (parametroMedida1 < rangoEnergia5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.parametroMedida1 + "W").addTo(mymap); markerArrEN.push(marker); return;
+		} else if (parametroMedida1 < rangoEnergia6) { marker = L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.parametroMedida1 + "W").addTo(mymap); markerArrEN.push(marker); return;
 		}};
 	var pointToLayerTemperatura = function (feature, latlng) {
-		var temperatura = feature.properties.temperatura;
-		if (temperatura < rangoTemperatura1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
-		} else if (temperatura < rangoTemperatura2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
-		} else if (temperatura < rangoTemperatura3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
-		} else if (temperatura < rangoTemperatura4) { marker = L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
-		} else if (temperatura < rangoTemperatura5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
-		} else if (temperatura < rangoTemperatura6) { marker = L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.temperatura + "C").addTo(mymap); markerArrTE.push(marker); return;
+		var parametroMedida2 = feature.properties.parametroMedida2;
+		if (parametroMedida2 < rangoTemperatura1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.parametroMedida2 + "C").addTo(mymap); markerArrTE.push(marker); return;
+		} else if (parametroMedida2 < rangoTemperatura2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.parametroMedida2 + "C").addTo(mymap); markerArrTE.push(marker); return;
+		} else if (parametroMedida2 < rangoTemperatura3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.parametroMedida2 + "C").addTo(mymap); markerArrTE.push(marker); return;
+		} else if (parametroMedida2 < rangoTemperatura4) { marker = L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.parametroMedida2 + "C").addTo(mymap); markerArrTE.push(marker); return;
+		} else if (parametroMedida2 < rangoTemperatura5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.parametroMedida2 + "C").addTo(mymap); markerArrTE.push(marker); return;
+		} else if (parametroMedida2 < rangoTemperatura6) { marker = L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.parametroMedida2 + "C").addTo(mymap); markerArrTE.push(marker); return;
 		}};
-	var pointToLayerviento = function (feature, latlng) {
-		var velocidadviento = feature.properties.velocidadviento;
-		if (velocidadviento < rangoViento1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return; 
-		} else if (velocidadviento < rangoViento2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker);  return;
-		} else if (velocidadviento < rangoViento3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker);  return;
-		} else if (velocidadviento < rangoViento4) { marker = L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return;
-		} else if (velocidadviento < rangoViento5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker);  return;
-		} else if (velocidadviento < rangoViento6) { marker = L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.velocidadviento + "Km/h").addTo(mymap); markerArrVI.push(marker); return;
+	var pointToLayerparametroMedida3 = function (feature, latlng) {
+		var parametroMedida3 = feature.properties.parametroMedida3;
+		if (parametroMedida3 < rangoViento1) { marker = L.marker(latlng,{icon: blueIcon}).bindTooltip(feature.properties.parametroMedida3 + "Km/h").addTo(mymap); markerArrVI.push(marker); return; 
+		} else if (parametroMedida3 < rangoViento2) { marker = L.marker(latlng,{icon: greenIcon}).bindTooltip(feature.properties.parametroMedida3 + "Km/h").addTo(mymap); markerArrVI.push(marker);  return;
+		} else if (parametroMedida3 < rangoViento3) { marker = L.marker(latlng,{icon: yellowIcon}).bindTooltip(feature.properties.parametroMedida3 + "Km/h").addTo(mymap); markerArrVI.push(marker);  return;
+		} else if (parametroMedida3 < rangoViento4) { marker = L.marker(latlng,{icon: redIcon}).bindTooltip(feature.properties.parametroMedida3 + "Km/h").addTo(mymap); markerArrVI.push(marker); return;
+		} else if (parametroMedida3 < rangoViento5) { marker = L.marker(latlng,{icon: orangeIcon}).bindTooltip(feature.properties.parametroMedida3 + "Km/h").addTo(mymap); markerArrVI.push(marker);  return;
+		} else if (parametroMedida3 < rangoViento6) { marker = L.marker(latlng,{icon: violetIcon}).bindTooltip(feature.properties.parametroMedida3 + "Km/h").addTo(mymap); markerArrVI.push(marker); return;
 		}
 	};
 	
@@ -211,7 +211,7 @@ function flowTopoData () {
 		
 		var topoLayerViento = new L.TopoJSON(null,{
 		    'style': function (feature) {},
-		    pointToLayer: pointToLayerviento});
+		    pointToLayer: pointToLayerparametroMedida3});
 
 
 //////////////////////////////////////////////////////////////////
@@ -312,18 +312,18 @@ $("#btn_topos_companias").on("click", function() {
 	var onEachFeaturePRUEBAS = function(feature, layer) {
 		var fpValId = feature.properties.panelId.id;
 		var fpValCompany = feature.properties.panelId.compania;	
-		var fpenergia = feature.properties.energia;
-		var fptemperatura = feature.properties.temperatura;
-		var fpviento = feature.properties.velocidadviento;
+		var fpparametroMedida1 = feature.properties.parametroMedida1;
+		var fpparametroMedida2 = feature.properties.parametroMedida2;
+		var fpparametroMedida3 = feature.properties.parametroMedida3;
 		
 		 var parameter = $("input[name='visiblelayer']:checked").val();
 	     switch (parameter){
-	     case "energia": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId + " ENERGIA: " + fpenergia ); break;
-	     case "temperatura": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId + " TEMPERATURA: " + fpenergia); break;
-	     case "viento": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId+ " VIENTO: " + fpviento ); break;
+	     case "parametroMedida1": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId + " ENERGIA: " + fpparametroMedida1 ); break;
+	     case "parametroMedida2": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId + " TEMPERATURA: " + fpparametroMedida1); break;
+	     case "parametroMedida3": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId+ " VIENTO: " + fpparametroMedida3 ); break;
 	     } 
 	
-		//layer.bindTooltip("Energia: "+ feature.properties.energia + "W")
+		//layer.bindTooltip("Energia: "+ feature.properties.parametroMedida1 + "W")
 	}; //END onEachFeatureBUSQ
 		
 	var topoLayerPRUEBAS = new L.TopoJSON(null, { pointToLayer: pointToLayerPRUEBAS,

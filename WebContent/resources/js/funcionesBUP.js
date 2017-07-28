@@ -95,13 +95,13 @@ function selectIcon(parameter, latlng) {
 	var markerArrParameter = [marker1,marker2,marker3,marker4,marker5,marker6];
 	
 	switch (parameter){
-    case "energia": 
+    case "parametroMedida1": 
     	fillUpArr(rangosEnergia, rangosArr);
     	break;
-    case "temperatura": 
+    case "parametroMedida2": 
     	fillUpArr(rangosTemperatura, rangosArr);
     	break;
-    case "viento": 
+    case "parametroMedida3": 
     	fillUpArr(rangosViento, rangosArr);
     	break;
 	}; //end of switch (parameter)
@@ -131,9 +131,9 @@ function selectToolTip(parameter, layer) {
 /*
   		var fpValId = feature.properties.panelId.id;
 		var fpValCompany = feature.properties.panelId.compania;	
-		var fpenergia = feature.properties.energia;
-		var fptemperatura = feature.properties.temperatura;
-		var fpviento = feature.properties.velocidadviento;
+		var fpparametroMedida1 = feature.properties.parametroMedida1;
+		var fpparametroMedida2 = feature.properties.parametroMedida2;
+		var fpparametroMedida3 = feature.properties.parametroMedida3;
  */
 
 

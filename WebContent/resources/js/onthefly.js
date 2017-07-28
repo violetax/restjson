@@ -256,13 +256,13 @@ var pointToLayerGRAL = function(parameter, fpParameter, latlng) {
 	var markerArrParameter = [marker1,marker2,marker3,marker4,marker5,marker6];
 	
 	switch (parameter){
-    case "energia": 
+    case "parametroMedida1": 
     	fillUpArr(rangosEnergia, rangosArr);
     	break;
-    case "temperatura": 
+    case "parametroMedida2": 
     	fillUpArr(rangosTemperatura, rangosArr);
     	break;
-    case "viento": 
+    case "parametroMedida3": 
     	fillUpArr(rangosViento, rangosArr);
     	break;
 	}; //end of switch (parameter)
@@ -279,18 +279,18 @@ var pointToLayerGRAL = function(parameter, fpParameter, latlng) {
 }; //END pointToLayerPanelesFILTERED
 
 var pointToLayerPanelesFILTERED = function (feature, latlng) {	
-	//var fpParameter = feature.properties.energia;
+	//var fpParameter = feature.properties.parametroMedida1;
 	var fpParameter;
 	
 	switch (parameter){
-    case "energia": 
-    	fpParameter = feature.properties.energia;
+    case "parametroMedida1": 
+    	fpParameter = feature.properties.parametroMedida1;
     	break;
-    case "temperatura": 
-    	fpParameter = feature.properties.temperatura;
+    case "parametroMedida2": 
+    	fpParameter = feature.properties.parametroMedida2;
     	break;
-    case "viento": 
-    	fpParameter = feature.properties.velocidadviento;
+    case "parametroMedida3": 
+    	fpParameter = feature.properties.parametroMedida3;
     	break;
 	}; //end of switch (parameter)
 	
@@ -313,20 +313,20 @@ var filterPanelesFILTERED = function(feature, latlng) {
 		
 		var fpValId = feature.properties.panelId.id;
 		var fpValCompany = feature.properties.panelId.compania;	
-		var fpenergia = feature.properties.energia;
-		var fptemperatura = feature.properties.temperatura;
-		var fpviento = feature.properties.velocidadviento;
+		var fpparametroMedida1 = feature.properties.parametroMedida1;
+		var fpparametroMedida2 = feature.properties.parametroMedida2;
+		var fpparametroMedida3 = feature.properties.parametroMedida3;
 		
 		htmlComun = "Panel Id: " +  fpValCompany + " " + fpValId +"<br /> "
 			
-		htmlEnergia =  htmlComun + "Energia: " + fpenergia;
-		htmlTemperatura = htmlComun +  "Temperatura: " + fptemperatura;
-		htmlViento = htmlComun + "Viento: " + fpviento;
+		htmlEnergia =  htmlComun + "Energia: " + fpparametroMedida1;
+		htmlTemperatura = htmlComun +  "Temperatura: " + fpparametroMedida2;
+		htmlViento = htmlComun + "Viento: " + fpparametroMedida3;
 		
 		switch (parameter){
-		case "energia": layer.bindTooltip(htmlEnergia); break;
-		case "temperatura": layer.bindTooltip(htmlTemperatura); break;
-		case "viento": layer.bindTooltip(htmlViento); break;
+		case "parametroMedida1": layer.bindTooltip(htmlEnergia); break;
+		case "parametroMedida2": layer.bindTooltip(htmlTemperatura); break;
+		case "parametroMedida3": layer.bindTooltip(htmlViento); break;
 		} 
 	}; //END onEachFeatureBUSQ
 

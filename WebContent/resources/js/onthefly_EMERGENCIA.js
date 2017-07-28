@@ -214,15 +214,15 @@ $("#btn_topos_companias").on("click", function() {
 	var onEachFeaturePanelesFILTERED = function(feature, layer) {
 		var fpValId = feature.properties.panelId.id;
 		var fpValCompany = feature.properties.panelId.compania;	
-		var fpenergia = feature.properties.energia;
-		var fptemperatura = feature.properties.temperatura;
-		var fpviento = feature.properties.velocidadviento;
+		var fpparametroMedida1 = feature.properties.parametroMedida1;
+		var fpparametroMedida2 = feature.properties.parametroMedida2;
+		var fpparametroMedida3 = feature.properties.parametroMedida3;
 		
 		 var parameter = $("input[name='visiblelayer']:checked").val();
 	     switch (parameter){
-	     case "energia": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId + " ENERGIA: " + fpenergia ); break;
-	     case "temperatura": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId + " TEMPERATURA: " + fpenergia); break;
-	     case "viento": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId+ " VIENTO: " + fpviento ); break;
+	     case "parametroMedida1": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId + " ENERGIA: " + fpparametroMedida1 ); break;
+	     case "parametroMedida2": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId + " TEMPERATURA: " + fpparametroMedida1); break;
+	     case "parametroMedida3": layer.bindTooltip("Panel: " + fpValCompany + " ID: " + fpValId+ " VIENTO: " + fpparametroMedida3 ); break;
 	     } 
 	
 	}; //END onEachFeatureBUSQ
